@@ -110,11 +110,19 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
               <button
                 type="button"
                 class:list={[
-                  "nav-dropdown-trigger block w-full text-left font-display text-[13vw] uppercase leading-[0.95] tracking-tight transition-colors duration-300 sm:text-[9vw] md:text-[6.5vw]",
+                  "nav-dropdown-trigger flex w-full items-center gap-[2vw] text-left font-display text-[13vw] uppercase leading-[0.95] tracking-tight transition-colors duration-300 sm:gap-[1vw] sm:text-[9vw] md:text-[6.5vw]",
                   isParentCurrent ? "text-jade" : "text-ink hover:text-jade",
                 ]}
               >
                 {link.label}
+                <svg
+                  class="nav-dropdown-chevron mb-[1vw] h-[4vw] w-[4vw] shrink-0 transition-transform duration-300 sm:h-[2.5vw] sm:w-[2.5vw] md:h-[1.75vw] md:w-[1.75vw]"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
               </button>
               <div class="nav-dropdown-panel">
                 <ul class="pl-[4vw] sm:pl-[2.5vw]">
