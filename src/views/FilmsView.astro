@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FilmGrid from "../components/FilmGrid.astro";
+import { films } from "../data/films";
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+
+const shortDocs = films.filter((film) => film.genre === "documentary" || film.genre === "narrative");
+const commercial = films.filter((film) => film.genre === "commercial");
+---
+
+<Layout title={t.meta.filmsTitle} description={t.meta.filmsDescription}>
+  <section class="px-6 pb-10 pt-28 md:px-10 md:pt-32">
+    <div class="mx-auto max-w-6xl">
+      <h1 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+        {t.films.heading}
+      </h1>
+    </div>
+  </section>
+
+  <section class="px-6 pb-16 md:px-10 md:pb-24">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-6 font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
+        {t.films.shortDocsHeading}
+      </h2>
+      <FilmGrid films={shortDocs} />
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-6xl">
+      <h2 class="mb-6 font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
+        {t.films.commercialHeading}
+      </h2>
+      <FilmGrid films={commercial} />
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,109 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import SmoothScroll from "../components/SmoothScroll.astro";
+import { getLocale } from "../i18n/translations";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+---
+
+<html lang={locale}>
+  <head>
+    <script is:inline>
+      // Redirect to the visitor's remembered (or browser-detected) language, before first paint.
+      // English is the base: an unstored, non-French browser stays on the unprefixed English routes.
+      (function () {
+        try {
+          var path = window.location.pathname;
+          var onFr = path === "/fr" || path.indexOf("/fr/") === 0;
+          var stored = localStorage.getItem("lang");
+          if (!stored) {
+            var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
+            stored = nav.indexOf("fr") === 0 ? "fr" : "en";
+            localStorage.setItem("lang", stored);
+          }
+          var wantFr = stored === "fr";
+          if (wantFr && !onFr) {
+            window.location.replace("/fr" + (path === "/" ? "" : path));
+          } else if (!wantFr && onFr) {
+            window.location.replace(path === "/fr" ? "/" : path.slice(3));
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Jost:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="grain bg-void text-ink">
+    <SmoothScroll />
+    <Nav />
+    <main id="page-content">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      // Fly-out page transition: links marked data-fly-link (the footer's legal links) glide
+      // the current page up and out before navigating, mirroring theartofdocumentary.com's own
+      // page-open motion; the matching fly-in on arrival is pure CSS (see #page-content in
+      // global.css), so it also plays on a plain reload with no JS required.
+      const flyLinks = document.querySelectorAll<HTMLAnchorElement>("[data-fly-link]");
+      const pageContent = document.getElementById("page-content");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      flyLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (!pageContent || prefersReducedMotion) return;
+          e.preventDefault();
+          const destination = link.href;
+          pageContent.classList.add("is-leaving");
+          pageContent.addEventListener(
+            "animationend",
+            () => {
+              window.location.href = destination;
+            },
+            { once: true }
+          );
+        });
+      });
+    </script>
+
+    <script>
+      const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+      if ("IntersectionObserver" in window && els.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add("is-visible"));
+      }
+    </script>
+  </body>
+</html>

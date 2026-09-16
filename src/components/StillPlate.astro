@@ -1,0 +1,16 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+interface Props {
+  index: number;
+}
+
+const { index } = Astro.props;
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<div class="still-plate grain relative aspect-square w-full" data-reveal style={`transition-delay:${(index % 3) * 90}ms`}>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 px-3 pb-3">
+    <span class="font-display text-xs uppercase tracking-tightest text-ash-dim">{t.stillPlate.comingSoon}</span>
+  </div>
+</div>

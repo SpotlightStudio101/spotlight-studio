@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
+<Layout title={t.meta.contactTitle} description={t.meta.contactDescription}>
+  <section class="px-6 pb-16 pt-32 md:px-10 md:pt-40">
+    <div class="mx-auto max-w-6xl">
+      <h1 class="font-display text-[13vw] uppercase leading-[0.92] tracking-tightest text-ink sm:text-7xl md:text-8xl">
+        {t.contact.heading}
+      </h1>
+      <p class="mt-6 max-w-xl font-body text-lg text-ash md:text-xl">
+        {t.contact.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
+      <div class="flex flex-col justify-center gap-6 border-b border-ash-dim/20 px-6 py-16 md:border-b-0 md:border-r md:px-10 md:py-24">
+        <h2 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+          {t.contact.bookHeading}
+        </h2>
+        <p class="max-w-sm font-body text-base text-ash">
+          {t.contact.bookBody}
+        </p>
+        <a
+          href={site.bookingUrl}
+          class="group inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
+        >
+          {t.contact.bookACall}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-6 px-6 py-16 md:px-10 md:py-24">
+        <h2 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+          {t.contact.sendHeading}
+        </h2>
+        <p class="max-w-sm font-body text-base text-ash">
+          {t.contact.sendBody}
+        </p>
+
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          action={localizePath("/thanks", locale)}
+          class="mt-2 flex flex-col gap-7"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>
+              {t.contact.honeypot} <input name="bot-field" />
+            </label>
+          </p>
+
+          <div class="flex flex-col gap-2">
+            <label for="name" class="font-display text-xs uppercase tracking-tightest text-ash">{t.contact.nameLabel}</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="email" class="font-display text-xs uppercase tracking-tightest text-ash">{t.contact.emailLabel}</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="message" class="font-display text-xs uppercase tracking-tightest text-ash">
+              {t.contact.projectLabel}
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="4"
+              class="w-full resize-y border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="group mt-2 inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
+          >
+            {t.contact.sendMessage}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-8 md:px-10">
+    <div class="mx-auto flex max-w-6xl items-center gap-2 font-body text-sm text-ash">
+      <span>{t.contact.sayHello}</span>
+      <a href={site.instagramUrl} class="text-ink underline decoration-ash-dim hover:text-jade">{t.contact.instagram}</a>
+    </div>
+  </section>
+</Layout>

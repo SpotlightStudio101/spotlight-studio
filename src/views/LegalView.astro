@@ -1,0 +1,49 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getLocale, useTranslations } from "../i18n/translations";
+
+interface Props {
+  page: "terms" | "privacy";
+}
+
+const { page } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const isTerms = page === "terms";
+const title = isTerms ? t.meta.termsTitle : t.meta.privacyTitle;
+const description = isTerms ? t.meta.termsDescription : t.meta.privacyDescription;
+const heading = isTerms ? t.legal.termsHeading : t.legal.privacyHeading;
+const intro = isTerms ? t.legal.termsIntro : t.legal.privacyIntro;
+const sections = isTerms ? t.legal.termsSections : t.legal.privacySections;
+---
+
+<Layout title={title} description={description}>
+  <section class="px-6 pb-16 pt-32 md:px-10 md:pt-40">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+        {heading}
+      </h1>
+      <p class="mt-6 font-body text-lg text-ash md:text-xl">
+        {intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <ul class="flex flex-col">
+        {
+          sections.map((item) => (
+            <li class="border-t border-ash-dim/20 py-10 first:border-t-0 last:border-b">
+              <h2 class="font-display text-xl uppercase leading-none tracking-tightest text-jade md:text-2xl">
+                {item.title}
+              </h2>
+              <p class="mt-4 max-w-2xl font-body text-base text-ash md:text-lg">{item.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Layout>

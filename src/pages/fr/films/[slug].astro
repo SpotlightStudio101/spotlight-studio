@@ -1,0 +1,15 @@
+---
+import FilmDetailView from "../../../views/FilmDetailView.astro";
+import { films } from "../../../data/films";
+
+export function getStaticPaths() {
+  return films.map((film) => ({
+    params: { slug: film.slug },
+    props: { film },
+  }));
+}
+
+const { film } = Astro.props;
+---
+
+<FilmDetailView film={film} />

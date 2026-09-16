@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import StillPlate from "../components/StillPlate.astro";
+import type { FilmEntry } from "../data/films";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { filmTitle, localizePath } from "../i18n/utils";
+
+interface Props {
+  film: FilmEntry;
+}
+
+const { film } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const stillCount = 9;
+const title = filmTitle(film, t);
+---
+
+<Layout title={`${title} — ${t.meta.filmSuffix}`} description={`${t.filmData.genre[film.genre]} — ${t.meta.filmSuffix}`}>
+  <section class="px-6 pb-10 pt-32 text-center md:pt-40">
+    <p class="font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
+      {t.filmData.genre[film.genre]}
+    </p>
+    <div class="mt-4 flex flex-col gap-1 font-body text-sm text-ash">
+      {film.credits.map((credit) => (
+        <p>{t.filmData.roles[credit.roleKey]} {credit.name}</p>
+      ))}
+    </div>
+  </section>
+
+  {
+    film.isDemo && (
+      <p class="px-6 pb-6 text-center font-body text-xs uppercase tracking-tightest text-ash-dim md:px-10">
+        {t.filmDetail.demoDisclaimer}
+      </p>
+    )
+  }
+
+  <div class="md:px-[4%]">
+    {
+      film.youtubeId ? (
+        <div class="aspect-video w-full" data-reveal>
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}`}
+            class="h-full w-full border-0"
+            style="border:0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title={title}
+          />
+        </div>
+      ) : film.vimeoId ? (
+        <div class="aspect-video w-full" data-reveal>
+          <iframe
+            src={`https://player.vimeo.com/video/${film.vimeoId}?title=0&byline=0&portrait=0`}
+            class="h-full w-full border-0"
+            style="border:0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title={title}
+          />
+        </div>
+      ) : (
+        <div class="reel-plate grain relative flex aspect-video w-full items-center justify-center" data-reveal>
+          <div class="flex flex-col items-center gap-4">
+            <svg width="48" height="48" viewBox="0 0 34 34" fill="none" aria-hidden="true" class="opacity-30">
+              <circle cx="17" cy="17" r="16" stroke="currentColor" stroke-width="1" class="text-ink" />
+              <path d="M14 11.5L23 17L14 22.5V11.5Z" fill="currentColor" class="text-ink" />
+            </svg>
+            <span class="font-display text-xs uppercase tracking-tightest text-ash-dim">{t.filmDetail.videoComingSoon}</span>
+          </div>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="md:px-[4%]">
+    <section class="grid grid-cols-1 gap-px bg-ash-dim/20 sm:grid-cols-3">
+      {Array.from({ length: stillCount }).map((_, i) => <StillPlate index={i} />)}
+    </section>
+  </div>
+
+  <section class="border-t border-ash-dim/20 px-6 py-10 md:px-10">
+    <a href={localizePath("/films", locale)} class="font-display text-lg uppercase tracking-tightest text-jade hover:text-ink">
+      {t.filmDetail.allFilms}
+    </a>
+  </section>
+</Layout>

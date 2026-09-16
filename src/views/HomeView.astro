@@ -1,0 +1,161 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProblemSolution from "../components/ProblemSolution.astro";
+import FilmTile from "../components/FilmTile.astro";
+import { films } from "../data/films";
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const preview = films.slice(0, 3);
+
+// Demo only — moody aerial landscape footage ("Aerial view of a forested valley in the
+// mountains" by Julien Goettelmann, free to use under the Pexels License). Stands in for
+// a real showreel until Quentin has one; swap this URL and drop the disclaimer below.
+const heroReel = {
+  mp4: "https://videos.pexels.com/video-files/26081680/11929613_1920_1080_60fps.mp4",
+};
+---
+
+<Layout title={t.meta.homeTitle} description={t.meta.homeDescription}>
+  <section id="hero" class="grain relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-void-deep" data-reveal>
+    <video
+      id="hero-reel-video"
+      class="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      aria-hidden="true"
+    >
+      <source src={heroReel.mp4} type="video/mp4" />
+    </video>
+
+    <div
+      class="pointer-events-none absolute inset-0 bg-gradient-to-t from-void via-void/40 to-void/20"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 text-center md:px-10">
+      <h1 class="font-display text-[13vw] uppercase leading-[0.9] tracking-tightest text-ink sm:text-[9vw] md:text-8xl">
+        {t.home.heroLine1}<br />{t.home.heroLine2}
+      </h1>
+
+      <p class="max-w-md font-body text-base leading-[1.2] tracking-[-0.01em] text-ash md:text-lg">
+        {t.home.heroSub}
+      </p>
+
+      <a
+        href={site.bookingUrl}
+        class="cta-sweep group relative mt-2 inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full bg-jade px-6 py-2.5 font-display text-sm uppercase leading-none tracking-[-0.02em] text-void-deep"
+      >
+        <span class="relative z-10 flex items-center gap-2">
+          {t.home.bookACall}
+          <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+            <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <p class="pointer-events-none absolute bottom-8 left-6 z-10 max-w-[16rem] font-body text-xs uppercase leading-snug tracking-tightest text-ash-dim md:left-10">
+      {t.home.heroReelDisclaimer}
+    </p>
+
+    <div class="pointer-events-none absolute bottom-8 right-6 z-10 flex items-center gap-2 text-ash md:right-10">
+      <span class="font-body text-xs uppercase tracking-tightest">{t.home.scroll}</span>
+      <span class="h-8 w-px animate-pulse bg-ash-dim"></span>
+    </div>
+  </section>
+
+  <ProblemSolution />
+
+  <section class="border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-12 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <h2 class="font-display text-4xl uppercase leading-none tracking-tightest text-ink md:text-6xl">
+          {t.home.rangeHeadingLine1} {t.home.rangeHeadingLine2}
+        </h2>
+        <a href={localizePath("/films", locale)} class="font-display text-lg uppercase tracking-tightest text-jade hover:text-ink">
+          {t.home.viewAllFilms}
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 gap-px bg-ash-dim/20 sm:grid-cols-3">
+        {preview.map((film, i) => <FilmTile film={film} delay={i * 90} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-14 md:px-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
+      <p class="max-w-xl font-body text-lg text-ash md:text-xl">
+        {t.home.shortFormNote}
+      </p>
+      <a href={localizePath("/contact", locale)} class="shrink-0 font-display text-base uppercase tracking-tightest text-jade hover:text-ink">
+        {t.home.shortFormCta}
+      </a>
+    </div>
+  </section>
+
+  <section class="reel-plate grain relative flex flex-col items-start justify-center gap-8 px-6 py-32 md:px-10 md:py-48">
+    <h2 class="max-w-3xl font-display text-[10vw] uppercase leading-[0.95] tracking-tightest text-ink sm:text-6xl md:text-7xl">
+      {t.home.closingHeadline}
+    </h2>
+    <a
+      href={site.bookingUrl}
+      class="group inline-flex items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
+    >
+      {t.home.bookACall}
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+        <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </section>
+</Layout>
+
+<script>
+  // Some browsers block even muted autoplay without a user gesture; retry once on first interaction.
+  const heroVideo = document.getElementById("hero-reel-video") as HTMLVideoElement | null;
+  if (heroVideo) {
+    const tryPlay = () => heroVideo.play().catch(() => {});
+    tryPlay();
+    if (heroVideo.paused) {
+      const resume = () => {
+        tryPlay();
+        window.removeEventListener("scroll", resume);
+        window.removeEventListener("pointerdown", resume);
+      };
+      window.addEventListener("scroll", resume, { once: true, passive: true });
+      window.addEventListener("pointerdown", resume, { once: true });
+    }
+  }
+
+  // Parallax lag: the hero text scrolls at normal speed while the background reel lags
+  // behind it, the same dissociation theartofdocumentary.com uses on its own hero video.
+  const hero = document.getElementById("hero");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (hero && heroVideo && !prefersReducedMotion) {
+    heroVideo.style.willChange = "transform";
+    const LAG = 0.2;
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = hero.getBoundingClientRect();
+      if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
+      heroVideo.style.transform = `translate3d(0, ${-rect.top * LAG}px, 0)`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+  }
+</script>

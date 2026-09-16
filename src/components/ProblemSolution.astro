@@ -1,0 +1,14 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<section class="relative border-t border-ash-dim/20 px-6 py-28 md:px-10 md:py-40" aria-label="How Quentin works with clients">
+  <p
+    data-reveal="text"
+    class="mx-auto max-w-4xl font-display text-[9vw] uppercase leading-[0.95] tracking-tightest text-ink sm:text-5xl md:text-6xl"
+  >
+    {t.problemSolution.kicker} <span class="text-jade">{t.problemSolution.answer}</span>
+  </p>
+</section>

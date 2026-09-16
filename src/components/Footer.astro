@@ -1,0 +1,85 @@
+---
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const year = new Date().getFullYear();
+
+const links = [
+  { href: "/", label: t.nav.home },
+  { href: "/films", label: t.nav.films },
+  { href: "/about", label: t.nav.about },
+  { href: "/contact", label: t.nav.contact },
+];
+---
+
+<footer class="px-6 pb-10 pt-20 md:px-10">
+  <div class="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-stretch sm:justify-end">
+    <div class="flex gap-16 sm:justify-end">
+      <div class="flex flex-col gap-3">
+        <p class="font-mono text-sm uppercase tracking-normal text-jade">{t.footer.pagesLabel}</p>
+        <ul class="flex flex-col gap-2">
+          {
+            links.map((link) => (
+              <li>
+                <a
+                  href={localizePath(link.href, locale)}
+                  class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-3">
+        <p class="font-mono text-sm uppercase tracking-normal text-jade">{t.footer.socialsLabel}</p>
+        <ul class="flex flex-col gap-2">
+          <li>
+            <a
+              href={site.instagramUrl}
+              class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white"
+            >
+              {t.nav.instagram}
+            </a>
+          </li>
+          <li>
+            <a
+              href={site.youtubeUrl}
+              class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white"
+            >
+              {t.nav.youtube}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto mt-10 flex max-w-6xl flex-col items-start gap-4 border-t border-ash-dim/20 pt-6 sm:flex-row sm:items-center sm:justify-between">
+    <p class="font-mono text-sm uppercase tracking-[-0.02em] text-ink">
+      © {year} {site.name}
+    </p>
+
+    <div class="flex gap-6">
+      <a
+        href={localizePath("/privacy-policy", locale)}
+        data-fly-link
+        class="link-sweep font-mono text-sm uppercase tracking-[-0.02em] text-ink"
+      >
+        {t.footer.privacyPolicy}
+      </a>
+      <a
+        href={localizePath("/terms-of-use", locale)}
+        data-fly-link
+        class="link-sweep font-mono text-sm uppercase tracking-[-0.02em] text-ink"
+      >
+        {t.footer.termsOfUse}
+      </a>
+    </div>
+  </div>
+</footer>

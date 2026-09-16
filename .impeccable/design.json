@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T00:00:00Z",
+  "title": "Design System: Quentin Mouledous — Filmmaker",
+  "extensions": {
+    "colorMeta": {
+      "jade": {
+        "role": "primary",
+        "displayName": "Jade Beam",
+        "canonical": "#45b892",
+        "tonalRamp": ["#0d2b22", "#164739", "#1f6350", "#2c8267", "#379c7d", "#45b892", "#7fd0b6", "#bce8da"]
+      },
+      "void": {
+        "role": "neutral",
+        "displayName": "Screening Room Black",
+        "canonical": "#0a0a09",
+        "tonalRamp": ["#050504", "#0a0a09", "#17140f", "#2b261e", "#5c584f", "#948f84", "#c9c3b8", "#f3f1ea"]
+      },
+      "void-deep": {
+        "role": "neutral",
+        "displayName": "Deep Cut",
+        "canonical": "#050504",
+        "tonalRamp": ["#000000", "#050504", "#0a0a09", "#17140f", "#2b261e", "#5c584f", "#948f84", "#f3f1ea"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Print Warm White",
+        "canonical": "#f3f1ea"
+      },
+      "ash": {
+        "role": "neutral",
+        "displayName": "Grain Gray",
+        "canonical": "#948f84"
+      },
+      "ash-dim": {
+        "role": "neutral",
+        "displayName": "Ash Dim",
+        "canonical": "#5c584f"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Headlines, CTAs, and anything the page asserts." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy." },
+      "label": { "displayName": "Label", "purpose": "Genre tags, micro-labels, menu footer." },
+      "wordmark": { "displayName": "Wordmark", "purpose": "The personal name mark only, centered in the header, set in caps. Free geometric-sans match for a brief-pinned Futura PT Medium reference." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "reveal-emergence", "value": "opacity 1.1s cubic-bezier(0.16,1,0.3,1), filter 1.3s cubic-bezier(0.16,1,0.3,1), transform 1.3s cubic-bezier(0.16,1,0.3,1)", "purpose": "Chemical-emergence reveal for media entering the viewport; from brightness(0.15) blur(2px) scale(1.015) to clear. Media only, never typography." },
+      { "name": "beam-drift", "value": "9s ease-in-out infinite alternate translate/scale", "purpose": "Slow drift of the jade radial gradient standing in for a projector beam on reel-plate placeholders." },
+      { "name": "scanline-flicker", "value": "4s steps(40) infinite", "purpose": "Low-opacity flicker on the reel-plate scanline texture." },
+      { "name": "cta-hover", "value": "transform 0.3s ease, translate-x 0.3s ease", "purpose": "Primary button scales 1.03 and its arrow icon shifts right on hover." },
+      { "name": "smooth-scroll", "value": "Lenis, duration 1.4s, quart-out easing, wheelMultiplier 0.85, site-wide via the layout, skipped under prefers-reduced-motion", "purpose": "A heavier, eased momentum scroll in place of native scroll, matching the register of theartofdocumentary.com." },
+      { "name": "reveal-text", "value": "opacity 0.9s cubic-bezier(0.16,1,0.3,1), translateY 1.5rem to 0", "purpose": "Quieter heading-only sibling of reveal-emergence: no blur or brightness ramp, used for standalone statement headlines like the homepage's 'story brought to life' line." },
+      { "name": "hero-reel-parallax", "value": "translateY(scrollY * 0.2) applied only to the reel, while the heading/sub/CTA stay in normal flow at native scroll speed; skipped under prefers-reduced-motion", "purpose": "Dissociates the homepage hero's text from its background reel as the visitor scrolls, matching theartofdocumentary.com's own scroll-tied hero video." },
+      { "name": "link-sweep", "value": "1px currentColor rule, transform: scaleX(0) with transform-origin right bottom at rest, scaleX(1) with transform-origin left bottom on hover, 0.3s cubic-bezier(0.25,1,0.5,1)", "purpose": "Footer link hover: sweeps in from the left, exits to the right on mouse-out rather than shrinking back — matches theartofdocumentary.com's own footer link underline exactly." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The system's only CTA treatment — used for every 'Book a call' instance.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\">Book a call<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\" class=\"ds-btn-arrow\"><path d=\"M2 8H14M14 8L9 3M14 8L9 13\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; background: #45b892; color: #050504; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em; font-size: 1.125rem; padding: 16px 28px; border-radius: 9999px; transition: transform 0.3s ease; } .ds-btn-primary:hover { transform: scale(1.03); } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(4px); } .ds-btn-arrow { transition: transform 0.3s ease; }"
+    },
+    {
+      "name": "Menu Toggle",
+      "kind": "nav",
+      "refersTo": "menu-toggle",
+      "description": "Header icon button; two bars that rotate into an X when the takeover menu opens.",
+      "html": "<button type=\"button\" aria-expanded=\"false\" class=\"ds-menu-toggle\"><span class=\"sr-only\">Open menu</span><span class=\"ds-menu-bars\"><span class=\"ds-bar\"></span><span class=\"ds-bar\"></span></span></button>",
+      "css": ".ds-menu-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 9999px; background: transparent; } .ds-menu-bars { position: relative; display: block; width: 24px; height: 14px; } .ds-bar { position: absolute; left: 0; width: 100%; height: 1.5px; background: #f3f1ea; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); } .ds-bar:first-child { top: 0; } .ds-bar:last-child { bottom: 0; } .ds-menu-toggle[aria-expanded=\"true\"] .ds-bar:first-child { transform: translateY(6px) rotate(45deg); } .ds-menu-toggle[aria-expanded=\"true\"] .ds-bar:last-child { transform: translateY(-6px) rotate(-45deg); }"
+    },
+    {
+      "name": "Reel Plate",
+      "kind": "custom",
+      "description": "Placeholder-footage treatment: projector-beam glow, scanline flicker, and film grain, standing in for real video or photography until it exists.",
+      "html": "<div class=\"ds-reel-plate\"><div class=\"ds-reel-play\"><svg width=\"34\" height=\"34\" viewBox=\"0 0 34 34\" fill=\"none\"><circle cx=\"17\" cy=\"17\" r=\"16\" stroke=\"#f3f1ea\" stroke-width=\"1\"/><path d=\"M14 11.5L23 17L14 22.5V11.5Z\" fill=\"#f3f1ea\"/></svg></div><div class=\"ds-reel-label\"><span>Commercial</span><span>Footage coming soon</span></div></div>",
+      "css": ".ds-reel-plate { position: relative; overflow: hidden; aspect-ratio: 16/9; background: #050504; } .ds-reel-plate::before { content: ''; position: absolute; inset: -35%; background: radial-gradient(ellipse 45% 40% at 32% 38%, rgba(69,184,146,0.24) 0%, transparent 62%); animation: ds-beam-drift 9s ease-in-out infinite; } .ds-reel-plate::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(to bottom, rgba(243,241,234,0.04) 0px, transparent 1px, transparent 3px); opacity: 0.5; } @keyframes ds-beam-drift { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(18%,14%) scale(1.15); } } .ds-reel-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: 0.2; } .ds-reel-label { position: absolute; inset-inline: 0; bottom: 0; display: flex; justify-content: space-between; padding: 12px 16px; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: -0.04em; font-size: 0.75rem; color: #948f84; }"
+    },
+    {
+      "name": "Takeover Menu Link",
+      "kind": "nav",
+      "refersTo": "menu-link",
+      "description": "One link row inside the full-screen navigation takeover; huge display type, jade when current.",
+      "html": "<a href=\"#\" class=\"ds-menu-link ds-menu-link--current\">Home</a>",
+      "css": ".ds-menu-link { display: block; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; font-weight: 700; line-height: 0.95; letter-spacing: -0.04em; font-size: 9vw; color: #f3f1ea; transition: color 0.3s ease; } .ds-menu-link:hover { color: #45b892; } .ds-menu-link--current { color: #45b892; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Projection Booth",
+    "overview": "The site is built as a screening room, not a brochure: near-total darkness, one beam of light, and footage that plays itself before a single word of pitch is made. It was grounded directly in two references the client pinned — dannygevirtz.com/dannysprojects (a full-bleed, self-playing 3x3 film grid) and theartofdocumentary.com (a black-ground, amber-accented persuasion page with a pinned scroll passage and a full-screen takeover menu) — translated to Quentin's own positioning: work built from genuinely understanding a client before a camera is ever raised. The accent itself moved on from that reference's amber to a jade green, explored later as its own direction and kept.",
+    "keyCharacteristics": [
+      "Near-black ground throughout, lit only by a drifting jade beam and film grain",
+      "One accent color, spent only on the primary action and current-state emphasis",
+      "Full-bleed, edge-to-edge media wherever footage or its placeholder appears — never inside a card",
+      "A single authored motion signature (media developing into clarity) reserved for media, never for typography",
+      "Navigation lives entirely inside a full-screen black takeover, never a persistent link row"
+    ],
+    "rules": [
+      { "name": "The One Light Rule", "body": "Jade appears at most once per viewport — the single action or single emphasis the visitor should notice.", "section": "colors" },
+      { "name": "The No-Kicker Rule", "body": "No heading anywhere carries a small label above it.", "section": "typography" },
+      { "name": "The No-Shadow Rule", "body": "Depth comes from light and grain, never a drop shadow.", "section": "elevation" },
+      { "name": "The Two-Radius Rule", "body": "An element is either sharp (0px) or a full pill (9999px). Nothing in between.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do reserve jade for exactly one thing per viewport: the primary action or the current-state signal.",
+      "Do use the reel-plate treatment — never a gray box, skeleton, or stock photo — for anything standing in for footage that doesn't exist yet.",
+      "Do apply the chemical-emergence reveal only to media entering the viewport, never to headings or paragraphs.",
+      "Do keep every clickable pill fully rounded and every structural element sharp — no radius in between.",
+      "Do give the header its gradient scrim on every page, so it stays legible over the hero media it opens on."
+    ],
+    "donts": [
+      "Don't add a kicker or eyebrow label above a heading, anywhere, for any reason.",
+      "Don't add a box-shadow to anything. Depth is beam glow and grain, never a drop shadow.",
+      "Don't introduce a second accent color alongside jade, even a muted one.",
+      "Don't build page structure from same-size icon+heading+text cards.",
+      "Don't fabricate a testimonial, client name, or credit in a placeholder slot — an honest 'coming soon' label beats a fictional one."
+    ]
+  }
+}

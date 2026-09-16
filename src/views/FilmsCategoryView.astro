@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FilmGrid from "../components/FilmGrid.astro";
+import { films } from "../data/films";
+import { getLocale, useTranslations } from "../i18n/translations";
+
+interface Props {
+  category: "commercial" | "docs";
+}
+
+const { category } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const isCommercial = category === "commercial";
+const filtered = isCommercial
+  ? films.filter((film) => film.genre === "commercial")
+  : films.filter((film) => film.genre === "documentary" || film.genre === "narrative");
+
+const title = isCommercial ? t.meta.commercialWorkTitle : t.meta.filmsDocsTitle;
+const description = isCommercial ? t.meta.commercialWorkDescription : t.meta.filmsDocsDescription;
+const heading = isCommercial ? t.nav.commercialWork : t.nav.filmsDocs;
+---
+
+<Layout title={title} description={description}>
+  <section class="px-6 pb-10 pt-28 md:px-10 md:pt-32">
+    <div class="mx-auto max-w-6xl">
+      <h1 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+        {heading}
+      </h1>
+    </div>
+  </section>
+
+  <section class="px-6 pb-24 md:px-10 md:pb-32">
+    <div class="mx-auto max-w-6xl">
+      <FilmGrid films={filtered} />
+    </div>
+  </section>
+</Layout>

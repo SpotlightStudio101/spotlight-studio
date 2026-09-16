@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+---
+
+<Layout title={t.meta.aboutTitle} description={t.meta.aboutDescription}>
+  <section class="px-6 pb-16 pt-32 text-center md:px-10 md:pb-20 md:pt-40">
+    <div class="mx-auto max-w-2xl">
+      <h1 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
+        {t.about.topHeading}
+      </h1>
+      <p class="mx-auto mt-8 max-w-xl font-body text-lg text-ash md:text-xl">
+        {t.about.topBio}
+      </p>
+      <a
+        href={localizePath("/contact", locale)}
+        class="mt-6 inline-block font-display text-sm uppercase tracking-tightest text-jade hover:text-ink"
+      >
+        {t.about.topContactCta}
+      </a>
+    </div>
+  </section>
+
+  <section
+    class="reel-plate grain relative flex aspect-[16/10] w-full items-end justify-start p-6 md:aspect-[21/9] md:p-10"
+    data-reveal
+    aria-label="Portrait placeholder"
+  >
+    <span class="font-display text-xs uppercase tracking-tightest text-ash-dim md:text-sm">
+      {t.about.portraitPlaceholder}
+    </span>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+    <div class="mx-auto max-w-4xl">
+      <p class="max-w-2xl font-body text-lg text-ash md:text-xl">
+        {t.about.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-14 font-display text-4xl uppercase leading-none tracking-tightest text-ink md:text-5xl">
+        {t.about.howIWork}
+      </h2>
+
+      <ul class="flex flex-col">
+        {
+          t.about.steps.map((step) => (
+            <li class="border-t border-ash-dim/20 py-10 last:border-b">
+              <div class="flex flex-col gap-3 md:flex-row md:gap-12">
+                <h3 class="font-display text-2xl uppercase leading-none tracking-tightest text-jade md:w-1/3 md:text-3xl">
+                  {step.title}
+                </h3>
+                <p class="max-w-xl font-body text-base text-ash md:text-lg">{step.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+    <div class="mx-auto flex max-w-4xl flex-col items-start gap-8">
+      <h2 class="font-display text-4xl uppercase leading-none tracking-tightest text-ink md:text-6xl">
+        {t.about.wantToWork}
+      </h2>
+      <a
+        href={site.bookingUrl}
+        class="group inline-flex items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
+      >
+        {t.about.bookACall}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+          <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

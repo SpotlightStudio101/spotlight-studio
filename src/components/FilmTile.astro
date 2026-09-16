@@ -1,0 +1,60 @@
+---
+import type { FilmEntry } from "../data/films";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+interface Props {
+  film: FilmEntry;
+  delay?: number;
+}
+
+const { film, delay = 0 } = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const hasClip = Boolean(film.previewClip?.webm || film.previewClip?.mov || film.previewClip?.mp4);
+---
+
+<a
+  href={localizePath(`/films/${film.slug}`, locale)}
+  class:list={["group relative block aspect-video w-full overflow-hidden", { "reel-plate": !hasClip, grain: hasClip }]}
+  data-reveal
+  style={`transition-delay:${delay}ms; --beam-delay:${delay * 0.4}ms`}
+>
+  {
+    hasClip && (
+      <video
+        class="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        {film.previewClip?.webm && <source src={film.previewClip.webm} type="video/webm" />}
+        {film.previewClip?.mov && <source src={film.previewClip.mov} type="video/quicktime" />}
+        {film.previewClip?.mp4 && <source src={film.previewClip.mp4} type="video/mp4" />}
+      </video>
+    )
+  }
+
+  {
+    !hasClip && (
+      <div class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20 transition-opacity duration-500 group-hover:opacity-40">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <circle cx="17" cy="17" r="16" stroke="currentColor" stroke-width="1" class="text-ink" />
+          <path d="M14 11.5L23 17L14 22.5V11.5Z" fill="currentColor" class="text-ink" />
+        </svg>
+      </div>
+    )
+  }
+
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-void-deep/70 to-transparent px-4 pb-3 pt-6 md:px-5 md:pb-4">
+    <span class="font-display text-xs uppercase tracking-tightest text-ash md:text-sm">
+      {t.filmData.genre[film.genre]}
+    </span>
+    <span class="font-display text-xs uppercase tracking-tightest text-ash-dim">
+      {film.isDemo ? t.filmTile.demoClip : hasClip ? "" : t.filmTile.footageComingSoon}
+    </span>
+  </div>
+</a>

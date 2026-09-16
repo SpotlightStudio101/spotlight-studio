@@ -1,0 +1,231 @@
+---
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { alternatePath, localizePath, unlocalizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+const links = [
+  { href: "/", label: t.nav.home },
+  {
+    href: "/films",
+    label: t.nav.films,
+    children: [
+      { href: "/films/commercial-work", label: t.nav.commercialWork },
+      { href: "/films/docs", label: t.nav.filmsDocs },
+    ],
+  },
+  { href: "/about", label: t.nav.about },
+  { href: "/contact", label: t.nav.contact },
+];
+
+const currentBasePath = unlocalizePath(Astro.url.pathname);
+const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
+---
+
+<div
+  class="pointer-events-none absolute inset-x-0 top-0 z-40 h-28 bg-gradient-to-b from-void via-void/55 to-transparent md:h-36"
+  aria-hidden="true"
+>
+</div>
+
+<header class="absolute inset-x-0 top-0 z-50 grid grid-cols-[1fr_auto_1fr] items-center px-6 py-5 md:px-10 md:py-7">
+  <div id="lang-switcher" class="flex items-center gap-1.5 justify-self-start font-display text-xs uppercase tracking-tightest text-ash sm:gap-2 sm:text-sm" aria-label={t.nav.language}>
+    <a
+      href={locale === "en" ? Astro.url.pathname : otherLocaleHref}
+      class:list={["group flex items-center gap-1 transition-colors duration-300 hover:text-jade", locale === "en" ? "text-ink" : "text-ash-dim"]}
+      aria-current={locale === "en" ? "true" : undefined}
+    >
+      <svg
+        viewBox="0 0 60 30"
+        class:list={["hidden h-3 w-5 shrink-0 transition-opacity duration-300 sm:inline-block", locale === "en" ? "opacity-100" : "opacity-50 group-hover:opacity-100"]}
+        aria-hidden="true"
+      >
+        <path d="M0,0 H60 V30 H0 Z" fill="#012169" />
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6" />
+        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" />
+        <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10" />
+        <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6" />
+      </svg>
+      EN
+    </a>
+    <span class="text-ash-dim">/</span>
+    <a
+      href={locale === "fr" ? Astro.url.pathname : otherLocaleHref}
+      class:list={["group flex items-center gap-1 transition-colors duration-300 hover:text-jade", locale === "fr" ? "text-ink" : "text-ash-dim"]}
+      aria-current={locale === "fr" ? "true" : undefined}
+    >
+      <svg
+        viewBox="0 0 60 30"
+        class:list={["hidden h-3 w-5 shrink-0 transition-opacity duration-300 sm:inline-block", locale === "fr" ? "opacity-100" : "opacity-50 group-hover:opacity-100"]}
+        aria-hidden="true"
+      >
+        <path d="M0,0 H20 V30 H0 Z" fill="#0055A4" />
+        <path d="M20,0 H40 V30 H20 Z" fill="#fff" />
+        <path d="M40,0 H60 V30 H40 Z" fill="#EF4135" />
+      </svg>
+      FR
+    </a>
+  </div>
+
+  <a href={localizePath("/", locale)} class="justify-self-center whitespace-nowrap font-wordmark text-base font-medium uppercase tracking-normal text-white sm:text-2xl md:text-4xl">
+    {site.name}
+  </a>
+
+  <button
+    id="menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="site-menu"
+    class="group relative flex h-11 w-11 items-center justify-center justify-self-end rounded-full"
+  >
+    <span class="sr-only">{t.nav.openMenu}</span>
+    <span class="relative block h-3.5 w-6" aria-hidden="true">
+      <span
+        class="menu-bar absolute left-0 top-0 h-[1.5px] w-full origin-center bg-ink transition-[transform,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-jade"
+      ></span>
+      <span
+        class="menu-bar absolute bottom-0 left-0 h-[1.5px] w-full origin-center bg-ink transition-[transform,background-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-jade"
+      ></span>
+    </span>
+  </button>
+</header>
+
+<nav
+  id="site-menu"
+  data-state="closed"
+  class="menu-panel fixed inset-0 z-40 flex flex-col justify-between bg-void-deep px-6 py-24 opacity-0 md:px-10"
+  aria-label="Site"
+>
+  <ul class="flex flex-col gap-2">
+    {
+      links.map((link) => {
+        const isCurrent = currentBasePath === link.href;
+
+        if (link.children) {
+          const isParentCurrent = link.children.some((child) => currentBasePath === child.href) || isCurrent;
+          return (
+            <li class="nav-dropdown overflow-hidden">
+              <button
+                type="button"
+                class:list={[
+                  "nav-dropdown-trigger block w-full text-left font-display text-[13vw] uppercase leading-[0.95] tracking-tight transition-colors duration-300 sm:text-[9vw] md:text-[6.5vw]",
+                  isParentCurrent ? "text-jade" : "text-ink hover:text-jade",
+                ]}
+              >
+                {link.label}
+              </button>
+              <div class="nav-dropdown-panel">
+                <ul class="pl-[4vw] sm:pl-[2.5vw]">
+                  {link.children.map((child) => {
+                    const isChildCurrent = currentBasePath === child.href;
+                    return (
+                      <li class="pt-3">
+                        <a
+                          href={localizePath(child.href, locale)}
+                          aria-current={isChildCurrent ? "page" : undefined}
+                          class:list={[
+                            "block font-display text-[6vw] uppercase leading-tight tracking-tight transition-colors duration-300 sm:text-[4vw] md:text-[2.5vw]",
+                            isChildCurrent ? "text-jade" : "text-ash hover:text-jade",
+                          ]}
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </li>
+          );
+        }
+
+        return (
+          <li class="overflow-hidden">
+            <a
+              href={localizePath(link.href, locale)}
+              aria-current={isCurrent ? "page" : undefined}
+              class:list={[
+                "menu-link block font-display text-[13vw] uppercase leading-[0.95] tracking-tight transition-colors duration-300 sm:text-[9vw] md:text-[6.5vw]",
+                isCurrent ? "text-jade" : "text-ink hover:text-jade",
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <div class="flex items-end justify-between font-body text-sm text-ash">
+    <span>{t.nav.tagline}</span>
+    <div class="flex gap-4">
+      <a href={site.instagramUrl} class="hover:text-jade">{t.nav.instagram}</a>
+      <a href={site.youtubeUrl} class="hover:text-jade">{t.nav.youtube}</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("site-menu");
+  const bars = toggle?.querySelectorAll<HTMLSpanElement>(".menu-bar");
+
+  function setState(open: boolean) {
+    if (!toggle || !menu) return;
+    toggle.setAttribute("aria-expanded", String(open));
+    menu.dataset.state = open ? "open" : "closed";
+    menu.classList.toggle("pointer-events-none", !open);
+    menu.style.opacity = open ? "1" : "0";
+    menu.style.transform = open ? "translateY(0)" : "translateY(-8px)";
+    document.body.style.overflow = open ? "hidden" : "";
+    if (bars && bars.length === 2) {
+      bars[0].style.transform = open ? "translateY(6px) rotate(45deg)" : "";
+      bars[1].style.transform = open ? "translateY(-6px) rotate(-45deg)" : "";
+    }
+  }
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = menu?.dataset.state === "open";
+    setState(!isOpen);
+  });
+
+  menu?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => setState(false))
+  );
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setState(false);
+  });
+
+  // Initial state: menu is present but invisible/non-interactive until opened.
+  if (menu) {
+    menu.classList.add("pointer-events-none");
+    menu.style.transition = "opacity 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1)";
+    menu.style.transform = "translateY(-8px)";
+  }
+
+  // Persist the visitor's language choice so the auto-detect script (see Layout) doesn't fight it.
+  document.querySelectorAll<HTMLAnchorElement>("#lang-switcher a").forEach((a) => {
+    a.addEventListener("click", () => {
+      const lang = a.textContent?.trim().toLowerCase() === "fr" ? "fr" : "en";
+      try {
+        localStorage.setItem("lang", lang);
+      } catch {}
+    });
+  });
+
+  // "My work" reveals its dropdown on hover (see .nav-dropdown in global.css); the trigger
+  // itself never navigates. Touch/no-hover devices have no hover state, so a tap there toggles
+  // the same .is-open class instead — the only way those visitors can reach the sub-pages.
+  const supportsHover = window.matchMedia("(hover: hover)").matches;
+  if (!supportsHover) {
+    document.querySelectorAll<HTMLButtonElement>(".nav-dropdown-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        trigger.closest(".nav-dropdown")?.classList.toggle("is-open");
+      });
+    });
+  }
+</script>

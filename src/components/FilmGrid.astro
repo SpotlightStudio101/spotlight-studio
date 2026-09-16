@@ -1,0 +1,14 @@
+---
+import { films as allFilms, type FilmEntry } from "../data/films";
+import FilmTile from "./FilmTile.astro";
+
+interface Props {
+  films?: FilmEntry[];
+}
+
+const { films = allFilms } = Astro.props;
+---
+
+<div class="grid grid-cols-1 gap-px bg-ash-dim/20 sm:grid-cols-2 lg:grid-cols-3">
+  {films.map((film, i) => <FilmTile film={film} delay={(i % 3) * 90} />)}
+</div>
