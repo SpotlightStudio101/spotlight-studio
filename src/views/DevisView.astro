@@ -1,0 +1,279 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const d = t.devis;
+---
+
+<Layout title={t.meta.devisTitle} description={t.meta.devisDescription}>
+  <section class="px-6 pb-16 pt-32 md:px-10 md:pt-40">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="font-display text-[13vw] uppercase leading-[0.92] tracking-tightest text-ink sm:text-7xl md:text-8xl">
+        {d.heading}
+      </h1>
+      <p class="mt-6 max-w-xl font-body text-lg text-ash md:text-xl">
+        {d.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-3xl">
+      <div id="devis-progress" class="mb-10 flex items-center gap-2" aria-hidden="true">
+        <span class="devis-progress-dot h-[3px] flex-1 rounded-full bg-jade transition-colors duration-300" data-step="1"></span>
+        <span class="devis-progress-dot h-[3px] flex-1 rounded-full bg-ash-dim/30 transition-colors duration-300" data-step="2"></span>
+        <span class="devis-progress-dot h-[3px] flex-1 rounded-full bg-ash-dim/30 transition-colors duration-300" data-step="3"></span>
+      </div>
+
+      <form
+        id="devis-form"
+        name="devis"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action={localizePath("/thanks", locale)}
+        class="flex flex-col gap-10"
+      >
+        <input type="hidden" name="form-name" value="devis" />
+        <p class="hidden">
+          <label>
+            {d.honeypot} <input name="bot-field" />
+          </label>
+        </p>
+
+        <fieldset data-devis-step="1" class="flex flex-col gap-8">
+          <legend class="font-display text-xs uppercase tracking-tightest text-ash">{d.step1Title}</legend>
+
+          <div class="flex flex-col gap-3">
+            <span class="font-display text-xs uppercase tracking-tightest text-ash">{d.projectTypeLabel}</span>
+            <div class="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {
+                d.projectTypeOptions.map((option, i) => (
+                  <div>
+                    <input type="radio" name="project-type" value={option} id={`pt-${i}`} required class="peer sr-only" />
+                    <label
+                      for={`pt-${i}`}
+                      class="flex h-full min-h-16 cursor-pointer items-center rounded-md border border-ash-dim/30 px-4 py-3 font-display text-sm uppercase leading-tight tracking-tightest text-ash transition-colors duration-200 peer-checked:border-jade peer-checked:text-jade hover:border-ash-dim/60"
+                    >
+                      {option}
+                    </label>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="font-display text-xs uppercase tracking-tightest text-ash">{d.aerialLabel}</span>
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {
+                d.aerialOptions.map((option, i) => (
+                  <div>
+                    <input type="radio" name="aerial" value={option.value} id={`aerial-${i}`} required class="peer sr-only" />
+                    <label
+                      for={`aerial-${i}`}
+                      class="flex h-full cursor-pointer flex-col gap-1 rounded-md border border-ash-dim/30 px-4 py-3 transition-colors duration-200 peer-checked:border-jade hover:border-ash-dim/60"
+                    >
+                      <span class="font-display text-sm uppercase tracking-tightest text-ink">{option.value}</span>
+                      <span class="font-body text-xs text-ash-dim">{option.hint}</span>
+                    </label>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <button type="button" data-devis-next class="group mt-2 inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]">
+            {d.continueButton}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </fieldset>
+
+        <fieldset data-devis-step="2" class="hidden flex-col gap-7">
+          <legend class="font-display text-xs uppercase tracking-tightest text-ash">{d.step2Title}</legend>
+
+          <div class="flex flex-col gap-2">
+            <label for="budget" class="font-display text-xs uppercase tracking-tightest text-ash">{d.budgetLabel}</label>
+            <select
+              id="budget"
+              name="budget"
+              required
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            >
+              {d.budgetOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="date" class="font-display text-xs uppercase tracking-tightest text-ash">{d.dateLabel}</label>
+            <input
+              id="date"
+              name="date"
+              type="text"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="location" class="font-display text-xs uppercase tracking-tightest text-ash">{d.locationLabel}</label>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex gap-4">
+            <button type="button" data-devis-back class="font-display text-sm uppercase tracking-tightest text-ash hover:text-ink">
+              ← {d.backButton}
+            </button>
+            <button type="button" data-devis-next class="group inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]">
+              {d.continueButton}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </fieldset>
+
+        <fieldset data-devis-step="3" class="hidden flex-col gap-7">
+          <legend class="font-display text-xs uppercase tracking-tightest text-ash">{d.step3Title}</legend>
+
+          <div class="flex flex-col gap-2">
+            <label for="name" class="font-display text-xs uppercase tracking-tightest text-ash">{d.nameLabel}</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="email" class="font-display text-xs uppercase tracking-tightest text-ash">{d.emailLabel}</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="phone" class="font-display text-xs uppercase tracking-tightest text-ash">{d.phoneLabel}</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            />
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="details" class="font-display text-xs uppercase tracking-tightest text-ash">{d.detailsLabel}</label>
+            <textarea
+              id="details"
+              name="details"
+              rows="4"
+              class="w-full resize-y border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            ></textarea>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4">
+            <button type="button" data-devis-back class="font-display text-sm uppercase tracking-tightest text-ash hover:text-ink">
+              ← {d.backButton}
+            </button>
+            <button type="submit" class="group inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]">
+              {d.submitButton}
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto grid max-w-3xl gap-3">
+      <h2 class="font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
+        {d.scopeHeading}
+      </h2>
+      <ul class="mt-4 flex flex-col gap-3">
+        {
+          d.scopeItems.map((item) => (
+            <li class="flex items-start gap-3 font-body text-base text-ash md:text-lg">
+              <span class="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-jade" aria-hidden="true" />
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-6 font-body text-sm text-ash-dim">{d.scopeNote}</p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-14 md:px-10">
+    <div class="mx-auto flex max-w-3xl flex-col gap-2">
+      <h2 class="font-display text-lg uppercase tracking-tightest text-ink">{d.altContactHeading}</h2>
+      <p class="font-body text-base text-ash">{d.altContactBody}</p>
+      <a href={localizePath("/contact", locale)} class="mt-2 w-fit font-display text-sm uppercase tracking-tightest text-jade hover:text-ink">
+        {d.altContactLink}
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById("devis-form");
+  if (form) {
+    const steps = Array.from(form.querySelectorAll<HTMLFieldSetElement>("[data-devis-step]"));
+    const dots = Array.from(document.querySelectorAll<HTMLElement>(".devis-progress-dot"));
+
+    const showStep = (index: number) => {
+      steps.forEach((step, i) => {
+        step.classList.toggle("hidden", i !== index);
+        step.classList.toggle("flex", i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("bg-jade", i <= index);
+        dot.classList.toggle("bg-ash-dim/30", i > index);
+      });
+      steps[index]?.querySelector<HTMLElement>("input, select, textarea")?.focus({ preventScroll: true });
+      window.scrollTo({ top: (form as HTMLElement).getBoundingClientRect().top + window.scrollY - 120, behavior: "smooth" });
+    };
+
+    const stepIsValid = (step: HTMLFieldSetElement) => {
+      const fields = Array.from(step.querySelectorAll<HTMLInputElement | HTMLSelectElement>("input, select"));
+      return fields.every((field) => field.reportValidity());
+    };
+
+    form.querySelectorAll<HTMLButtonElement>("[data-devis-next]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const current = steps.findIndex((step) => !step.classList.contains("hidden"));
+        if (!stepIsValid(steps[current])) return;
+        showStep(Math.min(current + 1, steps.length - 1));
+      });
+    });
+
+    form.querySelectorAll<HTMLButtonElement>("[data-devis-back]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const current = steps.findIndex((step) => !step.classList.contains("hidden"));
+        showStep(Math.max(current - 1, 0));
+      });
+    });
+  }
+</script>

@@ -1,0 +1,19 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-8 font-display text-3xl uppercase italic leading-none tracking-tightest text-ink md:text-4xl">
+      {t.home.testimonials.heading}
+    </h2>
+    <div class="flex flex-col items-start gap-3 rounded-3xl border border-dashed border-ash-dim/40 px-6 py-12 md:px-10">
+      <span class="rounded-full bg-ash-dim/15 px-3 py-1 font-mono text-xs uppercase tracking-[-0.02em] text-ash">
+        {t.home.testimonials.comingSoonLabel}
+      </span>
+      <p class="max-w-md font-body text-sm text-ash-dim md:text-base">{t.home.testimonials.comingSoonBody}</p>
+    </div>
+  </div>
+</section>

@@ -28,7 +28,10 @@ Early-stage build: no films, stills, bio, or credits are ready yet. The site nee
 
 ## Capabilities and Constraints
 
-- Site structure: Home (also carries the services/offers pitch — no separate Work page), Films, About, Contact — reached through a full-screen takeover menu (AOD-style)
+- Site structure: Home (also carries the services/offers pitch — no separate Work page), Films (split into "Commercial Work" and "Films/Docs" sub-pages via a nav dropdown under "My work"), About, Contact — reached through a full-screen takeover menu (AOD-style) — plus Terms of Use and Privacy Policy, linked from the footer only
+- Business pitch (Home, EN+FR): positioned as "Vidéaste" in French (client-search term; "Réalisateur" reads as a bigger cinema-crew figure to hiring clients) while English stays "Filmmaker." Three sections carry the pitch: a client-type breakdown (Companies / Events / Documentary & interviews), a 4-step process section (Pre-production → Production → Post-production → Delivery) with a scroll-driven progress line and honest equipment chips (Sony FX3, DJI Mavic 3 Classic — registered UAS exploitant — generic "sound recording"), and a "reply within 24h" promise near every contact CTA. Pricing stays 100% quote-based, no price shown, per the user's explicit call
+- Local SEO: the 5 city landing pages tried earlier (Lyon/Marseille/Bordeaux/Nice/Cannes) were removed by the user's explicit call — thin-content/trust risk for a solo practitioner without real local presence outweighed the long-tail search benefit. The single Home page now carries the whole local-SEO story: Paris-based, available across the wider Île-de-France, and open to travel nationally/internationally (see the "Vos tournages à Paris et en Île-de-France" section)
+- Contact form (Netlify): qualifies leads with a project-type select and an optional budget-range select, alongside the original name/email/message fields
 - Films page: edge-to-edge grid of work samples, each autoplaying a muted looping clip on load. No real footage exists yet — ships with clearly-labeled placeholder entries the user swaps in as real films are finished
 - Home's primary conversion action is booking a call directly via Calendly — no Calendly account exists yet, so the link ships as a clearly-marked placeholder the user swaps in once created
 - Contact page offers two equal paths: book a call (Calendly) or send a message via a real contact form — both are wanted, neither replaces the other
@@ -41,7 +44,7 @@ Early-stage build: no films, stills, bio, or credits are ready yet. The site nee
 
 ## Brand Commitments
 
-Personal branding under the filmmaker's own name: Quentin Mouledous. The site is his personal brand, not a studio/agency name. No logo, wordmark, or other visual identity assets exist yet.
+Supersedes an earlier personal-name branding decision: the site now runs under the studio name **Spotlight Films** (wordmark only, no logomark yet) — the user's explicit, standing call. Quentin remains the sole practitioner; "Spotlight Films" is the public-facing name across nav, footer, and meta, not a claim of a larger team.
 
 ## Evidence on Hand
 

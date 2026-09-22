@@ -1,0 +1,173 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+const { heading, headingAccent, evenIfLabel, helpLabel, items } = t.home.painPoints;
+---
+
+<section id="pain-points-section" class="relative border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+  <div class="mx-auto max-w-3xl">
+    <h2 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-5xl">
+      {heading} <span class="text-jade">{headingAccent}</span>
+    </h2>
+
+    <div class="relative mt-16" id="pain-points-track">
+      <ul class="relative z-10 flex flex-col">
+        {
+          items.map((item, index) => {
+            const previousGroup = index > 0 ? items[index - 1].group : null;
+            const isGroupStart = index > 0 && item.group !== previousGroup;
+            return (
+              <li
+                class:list={[
+                  "pain-item flex items-center py-4 ml-[var(--pain-gutter,9rem)] font-body text-lg font-bold leading-none tracking-tightest text-ink sm:py-6 sm:text-2xl md:py-8 md:text-4xl",
+                  isGroupStart ? "mt-12 md:mt-16" : index > 0 ? "border-t border-ash-dim/20" : "",
+                ]}
+                data-group={item.group}
+              >
+                {item.text}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div id="pain-band" class="pointer-events-none absolute inset-x-0 top-0 flex items-center bg-ash-dim/10" aria-hidden="true">
+    <span id="pain-band-label-mask" class="block h-[1.125rem] w-max overflow-hidden sm:h-[1.5rem] md:h-[2.25rem]">
+      <span id="pain-band-label-track" class="flex flex-col">
+        <span class="block whitespace-nowrap font-body text-lg font-bold leading-none tracking-tightest text-jade sm:text-2xl md:text-4xl">
+          {evenIfLabel}
+        </span>
+        <span class="block whitespace-nowrap font-body text-lg font-bold leading-none tracking-tightest text-jade sm:text-2xl md:text-4xl">
+          {helpLabel}
+        </span>
+      </span>
+    </span>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById("pain-points-section");
+  const track = document.getElementById("pain-points-track");
+  const band = document.getElementById("pain-band");
+  const labelMask = document.getElementById("pain-band-label-mask");
+  const labelTrack = document.getElementById("pain-band-label-track");
+  const labelOptions = document.querySelectorAll<HTMLSpanElement>("#pain-band-label-track > span");
+  const items = document.querySelectorAll<HTMLLIElement>(".pain-item");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function closestItem(viewportRef: number) {
+    let closest = items[0];
+    let closestDistance = Infinity;
+    items.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      const center = rect.top + rect.height / 2;
+      const distance = Math.abs(center - viewportRef);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closest = item;
+      }
+    });
+    return closest;
+  }
+
+  if (section && track && band && labelMask && labelTrack && labelOptions.length === 2 && items.length) {
+    const first = items[0];
+    // Natural stacking gap between the two label lines (flex-col, unTransformed) — how far the
+    // track must slide up to swap from "even" to "help", measured live rather than assumed.
+    const labelStep = () => labelOptions[1].getBoundingClientRect().top - labelOptions[0].getBoundingClientRect().top;
+
+    // Reserve exactly as much gutter as the (now much larger) label actually needs, so it never
+    // runs into the item text next to it — the item column's own left margin is driven by this
+    // same measurement (--pain-gutter custom property), not a fixed guess. The label is pushed as
+    // far right as that reserved space allows — flush against its own safety margin before the
+    // text column — rather than centered with a lot of wasted gap on its right, so it reads much
+    // closer to the middle of the row, matching theartofdocumentary.com.
+    const positionLabel = () => {
+      const buffer = Math.min(32, Math.max(16, window.innerWidth * 0.035));
+      const labelWidth = labelMask.getBoundingClientRect().width;
+      const gutter = labelWidth + buffer;
+      section.style.setProperty("--pain-gutter", `${gutter}px`);
+      const textStartX = first.getBoundingClientRect().left;
+      band.style.paddingLeft = `${Math.max(buffer / 2, textStartX - buffer - labelWidth)}px`;
+    };
+    positionLabel();
+
+    // A fixed row height (the tallest item, e.g. one that wraps to two lines) rather than each
+    // item's own height — some items wrap and some don't, so following the "closest" item's real
+    // height made the band visibly thin out over short single-line rows and swell back up over
+    // wrapped ones. The band should just read as one constant-size highlight throughout.
+    let rowHeight = 0;
+    const measureRowHeight = () => {
+      rowHeight = Math.max(...Array.from(items, (item) => item.getBoundingClientRect().height));
+      band.style.height = `${rowHeight}px`;
+    };
+    measureRowHeight();
+    window.addEventListener("resize", () => {
+      positionLabel();
+      measureRowHeight();
+    }, { passive: true });
+
+    if (prefersReducedMotion) {
+      const sectionRect = section.getBoundingClientRect();
+      const firstRect = first.getBoundingClientRect();
+      band.style.transform = `translateY(${firstRect.top - sectionRect.top - (rowHeight - firstRect.height) / 2}px)`;
+      labelTrack.style.transform = first.dataset.group === "help" ? `translateY(-${labelStep()}px)` : "translateY(0px)";
+    } else {
+      // The band's position is a direct, continuous function of scroll (not a snap between item
+      // slots), and the label crossfades by sliding — the new line entering from below as the old
+      // one exits above — both only eased at their own slower pace than the scroll itself. This is
+      // the same glide theartofdocumentary.com uses: its own band and label track are driven by an
+      // identical rAF lerp loop (confirmed live — both report `transitionDuration: 0s`, i.e. no CSS
+      // transition, and their transform values settle gradually over ~10 frames after each scroll).
+      const LERP = 0.1;
+      const SETTLE_THRESHOLD = 0.3;
+
+      let targetY = 0;
+      let targetLabelY = 0;
+      let currentY = 0;
+      let currentLabelY = 0;
+      band.style.transform = "translateY(0px)";
+      labelTrack.style.transform = "translateY(0px)";
+
+      const computeTarget = () => {
+        const viewportRef = window.innerHeight * 0.4;
+        const sectionRect = section.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+
+        const closest = closestItem(viewportRef);
+
+        const raw = viewportRef - sectionRect.top - rowHeight / 2;
+        const trackTopRelSection = trackRect.top - sectionRect.top;
+        const trackBottomRelSection = trackTopRelSection + trackRect.height;
+        targetY = Math.min(Math.max(raw, trackTopRelSection), Math.max(trackTopRelSection, trackBottomRelSection - rowHeight));
+
+        targetLabelY = closest.dataset.group === "help" ? -labelStep() : 0;
+      };
+
+      let raf = 0;
+      const loop = () => {
+        currentY += (targetY - currentY) * LERP;
+        currentLabelY += (targetLabelY - currentLabelY) * LERP;
+        band.style.transform = `translateY(${currentY}px)`;
+        labelTrack.style.transform = `translateY(${currentLabelY}px)`;
+        const settled = Math.abs(targetY - currentY) <= SETTLE_THRESHOLD && Math.abs(targetLabelY - currentLabelY) <= SETTLE_THRESHOLD;
+        raf = settled ? 0 : requestAnimationFrame(loop);
+      };
+      const ensureLoop = () => {
+        if (!raf) raf = requestAnimationFrame(loop);
+      };
+      const onScroll = () => {
+        computeTarget();
+        ensureLoop();
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      document.fonts?.ready.then(onScroll);
+      computeTarget();
+      ensureLoop();
+    }
+  }
+</script>

@@ -1,0 +1,45 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="mb-10 font-display text-3xl uppercase italic leading-none tracking-tightest text-ink md:text-4xl">
+      {t.home.faq.heading}
+    </h2>
+
+    <div class="flex flex-col">
+      {
+        t.home.faq.items.map((item) => (
+          <details class="faq-item group border-t border-ash-dim/20 py-6 last:border-b">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg uppercase tracking-tightest text-ink md:text-xl">
+              {item.question}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden="true"
+                class="shrink-0 text-jade transition-transform duration-300 group-open:rotate-45"
+              >
+                <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </summary>
+            <p class="mt-4 max-w-2xl font-body text-base text-ash md:text-lg">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item summary {
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

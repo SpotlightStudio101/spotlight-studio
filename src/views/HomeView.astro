@@ -1,9 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProblemSolution from "../components/ProblemSolution.astro";
+import ClientSegments from "../components/ClientSegments.astro";
+import MethodSection from "../components/MethodSection.astro";
+import TeamSection from "../components/TeamSection.astro";
+import TextSection from "../components/TextSection.astro";
+import PainPoints from "../components/PainPoints.astro";
 import FilmTile from "../components/FilmTile.astro";
+import Testimonials from "../components/Testimonials.astro";
+import FaqSection from "../components/FaqSection.astro";
 import { films } from "../data/films";
-import { site } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
 
@@ -20,7 +25,7 @@ const heroReel = {
 ---
 
 <Layout title={t.meta.homeTitle} description={t.meta.homeDescription}>
-  <section id="hero" class="grain relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-void-deep" data-reveal>
+  <section id="hero" class="grain spotlight relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-void-deep" data-reveal>
     <video
       id="hero-reel-video"
       class="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover"
@@ -41,8 +46,12 @@ const heroReel = {
     </div>
 
     <div class="relative z-10 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 text-center md:px-10">
-      <h1 class="font-display text-[13vw] uppercase leading-[0.9] tracking-tightest text-ink sm:text-[9vw] md:text-8xl">
-        {t.home.heroLine1}<br />{t.home.heroLine2}
+      <span class="rounded-full border border-ash-dim/40 bg-void-deep/50 px-4 py-1.5 font-body text-xs text-ash backdrop-blur-sm md:text-sm">
+        {t.home.heroBadge}
+      </span>
+
+      <h1 class="font-display text-[13vw] italic uppercase leading-[0.9] tracking-tightest sm:text-[9vw] md:text-8xl">
+        <span class="text-ink">{t.home.heroLine1}</span><br /><span class="underline-accent text-ink">{t.home.heroLine2}</span>
       </h1>
 
       <p class="max-w-md font-body text-base leading-[1.2] tracking-[-0.01em] text-ash md:text-lg">
@@ -50,7 +59,7 @@ const heroReel = {
       </p>
 
       <a
-        href={site.bookingUrl}
+        href={localizePath("/book-a-call", locale)}
         class="cta-sweep group relative mt-2 inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full bg-jade px-6 py-2.5 font-display text-sm uppercase leading-none tracking-[-0.02em] text-void-deep"
       >
         <span class="relative z-10 flex items-center gap-2">
@@ -60,19 +69,28 @@ const heroReel = {
           </svg>
         </span>
       </a>
+
+      <p class="font-mono text-xs uppercase tracking-[-0.02em] text-ash">
+        {t.home.responseTime}
+      </p>
     </div>
 
     <p class="pointer-events-none absolute bottom-8 left-6 z-10 max-w-[16rem] font-body text-xs uppercase leading-snug tracking-tightest text-ash-dim md:left-10">
       {t.home.heroReelDisclaimer}
     </p>
 
-    <div class="pointer-events-none absolute bottom-8 right-6 z-10 flex items-center gap-2 text-ash md:right-10">
-      <span class="font-body text-xs uppercase tracking-tightest">{t.home.scroll}</span>
-      <span class="h-8 w-px animate-pulse bg-ash-dim"></span>
+    <div class="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex justify-center" aria-hidden="true">
+      <svg class="scroll-chevron h-7 w-7 text-ink" viewBox="0 0 24 24" fill="none">
+        <path d="M5 9l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
     </div>
   </section>
 
-  <ProblemSolution />
+  <TextSection heading={t.home.intro.heading} paragraphs={t.home.intro.paragraphs} />
+
+  <PainPoints />
+
+  <ClientSegments />
 
   <section class="border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
     <div class="mx-auto max-w-6xl">
@@ -91,6 +109,12 @@ const heroReel = {
     </div>
   </section>
 
+  <MethodSection />
+
+  <TeamSection />
+
+  <TextSection heading={t.home.parisCoverage.heading} paragraphs={t.home.parisCoverage.paragraphs} />
+
   <section class="border-t border-ash-dim/20 px-6 py-14 md:px-10">
     <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
       <p class="max-w-xl font-body text-lg text-ash md:text-xl">
@@ -102,20 +126,109 @@ const heroReel = {
     </div>
   </section>
 
-  <section class="reel-plate grain relative flex flex-col items-start justify-center gap-8 px-6 py-32 md:px-10 md:py-48">
-    <h2 class="max-w-3xl font-display text-[10vw] uppercase leading-[0.95] tracking-tightest text-ink sm:text-6xl md:text-7xl">
-      {t.home.closingHeadline}
-    </h2>
-    <a
-      href={site.bookingUrl}
-      class="group inline-flex items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
-    >
-      {t.home.bookACall}
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
-        <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </a>
+  <section class="relative overflow-hidden px-6 py-28 md:px-10 md:py-40">
+    <img
+      src="https://images.pexels.com/photos/11246529/pexels-photo-11246529.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      alt=""
+      class="pointer-events-none absolute inset-0 h-full w-full object-cover grayscale"
+      loading="lazy"
+    />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-void-deep/90 via-void-deep/80 to-void-deep/95" aria-hidden="true"></div>
+    <div class="orbit-glow" aria-hidden="true">
+      <div class="orbit-track">
+        <div class="orbit-orb"></div>
+      </div>
+      <div class="orbit-track orbit-track--b">
+        <div class="orbit-orb orbit-orb--b"></div>
+      </div>
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-3xl">
+      <h2 class="mb-12 font-display text-[11vw] italic uppercase leading-[0.95] tracking-tightest text-ink sm:text-6xl md:text-7xl">
+        {t.home.contactCta.heading}<br /><span class="underline-accent">{t.home.contactCta.headingAccent}</span>
+      </h2>
+
+      <form
+        name="home-contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        action={localizePath("/thanks", locale)}
+        class="flex flex-col gap-4"
+      >
+        <input type="hidden" name="form-name" value="home-contact" />
+        <p class="hidden">
+          <label>
+            {t.home.contactCta.honeypot} <input name="bot-field" />
+          </label>
+        </p>
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <input
+            name="first-name"
+            type="text"
+            required
+            autocomplete="given-name"
+            placeholder={t.home.contactCta.firstNameLabel}
+            class="w-full rounded-2xl border border-ash-dim/40 bg-void-deep/80 px-5 py-4 font-body text-base text-ink placeholder:text-ash-dim backdrop-blur-sm focus:border-jade focus:outline-none"
+          />
+          <input
+            name="last-name"
+            type="text"
+            required
+            autocomplete="family-name"
+            placeholder={t.home.contactCta.lastNameLabel}
+            class="w-full rounded-2xl border border-ash-dim/40 bg-void-deep/80 px-5 py-4 font-body text-base text-ink placeholder:text-ash-dim backdrop-blur-sm focus:border-jade focus:outline-none"
+          />
+        </div>
+
+        <input
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder={t.home.contactCta.emailLabel}
+          class="w-full rounded-2xl border border-ash-dim/40 bg-void-deep/80 px-5 py-4 font-body text-base text-ink placeholder:text-ash-dim backdrop-blur-sm focus:border-jade focus:outline-none"
+        />
+
+        <textarea
+          name="project"
+          required
+          rows="4"
+          placeholder={t.home.contactCta.projectLabel}
+          class="w-full resize-y rounded-2xl border border-ash-dim/40 bg-void-deep/80 px-5 py-4 font-body text-base text-ink placeholder:text-ash-dim backdrop-blur-sm focus:border-jade focus:outline-none"
+        ></textarea>
+
+        <button
+          type="submit"
+          class="cta-sweep group relative mt-2 inline-flex w-fit items-center gap-3 overflow-hidden rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
+        >
+          <span class="relative z-10 flex items-center gap-3">
+            {t.home.contactCta.submitButton}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+        </button>
+      </form>
+
+      <div class="mt-8 flex flex-wrap items-center gap-3 border-t border-ash-dim/20 pt-6">
+        <p class="font-mono text-xs uppercase tracking-[-0.02em] text-ash">{t.home.responseTime}</p>
+        <span class="text-ash-dim">·</span>
+        <a href={localizePath("/book-a-call", locale)} class="font-display text-sm uppercase tracking-tightest text-jade hover:text-ink">
+          {t.home.bookACall}
+        </a>
+        <span class="font-display text-sm uppercase tracking-tightest text-ash">{t.home.or}</span>
+        <a href={localizePath("/devis", locale)} class="font-display text-sm uppercase tracking-tightest text-jade hover:text-ink">
+          {t.home.getQuote}
+        </a>
+      </div>
+    </div>
   </section>
+
+  <Testimonials />
+
+  <FaqSection />
 </Layout>
 
 <script>

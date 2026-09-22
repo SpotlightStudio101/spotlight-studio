@@ -1,0 +1,44 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+import { getLocale, useTranslations } from "../i18n/translations";
+import { localizePath } from "../i18n/utils";
+
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const b = t.bookCall;
+
+// Calendly's own inline-embed theming params — matched to this site's void/ink/jade tokens
+// (global.css) so the widget doesn't look like a foreign white box dropped on a dark page.
+const calendlyEmbedUrl = `${site.calendlyUrl}?background_color=121212&text_color=ffffff&primary_color=ffa200`;
+---
+
+<Layout title={t.meta.bookCallTitle} description={t.meta.bookCallDescription}>
+  <section class="px-6 pb-16 pt-32 md:px-10 md:pt-40">
+    <div class="mx-auto max-w-3xl">
+      <h1 class="font-display text-[13vw] uppercase leading-[0.92] tracking-tightest text-ink sm:text-7xl md:text-8xl">
+        {b.heading}
+      </h1>
+      <p class="mt-6 max-w-xl font-body text-lg text-ash md:text-xl">
+        {b.intro}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-10 md:px-10">
+    <div class="mx-auto max-w-4xl">
+      <div class="calendly-inline-widget" data-url={calendlyEmbedUrl} style="min-width:320px;height:700px;"></div>
+      <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-14 md:px-10">
+    <div class="mx-auto flex max-w-3xl flex-col gap-2">
+      <h2 class="font-display text-lg uppercase tracking-tightest text-ink">{b.altContactHeading}</h2>
+      <p class="font-body text-base text-ash">{b.altContactBody}</p>
+      <a href={localizePath("/contact", locale)} class="mt-2 w-fit font-display text-sm uppercase tracking-tightest text-jade hover:text-ink">
+        {b.altContactLink}
+      </a>
+    </div>
+  </section>
+</Layout>

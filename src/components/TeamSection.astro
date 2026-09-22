@@ -1,0 +1,29 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+---
+
+<section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-10 font-display text-3xl uppercase italic leading-none tracking-tightest text-ink md:text-4xl">
+      {t.home.team.heading}
+    </h2>
+
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,22rem)_1fr] md:items-start md:gap-14">
+      <div
+        class="reel-plate grain relative flex aspect-[4/5] w-full items-end justify-start rounded-3xl p-6"
+        data-reveal
+        aria-label="Portrait placeholder"
+      >
+        <span class="font-display text-xs uppercase tracking-tightest text-ash-dim md:text-sm">
+          {t.home.team.portraitPlaceholder}
+        </span>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        {t.home.team.paragraphs.map((paragraph) => <p class="max-w-xl font-body text-base text-ash md:text-lg">{paragraph}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

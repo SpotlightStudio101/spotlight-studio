@@ -24,14 +24,26 @@ const currentBasePath = unlocalizePath(Astro.url.pathname);
 const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
 ---
 
-<div
-  class="pointer-events-none absolute inset-x-0 top-0 z-40 h-28 bg-gradient-to-b from-void via-void/55 to-transparent md:h-36"
-  aria-hidden="true"
->
-</div>
-
-<header class="absolute inset-x-0 top-0 z-50 grid grid-cols-[1fr_auto_1fr] items-center px-6 py-5 md:px-10 md:py-7">
-  <div id="lang-switcher" class="flex items-center gap-1.5 justify-self-start font-display text-xs uppercase tracking-tightest text-ash sm:gap-2 sm:text-sm" aria-label={t.nav.language}>
+<header id="site-header" class="nav-shell fixed inset-x-0 top-0 z-50">
+<div class="pill-nav mx-auto grid grid-cols-[1fr_auto_1fr] items-center px-5 py-3 md:px-7 md:py-4">
+  <div id="lang-switcher" class="nav-grow-el flex items-center gap-1.5 justify-self-start font-display text-xs uppercase tracking-tightest text-ash sm:gap-2 sm:text-sm" aria-label={t.nav.language}>
+    <a
+      href={locale === "fr" ? Astro.url.pathname : otherLocaleHref}
+      class:list={["group flex items-center gap-1 transition-colors duration-300 hover:text-jade", locale === "fr" ? "text-ink" : "text-ash-dim"]}
+      aria-current={locale === "fr" ? "true" : undefined}
+    >
+      <svg
+        viewBox="0 0 60 30"
+        class:list={["hidden h-3 w-5 shrink-0 transition-opacity duration-300 sm:inline-block", locale === "fr" ? "opacity-100" : "opacity-50 group-hover:opacity-100"]}
+        aria-hidden="true"
+      >
+        <path d="M0,0 H20 V30 H0 Z" fill="#0055A4" />
+        <path d="M20,0 H40 V30 H20 Z" fill="#fff" />
+        <path d="M40,0 H60 V30 H40 Z" fill="#EF4135" />
+      </svg>
+      FR
+    </a>
+    <span class="text-ash-dim">/</span>
     <a
       href={locale === "en" ? Astro.url.pathname : otherLocaleHref}
       class:list={["group flex items-center gap-1 transition-colors duration-300 hover:text-jade", locale === "en" ? "text-ink" : "text-ash-dim"]}
@@ -50,26 +62,9 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
       </svg>
       EN
     </a>
-    <span class="text-ash-dim">/</span>
-    <a
-      href={locale === "fr" ? Astro.url.pathname : otherLocaleHref}
-      class:list={["group flex items-center gap-1 transition-colors duration-300 hover:text-jade", locale === "fr" ? "text-ink" : "text-ash-dim"]}
-      aria-current={locale === "fr" ? "true" : undefined}
-    >
-      <svg
-        viewBox="0 0 60 30"
-        class:list={["hidden h-3 w-5 shrink-0 transition-opacity duration-300 sm:inline-block", locale === "fr" ? "opacity-100" : "opacity-50 group-hover:opacity-100"]}
-        aria-hidden="true"
-      >
-        <path d="M0,0 H20 V30 H0 Z" fill="#0055A4" />
-        <path d="M20,0 H40 V30 H20 Z" fill="#fff" />
-        <path d="M40,0 H60 V30 H40 Z" fill="#EF4135" />
-      </svg>
-      FR
-    </a>
   </div>
 
-  <a href={localizePath("/", locale)} class="justify-self-center whitespace-nowrap font-wordmark text-base font-medium uppercase tracking-normal text-white sm:text-2xl md:text-4xl">
+  <a href={localizePath("/", locale)} class="nav-grow-el justify-self-center whitespace-nowrap font-wordmark text-lg font-bold uppercase italic tracking-tightest text-ink sm:text-xl md:text-2xl">
     {site.name}
   </a>
 
@@ -78,7 +73,7 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
     type="button"
     aria-expanded="false"
     aria-controls="site-menu"
-    class="group relative flex h-11 w-11 items-center justify-center justify-self-end rounded-full"
+    class="nav-grow-el group relative flex h-10 w-10 items-center justify-center justify-self-end rounded-full transition-colors duration-300 hover:bg-jade/10 md:h-11 md:w-11"
   >
     <span class="sr-only">{t.nav.openMenu}</span>
     <span class="relative block h-3.5 w-6" aria-hidden="true">
@@ -90,6 +85,7 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
       ></span>
     </span>
   </button>
+</div>
 </header>
 
 <nav
@@ -235,5 +231,27 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
         trigger.closest(".nav-dropdown")?.classList.toggle("is-open");
       });
     });
+  }
+
+  // Nav detachment: flush and edge-to-edge at the very top of the page, morphing into the
+  // inset floating pill once the visitor scrolls past a small threshold — the same behavior
+  // lusantprod.com's own nav performs. Pure attribute toggle; the actual animation is CSS
+  // transitions on .nav-shell/.pill-nav (see global.css), so this stays cheap on scroll.
+  const header = document.getElementById("site-header");
+  if (header) {
+    const PIN_THRESHOLD = 24;
+    let ticking = false;
+    const applyState = () => {
+      ticking = false;
+      header.dataset.pinned = String(window.scrollY > PIN_THRESHOLD);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(applyState);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    applyState();
   }
 </script>

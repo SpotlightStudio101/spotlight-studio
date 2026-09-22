@@ -1,0 +1,333 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+const steps = t.home.method.steps;
+
+// Simple single-color outline pictograms in a bordered circular badge — corporate/minimal,
+// not the hand-drawn sticker treatment (kept aside for now, see git history if revisited).
+// Generic symbols (chat bubble, crop marks, camera, equalizer), 24x24, stroke-based.
+const icons = [
+  // Chat bubble — listening / conversation.
+  `<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Z"/>`,
+  // Crop marks — framing / preparation.
+  `<path d="M4 8V6a2 2 0 0 1 2-2h2M4 16v2a2 2 0 0 0 2 2h2M20 8V6a2 2 0 0 0-2-2h-2M20 16v2a2 2 0 0 1-2 2h-2"/>`,
+  // Camera — the shoot itself.
+  `<path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2l1.2-1.8A1.5 1.5 0 0 1 10 4.5h4a1.5 1.5 0 0 1 1.3.7L16.5 7h2A1.5 1.5 0 0 1 20 8.5v9A1.5 1.5 0 0 1 18.5 19h-13A1.5 1.5 0 0 1 4 17.5v-9Z"/><circle cx="12" cy="13" r="3.25"/>`,
+  // Equalizer sliders — editing / color / mix.
+  `<path d="M6 4v6M6 14v6M12 4v3M12 11v9M18 4v10M18 18v2"/><circle cx="6" cy="12" r="2"/><circle cx="12" cy="9" r="2"/><circle cx="18" cy="16" r="2"/>`,
+];
+---
+
+<section class="method-grain grain-wash relative overflow-hidden border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="mb-20 font-display text-4xl uppercase italic leading-none tracking-tightest text-ink md:mb-28 md:text-6xl">
+      {t.home.method.heading}
+    </h2>
+  </div>
+
+  <div class="relative mx-auto max-w-4xl" id="method-steps">
+    <div class="method-track method-track--fade absolute left-[5px] top-1.5 bottom-1.5 w-px bg-ash-dim/25 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
+
+    <div id="method-ball" class="method-ball absolute left-[5px] top-1.5 z-10 md:left-1/2" aria-hidden="true">
+      <span class="method-ball-halo absolute rounded-full"></span>
+      <span class="method-ball-core absolute rounded-full bg-ink"></span>
+    </div>
+
+    <ul class="flex flex-col gap-16 md:gap-8">
+      {
+        steps.map((step, i) => {
+          const isRight = i % 2 === 1;
+          return (
+            <li class="method-step relative grid grid-cols-[auto_1fr] items-start gap-6 md:grid-cols-[1fr_2.5rem_1fr] md:gap-6">
+              <div
+                class:list={[
+                  "method-card relative overflow-hidden rounded-3xl border border-ash-dim/20 p-6 md:p-8",
+                  isRight ? "md:col-start-3" : "md:col-start-1",
+                ]}
+              >
+                <div class="method-card-halo pointer-events-none absolute -inset-5 rounded-[2.5rem]" aria-hidden="true"></div>
+                <div class="method-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
+
+                <div
+                  class="relative z-10 mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-ash-dim/40 text-jade"
+                  aria-hidden="true"
+                >
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <Fragment set:html={icons[i % icons.length]} />
+                  </svg>
+                </div>
+
+                <p class="relative z-10 font-display text-3xl text-jade md:text-4xl">{String(i + 1).padStart(2, "0")}</p>
+                <h3 class="relative z-10 mt-1 font-display text-2xl uppercase italic leading-none tracking-tightest text-ink md:text-3xl">
+                  {step.title}
+                </h3>
+                <div class="method-rule relative z-10 mt-4 h-[2px] w-[4.5rem] origin-left bg-jade" aria-hidden="true" />
+                <p class="relative z-10 mt-4 font-body text-base text-ash md:text-lg">{step.body}</p>
+                {step.kit.length > 0 && (
+                  <ul class="relative z-10 mt-5 flex flex-wrap gap-2">
+                    {step.kit.map((item) => (
+                      <li class="rounded-full border border-ash-dim/40 px-3 py-1 font-mono text-xs uppercase tracking-[-0.02em] text-ash">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  /* Method ball — a single marker riding the center line, its position set directly from
+     scroll progress (see script below) rather than snapping between per-step dots. A dense
+     core plus a larger, soft, lower-opacity ring around it, matching the reference's own
+     "traveling light" marker. */
+  .method-ball {
+    /* No transition on top: any smoothing here compounds with the rAF-driven scroll update
+       below and reads as lag between the ball and the actual scroll position. Position is
+       written directly, frame-for-frame, so it stays locked to the scrollbar. Opacity is the
+       only thing that eases — the ball fades in once the section enters the viewport, the
+       reference's own "arrives with a fade" entrance, and fading opacity never touches the
+       centering transform below. */
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .method-ball.is-visible {
+    opacity: 1;
+  }
+
+  /* Track fade — the center line fades in from nothing at the top and fades back out at the
+     bottom, rather than starting/ending on a hard-edged cut. */
+  .method-track--fade {
+    mask-image: linear-gradient(to bottom, transparent 0, black 110px, black calc(100% - 110px), transparent 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0,
+      black 110px,
+      black calc(100% - 110px),
+      transparent 100%
+    );
+  }
+  .method-ball-core {
+    top: 50%;
+    left: 50%;
+    height: 18px;
+    width: 18px;
+    transform: translate(-50%, -50%);
+  }
+  .method-ball-halo {
+    top: 50%;
+    left: 50%;
+    height: 40px;
+    width: 40px;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: 5px solid color-mix(in oklab, var(--color-ink) 35%, transparent);
+  }
+
+  /* Interior light — reads as the section's own ambient glow bleeding in from behind the card
+     at one corner, not a wash painted across the whole surface: small radius, fast falloff,
+     so most of the card stays its natural dark tone and only the corner picks up color —
+     the same balance as the reference (light comes from the backdrop, not from the card). */
+  .method-glow {
+    background: radial-gradient(ellipse 55% 45% at 0% 100%, color-mix(in oklab, var(--color-jade) 30%, transparent) 0%, transparent 65%);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .method-step.is-reached .method-glow {
+    opacity: 1;
+  }
+
+  /* Card halo — a blurred glow sitting just behind the card, bleeding out past its own rounded
+     border rather than staying inside it. This is the reference's own "the card itself glows"
+     look, built as a blurred backdrop layer instead of box-shadow (kept off this world's
+     flat-by-contract list). Same is-reached / hover triggers as the interior glow. */
+  .method-card-halo {
+    z-index: -1;
+    background: color-mix(in oklab, var(--color-jade) 35%, transparent);
+    filter: blur(20px);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+  .method-step.is-reached .method-card-halo {
+    opacity: 1;
+  }
+  .method-card:hover .method-card-halo,
+  .method-card:focus-within .method-card-halo {
+    opacity: 1;
+  }
+
+  /* Card states: dimmed and flat-bordered by default (not yet reached by the scroll line),
+     then advancing forward, brightening, and lighting up its border the moment it's reached —
+     the same treatment a hover triggers early, so scrubbing past a card with the mouse gives
+     the identical result as scrolling to it. Reimplemented without box-shadow (this world
+     stays flat by contract; the lift reads through scale + light, not a drop shadow). */
+  .method-card {
+    opacity: 0.5;
+    filter: brightness(0.8) saturate(0.85);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, opacity 0.6s ease,
+      filter 0.6s ease;
+  }
+  .method-step.is-reached .method-card,
+  .method-card:hover,
+  .method-card:focus-within {
+    transform: scale(1.035);
+    /* Deliberately not full-opacity ink: the orbiting highlight below is painted in the same
+       white, and needs a dimmer base ring to read as brighter against, the way a lit LED strip
+       reads brighter than its own unlit housing. */
+    border-color: color-mix(in oklab, var(--color-ink) 55%, transparent);
+    opacity: 1;
+    filter: brightness(1) saturate(1);
+  }
+
+  /* LED chase — a small bright point that orbits the card's own edge once lit, riding on a
+     conic-gradient ring masked down to just the border's own 1px (content-box subtracted from
+     the full box), independent of the crisp white border-color above so the two reinforce
+     without either one having to fake the other. */
+  @property --method-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  .method-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: conic-gradient(
+      from var(--method-angle, 0deg),
+      transparent 0deg,
+      transparent 245deg,
+      color-mix(in oklab, var(--color-ink) 75%, transparent) 305deg,
+      var(--color-ink) 345deg,
+      color-mix(in oklab, var(--color-ink) 75%, transparent) 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .method-step.is-reached .method-card::before,
+  .method-card:hover::before,
+  .method-card:focus-within::before {
+    opacity: 1;
+    animation: method-border-spin 3.2s linear infinite;
+  }
+  @keyframes method-border-spin {
+    to {
+      --method-angle: 360deg;
+    }
+  }
+  .method-card:hover .method-glow,
+  .method-card:focus-within .method-glow {
+    opacity: 1;
+  }
+  .method-rule {
+    transform: scaleX(0.667);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .method-step.is-reached .method-rule,
+  .method-card:hover .method-rule,
+  .method-card:focus-within .method-rule {
+    transform: scaleX(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .method-card {
+      opacity: 1;
+      filter: none;
+      transition: none;
+    }
+    .method-rule {
+      transition: none;
+    }
+    .method-step.is-reached .method-card,
+    .method-card:hover,
+    .method-card:focus-within {
+      transform: none;
+    }
+    .method-card::before {
+      animation: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const stepsEl = document.getElementById("method-steps");
+  const ballEl = document.getElementById("method-ball");
+  const stepEls = document.querySelectorAll<HTMLElement>(".method-step");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (stepsEl && ballEl) {
+    // Ball entrance: invisible until the section scrolls into view, then a plain opacity
+    // fade — same threshold/margin as the site's own generic [data-reveal] pattern, kept as
+    // a dedicated observer here since the reveal system's own transform would fight the
+    // ball's centering transform above.
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              ballEl.classList.add("is-visible");
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+      );
+      io.observe(stepsEl);
+    } else {
+      ballEl.classList.add("is-visible");
+    }
+
+    if (prefersReducedMotion) {
+      ballEl.style.top = "100%";
+      ballEl.classList.add("is-visible");
+      stepEls.forEach((step) => step.classList.add("is-reached"));
+    } else {
+      // viewportRef is the screen height fraction progress is measured against, so it also
+      // doubles as where the ball actually sits on screen: rect.top + progress*rect.height
+      // always equals viewportRef by construction, i.e. the ball hovers at a fixed point on
+      // screen while the section scrolls past it — true viewport center (0.5).
+      let raf = 0;
+      const update = () => {
+        raf = 0;
+        const rect = stepsEl.getBoundingClientRect();
+        const viewportRef = window.innerHeight * 0.5;
+        const progress = Math.min(1, Math.max(0, (viewportRef - rect.top) / rect.height));
+        ballEl.style.top = `${progress * 100}%`;
+
+        // Exactly one card lit at a time: the active one is whichever card's top edge the
+        // ball has most recently crossed. Using each card's own top edge (not an assumed even
+        // fraction per index) keeps this in sync regardless of varying card heights. Picking a
+        // single active index — rather than testing each card's own top/bottom span in
+        // isolation — guarantees the previous card switches off in the same frame the next one
+        // switches on, with no gap where none are lit and no overlap where two are.
+        let activeIndex = -1;
+        stepEls.forEach((step, i) => {
+          if (step.getBoundingClientRect().top <= viewportRef) activeIndex = i;
+        });
+        stepEls.forEach((step, i) => {
+          step.classList.toggle("is-reached", i === activeIndex);
+        });
+      };
+      const onScroll = () => {
+        if (!raf) raf = requestAnimationFrame(update);
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      update();
+    }
+  }
+</script>

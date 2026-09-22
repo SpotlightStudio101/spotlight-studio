@@ -1,0 +1,43 @@
+---
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+
+// Temporary stock photography (Pexels License, free to use) standing in for Quentin's own
+// work until real client stills/footage exist — index-matched to home.segments.items below.
+const images = [
+  "https://images.pexels.com/photos/1027130/pexels-photo-1027130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/6814524/pexels-photo-6814524.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/4218027/pexels-photo-4218027.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/19950472/pexels-photo-19950472.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "https://images.pexels.com/photos/7644081/pexels-photo-7644081.jpeg?auto=compress&cs=tinysrgb&w=1200",
+];
+---
+
+<section class="grain-wash relative border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="mb-3 font-display text-4xl uppercase italic leading-none tracking-tightest text-ink md:text-6xl">
+      {t.home.segments.heading}
+    </h2>
+    <p class="mb-12 max-w-md font-body text-xs uppercase tracking-tightest text-ash-dim">
+      {t.home.segments.imageDisclaimer}
+    </p>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        t.home.segments.items.map((item, i) => (
+          <div class="service-card group flex aspect-[3/4] flex-col justify-end rounded-3xl p-6" data-reveal>
+            <img src={images[i]} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <div class="relative z-10 flex flex-col gap-2">
+              <h3 class="font-display text-xl uppercase italic leading-[0.95] tracking-tightest text-ink md:text-2xl">
+                {item.title}
+              </h3>
+              <p class="line-clamp-2 max-w-xs font-body text-xs text-ash md:text-sm">{item.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

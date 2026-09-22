@@ -30,7 +30,7 @@ const t = useTranslations(locale);
           {t.contact.bookBody}
         </p>
         <a
-          href={site.bookingUrl}
+          href={localizePath("/book-a-call", locale)}
           class="group inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
         >
           {t.contact.bookACall}
@@ -88,6 +88,29 @@ const t = useTranslations(locale);
           </div>
 
           <div class="flex flex-col gap-2">
+            <label for="project-type" class="font-display text-xs uppercase tracking-tightest text-ash">{t.contact.projectTypeLabel}</label>
+            <select
+              id="project-type"
+              name="project-type"
+              required
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            >
+              {t.contact.projectTypeOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <label for="budget" class="font-display text-xs uppercase tracking-tightest text-ash">{t.contact.budgetLabel}</label>
+            <select
+              id="budget"
+              name="budget"
+              class="w-full border-b border-ash-dim/40 bg-transparent py-3 font-body text-lg text-ink transition-colors duration-300 focus:border-jade"
+            >
+              {t.contact.budgetOptions.map((option) => <option value={option}>{option}</option>)}
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-2">
             <label for="message" class="font-display text-xs uppercase tracking-tightest text-ash">
               {t.contact.projectLabel}
             </label>
@@ -109,6 +132,10 @@ const t = useTranslations(locale);
               <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </button>
+
+          <p class="font-mono text-xs uppercase tracking-[-0.02em] text-ash">
+            {t.home.responseTime}
+          </p>
         </form>
       </div>
     </div>

@@ -8,16 +8,16 @@ export function filmTitle(film: FilmEntry, t: Translations): string {
   return `${t.filmData.untitled} — ${t.filmData.genre[film.genre]} ${film.index}`;
 }
 
-/** Given an unprefixed (English) path like "/films", returns the equivalent path for `locale`. */
+/** Given an unprefixed (French) path like "/films", returns the equivalent path for `locale`. */
 export function localizePath(path: string, locale: Locale): string {
   if (locale === defaultLocale) return path;
-  return path === "/" ? "/fr" : `/fr${path}`;
+  return path === "/" ? "/en" : `/en${path}`;
 }
 
-/** Strips a leading "/fr" prefix, returning the base (English) path. */
+/** Strips a leading "/en" prefix, returning the base (French) path. */
 export function unlocalizePath(pathname: string): string {
-  if (pathname === "/fr") return "/";
-  if (pathname.startsWith("/fr/")) return pathname.slice(3);
+  if (pathname === "/en") return "/";
+  if (pathname.startsWith("/en/")) return pathname.slice(3);
   return pathname;
 }
 

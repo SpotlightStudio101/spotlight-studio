@@ -1,8 +1,6 @@
-// Placeholder operational links — replace before launch.
 export const site = {
-  name: "Quentin Mouledous",
-  // TODO: replace with the real Calendly link once the account exists.
-  bookingUrl: "#book-a-call",
+  name: "Spotlight Studio",
+  calendlyUrl: "https://calendly.com/q-mld-protonmail/30min",
   instagramUrl: "https://www.instagram.com/quentinmouledousfilms",
   youtubeUrl: "https://www.youtube.com/@QuentinMouledous",
 };

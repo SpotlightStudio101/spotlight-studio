@@ -1,38 +1,32 @@
 ---
-name: Quentin Mouledous — Filmmaker
-description: A screening-room world for a multi-genre filmmaker's portfolio and booking site.
+name: Spotlight Films — Video Production Studio
+description: A studio-agency portfolio site for a Paris video production practice, built on a near-black ground and one light-blue accent.
 colors:
-  void: "#0a0a09"
-  void-deep: "#050504"
-  ink: "#f3f1ea"
-  ash: "#948f84"
-  ash-dim: "#5c584f"
-  jade: "#45b892"
+  void: "#0d0d0d"
+  void-deep: "#000000"
+  ink: "#f5f1ea"
+  ash: "#b8b2a8"
+  ash-dim: "#857e72"
+  jade: "#3b9bff"
 typography:
   display:
-    fontFamily: "Barlow Condensed, Arial Narrow, sans-serif"
+    fontFamily: "Kanit, Arial Narrow, sans-serif"
     fontSize: "clamp(2.5rem, 13vw, 6rem)"
     fontWeight: 700
-    lineHeight: 0.92
-    letterSpacing: "-0.04em"
+    lineHeight: 0.9
+    letterSpacing: "-0.03em"
   body:
-    fontFamily: "Barlow, Helvetica Neue, sans-serif"
+    fontFamily: "Bai Jamjuree, Helvetica Neue, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 1.5
     letterSpacing: "normal"
-  label:
-    fontFamily: "Barlow Condensed, Arial Narrow, sans-serif"
-    fontSize: "0.75rem"
-    fontWeight: 600
-    lineHeight: 1
-    letterSpacing: "-0.04em"
   wordmark:
-    fontFamily: "Jost, Helvetica Neue, sans-serif"
-    fontSize: "clamp(1.5rem, 3vw, 2.25rem)"
-    fontWeight: 500
+    fontFamily: "Kanit, Helvetica Neue, sans-serif"
+    fontSize: "clamp(1rem, 3vw, 1.25rem)"
+    fontWeight: 700
     lineHeight: 1
-    letterSpacing: "normal"
+    letterSpacing: "-0.03em"
   mono:
     fontFamily: "IBM Plex Mono, Courier New, monospace"
     fontSize: "0.875rem"
@@ -41,10 +35,12 @@ typography:
     letterSpacing: "normal"
 rounded:
   sharp: "0px"
+  control: "6px"
+  card: "1.5rem"
   pill: "9999px"
 spacing:
-  section-y-sm: "7rem"
-  section-y-lg: "10rem"
+  section-y-sm: "4rem"
+  section-y-lg: "8rem"
   container-x: "1.5rem"
 components:
   button-primary:
@@ -53,6 +49,10 @@ components:
     typography: "{typography.display}"
     rounded: "{rounded.pill}"
     padding: "16px 28px"
+  service-card:
+    backgroundColor: "{colors.void-deep}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.card}"
   menu-toggle:
     backgroundColor: "transparent"
     textColor: "{colors.ink}"
@@ -60,136 +60,121 @@ components:
     size: "44px"
 ---
 
-# Design System: Quentin Mouledous — Filmmaker
+# Design System: Spotlight Films — Video Production Studio
 
 ## Overview
 
-**Creative North Star: "The Projection Booth"**
+**Creative North Star: "Studio Agency"**
 
-The site is built as a screening room, not a brochure: near-total darkness, one beam of light, and footage that plays itself before a single word of pitch is made. It was grounded directly in two references the client pinned — dannygevirtz.com/dannysprojects (a full-bleed, self-playing 3×3 film grid) and theartofdocumentary.com (a black-ground, amber-accented persuasion page with a pinned scroll passage and a full-screen takeover menu) — translated to Quentin's own positioning: work built from genuinely understanding a client before a camera is ever raised. The accent itself moved on from that reference's amber to a jade green, explored later as its own direction and kept.
+This is a full replacement of the previous "Projection Booth" world. The client asked for heavy structural and material inspiration from lusantprod.com, a video-production agency site — near-black ground, one saturated accent, bold italic display type, image-forward cards — translated into this site's own content, never its copy, photography, or exact hex values (the codebase records the accent deliberately shifted off the reference's `#FF7300` to `#FF5A1F` for that reason). The accent was later swapped again, independent of the Lusant redesign, from that tangerine to a light blue (`#3B9BFF`) at the client's direct request — same near-black ground and one-hue-only role, different hue. The result reads less like a screening room and more like an agency reel: a floating glass nav that stays present while you scroll, italic display headlines, and full-bleed photographic service cards with rounded corners standing in for what were previously plain full-bleed media or bare text sections.
 
-Confirmed visual rejections: no kicker or eyebrow label above any heading (the heading opens the section on its own); no card-and-icon page structure; no gradient text; no neon glow — the accent is a muted jade, not a signal color.
+Some incumbent invariants survive the replacement because the new code still honors them: the site is still flat (no `box-shadow` anywhere in the codebase), still spends its one accent color sparingly against a near-black ground, and still treats missing footage/photography/testimonials as an honestly-labeled placeholder rather than a fabrication. Others do not survive: the old two-radius (sharp-or-pill only) rule is contradicted by shipped `rounded-md` form controls and `rounded-3xl` photo cards, and the old no-kicker/no-eyebrow rule is contradicted by a pill eyebrow badge shipped above the homepage H1 (see Do's and Don'ts — this is recorded as a defect the build carries, not a new system rule).
 
 **Key Characteristics:**
-- Near-black ground throughout, lit only by a drifting jade beam and film grain
-- One accent color, spent only on the primary action and current-state emphasis
-- Full-bleed, edge-to-edge media wherever footage or its placeholder appears — never inside a card
-- A single authored motion signature (media developing into clarity) reserved for media, never for typography
-- Navigation lives entirely inside a full-screen black takeover — the header itself is never a persistent link row; the page-end footer's own short link list is a separate, page-end convenience, not a competing nav bar
+- Near-black ground (`void`/`void-deep`) lit by one saturated light-blue accent, spent narrowly (primary CTAs, current-nav-state, focus, underline accents)
+- A persistent floating glass nav (`.pill-nav`) rather than a header that scrolls away
+- Bold italic Kanit display type for anything the page asserts; Bai Jamjuree for anything it explains
+- A three-step radius vocabulary — sharp structural elements, small-radius form controls, large-radius photo cards, and fully-rounded interactive pills — not a strict two-state system
+- Full-bleed photographic service cards (`.service-card`) with a bottom scrim and hover zoom, a new card language this world introduces that the previous system explicitly refused
 
 ## Colors
 
-A near-monochrome black world lit by a single accent; every other value is a step of ash or ink, never a second hue.
+A near-monochrome black world lit by a single accent; every other value is a step of ash or ink.
 
 ### Primary
-- **Jade Beam** (#45b892): the one accent in the system. Used only for the primary "Book a call" action, the current page in the takeover menu, and the solved state of the homepage's scroll passage. Never used as a background field or decoration.
+- **Signal Blue** (`#3b9bff`, CSS var `--color-jade` — the variable name is inherited from the previous system and now holds an unrelated hue): the one accent. Used for primary CTAs (`.cta-sweep` buttons), the current/hover link state in nav and footer, the `.underline-accent` heading rule, focus rings, and selection color. Verified contrast: void-deep text on jade is 7.32:1 (AA); white text on jade falls to 2.87:1 and is never used — buttons stay dark-text-on-accent for this reason.
 
 ### Neutral
-- **Screening Room Black** (#0a0a09): the page ground, used everywhere as `body`/`html` background.
-- **Deep Cut** (#050504): the darkest value — the takeover menu's background and the text color sitting on top of jade (never white-on-jade).
-- **Print Warm White** (#f3f1ea): primary text and headline color; a warm off-white, never pure #fff.
-- **Grain Gray** (#948f84): secondary text — paragraph copy, labels, inactive menu links.
-- **Ash Dim** (#5c584f): hairline dividers, section borders, and the grid's between-tile lines. Always used at low opacity (`/20`), never as a solid stroke.
+- **Void** (`#0d0d0d`): the page ground — `body`/`html` background.
+- **Void Deep** (`#000000`): the darkest value — placeholder-plate backgrounds, dark-glass nav tint base, takeover-menu background, and the text color sitting on jade.
+- **Print Warm White / Ink** (`#f5f1ea`): primary text and headline color; contrast 17.26:1 on void.
+- **Ash** (`#b8b2a8`): secondary text — body copy, labels, inactive nav/footer links; contrast 9.23:1 on void.
+- **Ash Dim** (`#857e72`): hairline dividers, section borders, placeholder captions; contrast 4.84:1 on void (AA floor for text use).
 
 ### Named Rules
-**The One Light Rule.** Jade appears at most once per viewport — the single action or single emphasis the visitor should notice. If a second element wants it, that element is wrong, not the rule.
+**The One Accent Rule.** Signal Blue is the only hue in the system besides ink/ash/void. It marks exactly one thing per view — a primary action, the current state, or an accent underline — never a decorative field or a second color introduced alongside it.
 
 ## Typography
 
-**Display Font:** Barlow Condensed (with Arial Narrow, sans-serif)
-**Body Font:** Barlow (with Helvetica Neue, sans-serif)
-**Wordmark Font:** Jost (with Helvetica Neue, sans-serif) — the name mark only
-**Mono Font:** IBM Plex Mono (with Courier New, monospace) — the footer only, echoing theartofdocumentary.com's own footer typeface (their Founders Grotesk Mono is a paid font; this is the closest free match)
+**Display Font:** Kanit (with Arial Narrow, sans-serif)
+**Body Font:** Bai Jamjuree (with Helvetica Neue, sans-serif)
+**Wordmark Font:** Kanit (with Helvetica Neue, sans-serif) — shares the display family, unlike the previous system's separate Jost signature mark
+**Mono Font:** IBM Plex Mono (with Courier New, monospace) — unchanged from the previous system; footer only
 
-**Character:** A tall, honest condensed grotesk for anything the page asserts — headlines, CTAs, nav, labels — paired with its own regular-width sibling for anything the page explains. The pairing reads as cinema signage: poster-title confidence up top, legible prose underneath. The personal name mark breaks from this system deliberately: a true geometric sans (circular bowls, triangular apexes — the same Bauhaus-era geometric lineage as Futura), set in caps at normal tracking — a signature distinct from the rest of the type system, chosen to match a brief-pinned reference (Futura PT Medium) with a freely-licensed equivalent rather than a paid font the project can't license.
+**Character:** A bold, slightly condensed italic grotesk for anything the page asserts — headlines, CTAs, nav labels — paired with a rounder, more neutral sibling for anything it explains. Kanit's italic is used deliberately on hero and section headlines for agency-reel energy; body copy stays upright.
 
 ### Hierarchy
-- **Wordmark** (500, text-2xl–4xl, normal tracking, uppercase, Jost): the personal name mark, centered in the header at the top of every page. The one deliberate exception to the display/body system below.
-- **Display** (700, clamp(2.5rem, 13vw, 6rem), leading 0.92, tracking -0.04em, uppercase): hero and closing-CTA headlines. The floor of the system's boldness.
-- **Headline** (600–700, text-4xl–6xl, leading-none, uppercase): section openers ("A range of work", "How I work", "Let's talk").
-- **Title** (600, text-2xl–3xl, leading-none, uppercase, jade): named sub-points inside a section, e.g. each "How I work" step.
-- **Body** (400–500, text-base–xl, Grain Gray): paragraph copy, capped around 60ch by its container's max-width.
-- **Label** (600, text-xs–sm, uppercase, tracking -0.04em, Grain Gray / Ash Dim): genre tags, "Footage coming soon", menu footer text.
+- **Wordmark** (700, ~text-base–xl, uppercase, italic, Kanit): the studio name mark, centered in the floating pill nav on every page.
+- **Display** (700, clamp(2.5rem, 13vw, 6rem), leading 0.9, tracking -0.03em, uppercase, often italic): hero and closing-CTA headlines.
+- **Headline** (700, text-4xl–6xl, leading-none, uppercase, sometimes italic): section openers.
+- **Body** (400, text-sm–xl, Ash): paragraph copy.
+- **Label** (400–600, text-xs–sm, uppercase, tracking -0.02em to -0.03em, Ash / Ash Dim, sometimes Mono): genre tags, form field captions, disclaimers, footer text.
 
 ### Named Rules
-**The No-Kicker Rule.** No heading anywhere carries a small label above it. The heading is the opener; a kicker is a ban carried over from the craft floor, not a style choice.
+**The Assert/Explain Split.** Kanit (bold, often italic, uppercase) is reserved for anything the page asserts — headlines, labels, CTAs. Bai Jamjuree is reserved for anything it explains — paragraph copy. No component mixes the two roles on the same text run.
 
 ## Layout
 
-Content sits in a centered column (max-w-4xl to max-w-6xl) with 1.5rem side padding on mobile, 2.5rem at md. Vertical rhythm is generous and asymmetric: sections run 7rem of padding on mobile up to 10rem at md, and every heading carries more space above it than below — never the reverse. The one deliberate break from the contained column is the Films grid, which runs full-bleed edge-to-edge with no max-width and only a 1px hairline (via a dim background showing through a `gap-px` grid) between tiles.
+Content sits in a centered column (max-w-3xl to max-w-6xl depending on section) with 1.5rem side padding on mobile (`px-6`), 2.5rem at md (`px-10`). Section vertical rhythm runs roughly 4rem (`py-16`/`py-20`) to 8rem (`py-24`/`py-32`) depending on section weight, separated by a 1px `border-ash-dim/20` hairline rather than a background change. The floating nav is fixed and inset from the viewport edge (`px-4 pt-4` mobile, `px-8 pt-6` md) rather than flush to the top, so page content scrolls beneath a persistent glass pill instead of behind a header that disappears.
 
-Responsive collapse: the Films grid steps 3 columns → 2 (sm) → 1 (mobile); every other section is a single stacked column at all widths.
+Responsive collapse: service-card and step grids run 3 columns → 2 (sm) → 1 (mobile); the films preview grid runs 3 → 1.
 
 ## Elevation & Depth
 
-The system is flat by contract: no `box-shadow` exists anywhere in the codebase. Depth is atmospheric instead — a slowly drifting radial jade glow standing in for a projector beam, a static film-grain overlay on every void surface, and a subtle flickering scanline texture on reel-plate media. The one functional "shadow" equivalent is a gradient scrim behind the header (a void-to-transparent fade, ~7–9rem tall) that keeps the wordmark legible over the hero video beneath it.
+The system remains flat by contract: no `box-shadow` exists anywhere in the codebase (`.pill-nav`'s dark-glass surface uses `backdrop-filter: blur()` and a translucent border, not a shadow). Depth is conveyed through light, grain, and blur instead: a film-grain overlay (`.grain`), a soft top-down `.spotlight` wash on key moments (hero, closing CTA), the drifting `.reel-plate`/`.still-plate` beam-glow on placeholder media, and the nav's backdrop-blur glass separating it from content scrolling underneath.
 
 ### Named Rules
-**The No-Shadow Rule.** Depth comes from light and grain, never a drop shadow. If something needs to visually lift, give it beam glow or grain contrast, not `box-shadow`.
-
-### Scroll Feel
-The whole site scrolls through Lenis, site-wide (mounted once in the layout, skipped automatically under `prefers-reduced-motion`) — a heavier, eased momentum in place of native scroll snap, the same register as theartofdocumentary.com's own scroll. Alongside the media-only chemical-emergence reveal, headings get a quieter sibling: `[data-reveal="text"]`, a plain opacity/translateY-up entrance (no blur or brightness ramp) for a large standalone statement like the homepage's "you get a story brought to life" line.
+**The No-Shadow Rule.** Depth comes from light, grain, and blur, never a drop shadow. This incumbent rule from the previous world still holds in the shipped code.
 
 ## Shapes
 
-Exactly two radius states, nothing between them. Structural elements — grid tiles, section dividers, containers — are sharp (0px). The two interactive pill affordances — the primary CTA button and the circular menu-toggle — are fully rounded (`9999px`). Nothing in the system uses an intermediate radius like `8px` or `rounded-lg`.
+A three-step radius vocabulary, not the previous system's strict sharp-or-pill split. Structural elements — page sections, containers, dividers — stay sharp (0px). Photo cards and the testimonial placeholder use a large, soft radius (`rounded-3xl`, ~1.5rem). Form controls (Devis radio-label cards) use a small radius (`rounded-md`, ~6px). Every interactive pill — primary/CTA buttons, the nav shell, the menu toggle, badges, tags, progress dots — is fully rounded (`rounded-full`, 9999px).
 
 ### Named Rules
-**The Two-Radius Rule.** An element is either sharp or a full pill. A rounded-corner card is neither, and does not belong in this system.
+**The Structural-Sharp Rule.** Page-level structure (sections, containers, dividers, hairlines) never carries a radius; radius is reserved for cards, controls, and interactive pills. This is the part of the old two-radius rule that still holds — the strict claim that *only* sharp and pill exist does not.
 
 ## Components
 
 ### Buttons
 - **Shape:** fully rounded pill (`rounded-full`)
-- **Primary ("Book a call"):** jade background, Deep Cut text, display font uppercase, `px-7 py-4` (`px-8 py-5` on the Contact page's larger instance), a right-pointing arrow icon that translates on hover
-- **Hover:** the button scales to 1.03 and the arrow shifts right — the only hover motion on an interactive element besides menu-link color and film-tile play-glyph opacity
-- No secondary/ghost variant exists yet; every call to action in the system uses this one primary treatment
+- **Primary ("Book a call" / "Get a quote"):** jade background, void-deep text, italic-capable display font uppercase, `px-6–7 py-2.5–4` depending on placement, a right-pointing arrow icon that translates on hover, plus `.cta-sweep`: an ink-colored curtain that rises from the bottom on hover and retracts back down on mouse-out
+- **Hover:** scale to ~1.03 (closing-CTA instance) and/or the sweep curtain; the arrow icon shifts right
+- No secondary/ghost variant exists; every CTA uses this one primary treatment
 
 ### Navigation
-- Transparent header in three columns (language switcher left, wordmark centered, single icon button right), positioned at the top of the page — it scrolls away with the content rather than staying pinned, sitting above a pointer-events-none gradient scrim that keeps it legible over the hero media it opens on
-- Wordmark: Jost, uppercase, centered — the system's one deliberate typographic exception (see Typography)
-- Language switcher (top-left): "EN / FR" — the current language in Print Warm White, the other in Ash Dim, jade on hover. Routes to the same page in the other language, never back to home
-- The icon button is two horizontal bars that rotate into an X on open; no hamburger-to-arrow or other variant
-- Opening it reveals a full-screen takeover (Deep Cut background): the page list in huge display type (13vw mobile / 6.5vw desktop), the current page in jade and every other link in Print Warm White with a jade hover, and a footer row (tagline left, Instagram right)
-
-### Footer
-- Sits at the bottom of every page (mounted once in the layout, after the page's own content) — a quiet echo of the takeover menu's own page list, for anyone who scrolls to the end rather than opening the menu. No border, no background change from the page above it — it's a continuation of the same surface, not a separate block
-- Everything in the footer — headings, links, copyright — is set in the Mono font (see Typography), matching theartofdocumentary.com's own footer treatment rather than the rest of the system's Display/Body pairing
-- Two link columns on `sm:` and up, right-aligned as a pair: Pages (Home/Films/About/Contact) beside Socials (Instagram), each under its own heading; stacks to one left-aligned column on mobile. The two headings (`font-mono text-sm uppercase text-jade`) are the system's accent color, so they read as the footer's own wayfinding cue; the links themselves stay ash, jade on hover
-- Footer links use the `.link-sweep` underline: a 1px `currentColor` rule that grows in from the left on hover and, on mouse-out, exits to the right rather than shrinking back — the same asymmetric sweep theartofdocumentary.com runs on its own footer links (`transform: scaleX()` off a right-anchored origin at rest, left-anchored on hover, `0.3s cubic-bezier(0.25, 1, 0.5, 1)`)
-- The copyright line sits opposite the link columns — bottom-left, `self-end` so it lines up with the last link's baseline — same Mono treatment, larger and more open than the rest of the footer's small print (`text-sm`, normal tracking) and Print Warm White (`text-ink`), not jade, so it reads as a footnote rather than another link
-- Distinct from the header: this is a page-end convenience, not a second navigation bar competing with the header during normal scrolling — see the Navigation section's own rule below
-
-### Reel plate (signature component)
-- The system's stand-in for footage or photography that doesn't exist yet — used for every Films-grid tile and the About portrait slot
-- Built from: a Deep Cut base, a slowly drifting and scaling jade radial gradient (9s ease-in-out, standing in for a projector beam), a flickering horizontal scanline texture (4s stepped), and the system-wide film-grain overlay
-- Grid tiles add a centered low-opacity play glyph (authored SVG, single stroke weight) and a bottom label row: genre on the left, "Footage coming soon" on the right — an honest empty state, never a silent gray box
-- Every reel plate is wrapped in the chemical-emergence reveal (see Do's below) the first time it enters the viewport
-
-### Home hero reel
-- The homepage hero plays real full-bleed motion instead of the reel-plate placeholder — currently a demo reel (moody aerial landscape footage, licensed under the Pexels License), muted/autoplay/loop, with a small `text-xs` corner disclaimer naming it as placeholder motion, following the same honesty rule as every other demo entry until real footage replaces it
-- Scroll transition: the hero sits in normal document flow (no pinning) — the heading, sub-line and CTA scroll at native 1:1 speed while the reel behind them lags at a 0.2× counter-offset, so text and background visibly dissociate as the visitor scrolls past, the same parallax theartofdocumentary.com runs on its own hero video. Skipped under `prefers-reduced-motion`
+- **`.pill-nav`:** a `position: fixed`, inset, fully-rounded floating bar — dark-glass (`color-mix` void-deep at 78% + `blur(14px)` + a faint ink-tinted 1px border) so hero media reads through it. Unlike the previous absolute/scrolls-away header, this one stays visible through the whole page.
+- Three-column layout: language switcher (left), wordmark (center), menu-toggle icon button (right)
+- Wordmark: Kanit bold italic uppercase — no longer a separate signature typeface from the display system
+- Menu toggle: two bars that rotate into an X on open, `rounded-full` hit target with a jade hover tint
+- Opening it reveals the same full-screen black takeover menu structurally unchanged from the previous system: huge display-type page links, a dropdown for "My work" (hover-revealed on pointer devices, tap-toggled on touch via `.nav-dropdown`/`.is-open`), current page in jade, a footer row (tagline + socials)
 
 ### Cards / Containers
-Not used. Page structure is full-bleed media plus stacked, undecorated sections — never an icon-plus-heading-plus-text card, per the craft floor's own ban.
+- **`.service-card`** (signature component): full-bleed photo tile, `rounded-3xl`, permanent bottom scrim (`linear-gradient` black-to-transparent) for label legibility over the image, `saturate(0.9)` at rest rising to `saturate(1.05)` and `scale(1.06)` on the image on hover. Used for the client-segments grid; a deliberate new card language this world introduces (the previous system explicitly refused card+icon+text structure — this is a different device, a photo tile, not that pattern).
+- The one non-photo card is the testimonials empty-state: `rounded-3xl`, dashed `border-ash-dim/40`, holding a "coming soon" pill badge and honest copy — no fabricated review.
 
 ### Inputs / Fields
-- **Style:** no box, no fill — a bottom-border-only line under a Label-style caption, consistent with the system's refusal of card chrome. Ash Dim border at rest.
-- **Focus:** the border-bottom turns jade (the one accent, spent here as the "currently active" signal, same role it plays as the current-page indicator in the nav) in addition to the browser's own jade focus ring — the ring is never suppressed.
-- **Layout:** label above field, generous vertical gap, used in the Contact page's message form (name, email, project textarea).
+- **Devis form radio-cards:** `rounded-md` (~6px) bordered label buttons (`border-ash-dim/30` at rest, jade border + jade text when the paired radio is checked) — the system's one small-radius component.
+- **Contact form fields:** unchanged bottom-border-only line under a label caption; ash-dim border at rest, jade on focus, browser focus ring never suppressed.
+
+### Reel Plate / Still Plate (signature component, carried over)
+- The placeholder-footage treatment: void-deep base, a slowly drifting jade radial-gradient beam (`beam-drift`, 9s), a flickering scanline texture (`flicker`, 4s), plus the site-wide grain overlay. Used wherever real footage/photography doesn't exist yet, paired with an honest "coming soon"-style label — never a silent gray box or a stand-in stock photo passed off as final.
+- Note: `ClientSegments`'s service cards use real (disclosed) stock photography instead, with an on-page disclaimer (`t.home.segments.imageDisclaimer`) naming it as temporary — a second, photographic honesty pattern alongside the reel-plate's graphic one.
+
+### Footer
+- Unchanged in structure from the previous system: Mono-set link columns (Pages / Socials, plus a French-only Cities column), `.link-sweep` hover underline (asymmetric left-in/right-out sweep), copyright line opposite the columns.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** reserve jade for exactly one thing per viewport: the primary action or the current-state signal.
-- **Do** use the reel-plate treatment — never a gray box, skeleton, or stock photo — for anything standing in for footage that doesn't exist yet.
-- **Do** apply the chemical-emergence reveal (`[data-reveal]`, no value) only to media entering the viewport; a heading may use its quieter sibling, `[data-reveal="text"]` (opacity/translateY, no blur), but never the media treatment itself.
-- **Do** keep every clickable pill fully rounded and every structural element sharp — no radius in between.
-- **Do** give the header its gradient scrim on every page, so it stays legible over the hero media it opens on.
+- **Do** keep the accent to one hue and one purpose per view: primary action, current state, or accent underline.
+- **Do** use `.reel-plate`/`.still-plate` — or clearly disclosed temporary stock photography — for anything standing in for footage or client work that doesn't exist yet; label it honestly rather than passing it off as final.
+- **Do** keep page-level structure (sections, containers, dividers) sharp; reserve radius for cards, controls, and pills.
+- **Do** give the nav its glass/blur treatment on every page so it reads over any content scrolling beneath it.
 
 ### Don't:
-- **Don't** add a kicker or eyebrow label above a heading, anywhere, for any reason.
-- **Don't** add a `box-shadow` to anything. Depth is beam glow and grain, never a drop shadow.
-- **Don't** introduce a second accent color alongside jade, even a muted one.
-- **Don't** build page structure from same-size icon+heading+text cards.
+- **Don't** add a `box-shadow` to anything. Depth is light, grain, and blur, never a drop shadow.
+- **Don't** introduce a second accent hue alongside Signal Blue, even a muted one.
 - **Don't** fabricate a testimonial, client name, or credit in a placeholder slot — an honest "coming soon" label beats a fictional one.
+- **Don't** treat the shipped hero eyebrow badge (a pill label above the H1) as a system device to reuse elsewhere — see the audit note below; it is a carried defect, not a rule.
+
+<!-- Audit note, not part of the portable spec: the homepage hero ships a pill "eyebrow" badge above its H1 (t.home.heroBadge). This reintroduces exactly the device the previous system's no-kicker rule existed to ban, and it is not recorded here as a new system rule — it is a defect this build carries. `.underline-accent` (a rule under a heading's own last word) is the system's actual, reusable heading-emphasis device and is documented above; the eyebrow badge is not. -->

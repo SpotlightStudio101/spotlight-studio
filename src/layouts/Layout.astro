@@ -18,22 +18,22 @@ const locale = getLocale(Astro.currentLocale);
   <head>
     <script is:inline>
       // Redirect to the visitor's remembered (or browser-detected) language, before first paint.
-      // English is the base: an unstored, non-French browser stays on the unprefixed English routes.
+      // French is the base: an unstored, non-English browser stays on the unprefixed French routes.
       (function () {
         try {
           var path = window.location.pathname;
-          var onFr = path === "/fr" || path.indexOf("/fr/") === 0;
+          var onEn = path === "/en" || path.indexOf("/en/") === 0;
           var stored = localStorage.getItem("lang");
           if (!stored) {
             var nav = (navigator.language || (navigator.languages && navigator.languages[0]) || "").toLowerCase();
-            stored = nav.indexOf("fr") === 0 ? "fr" : "en";
+            stored = nav.indexOf("en") === 0 ? "en" : "fr";
             localStorage.setItem("lang", stored);
           }
-          var wantFr = stored === "fr";
-          if (wantFr && !onFr) {
-            window.location.replace("/fr" + (path === "/" ? "" : path));
-          } else if (!wantFr && onFr) {
-            window.location.replace(path === "/fr" ? "/" : path.slice(3));
+          var wantEn = stored === "en";
+          if (wantEn && !onEn) {
+            window.location.replace("/en" + (path === "/" ? "" : path));
+          } else if (!wantEn && onEn) {
+            window.location.replace(path === "/en" ? "/" : path.slice(3));
           }
         } catch (e) {}
       })();
@@ -48,7 +48,7 @@ const locale = getLocale(Astro.currentLocale);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=Jost:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Bai+Jamjuree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
