@@ -54,9 +54,7 @@ const heroReel = {
         <span class="text-ink">{t.home.heroLine1}</span><br /><span class="underline-accent text-ink">{t.home.heroLine2}</span>
       </h1>
 
-      <p class="max-w-md font-body text-base leading-[1.2] tracking-[-0.01em] text-ash md:text-lg">
-        {t.home.heroSub}
-      </p>
+      <p class="max-w-md font-body text-base leading-[1.2] tracking-[-0.01em] text-ash md:text-lg" set:html={t.home.heroSub} />
 
       <a
         href={localizePath("/book-a-call", locale)}
