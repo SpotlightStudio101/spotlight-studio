@@ -13,7 +13,7 @@ const { heading, paragraphs } = Astro.props;
       {heading}
     </h2>
     <div class="mt-8 flex flex-col gap-5">
-      {paragraphs.map((paragraph) => <p class="font-body text-base text-ash md:text-lg">{paragraph}</p>)}
+      {paragraphs.map((paragraph) => <p class="font-body text-base text-ash md:text-lg" set:html={paragraph} />)}
     </div>
   </div>
 </section>
