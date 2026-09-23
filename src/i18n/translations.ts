@@ -82,10 +82,10 @@ const en = {
       heading: "Some capture images. I create them.",
       paragraphs: [
         "An independent Paris-based filmmaker, I blend <strong>cinematic craft with marketing-driven thinking</strong>.",
-        "Before I even pick up a camera, I take the time to shape your project and build a strategy suited to it.",
-        "I never settle for \"nice footage\": every piece of content is built as a tool serving a clear business goal, not just a polished visual.",
-        "From prep to final edit, every decision serves the same throughline: strengthening your image and carrying your message.",
-        'No more videos that all look the same. Time for films built to leave a mark, drive action, and deliver <span class="underline-accent">results</span>.',
+        "Before I even pick up a camera, I take the time to <strong>shape your project</strong> and <strong>build a strategy suited to it</strong>.",
+        "I never settle for \"nice footage\": every piece of content is built as <strong>a tool serving a clear business goal</strong>, not just a polished visual.",
+        "From prep to final edit, every decision serves the same throughline: <strong>strengthening your image and carrying your message</strong>.",
+        'No more videos that all look the same. Time for <strong>films built to leave a mark</strong>, <strong>drive action</strong>, and deliver <strong><span class="underline-accent">results</span></strong>.',
       ],
     },
     parisCoverage: {
@@ -530,10 +530,10 @@ const fr: typeof en = {
       heading: "Certains prennent des images, je les crée.",
       paragraphs: [
         "Vidéaste indépendant basé à Paris, je fusionne <strong>exigence cinématographique et performance marketing</strong>.",
-        "Avant même d'empoigner une caméra, je prends le temps de construire votre projet et de créer une stratégie adaptée.",
-        "Je ne me contente jamais de « belles images » : chaque contenu est construit comme un outil au service d'un objectif business précis, pas comme une simple prestation esthétique.",
-        "De la préparation jusqu'au montage final, chaque décision sert la même ligne directrice : renforcer votre image et porter votre message.",
-        'Fini les vidéos qui se ressemblent toutes. Place à des films pensés pour marquer les esprits — et pousser à l\'action, puis aux <span class="underline-accent">résultats</span>.',
+        "Avant même d'empoigner une caméra, je prends le temps de <strong>construire votre projet</strong> et de <strong>créer une stratégie adaptée</strong>.",
+        "Je ne me contente jamais de « belles images » : chaque contenu est construit comme <strong>un outil au service d'un objectif business précis</strong>, pas comme une simple prestation esthétique.",
+        "De la préparation jusqu'au montage final, chaque décision sert la même ligne directrice : <strong>renforcer votre image et porter votre message</strong>.",
+        'Fini les vidéos qui se ressemblent toutes. Place à des <strong>films pensés pour marquer les esprits</strong> — et pousser à <strong>l\'action</strong>, puis aux <strong><span class="underline-accent">résultats</span></strong>.',
       ],
     },
     parisCoverage: {
