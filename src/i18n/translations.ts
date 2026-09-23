@@ -79,11 +79,11 @@ const en = {
       honeypot: "Don’t fill this out if you're human:",
     },
     intro: {
-      heading: "Some capture images. We create them.",
+      heading: "Some capture images. I create them.",
       paragraphs: [
-        "An independent audiovisual production studio based in Paris, Spotlight Studio blends cinematic craft with marketing-driven thinking.",
-        "Before we even pick up a camera, we take the time to shape your project and build a strategy suited to it.",
-        "We never settle for \"nice footage\": every piece of content is built as a tool serving a clear business goal, not just a polished visual.",
+        "An independent Paris-based filmmaker, I blend cinematic craft with marketing-driven thinking.",
+        "Before I even pick up a camera, I take the time to shape your project and build a strategy suited to it.",
+        "I never settle for \"nice footage\": every piece of content is built as a tool serving a clear business goal, not just a polished visual.",
         "From prep to final edit, every decision serves the same throughline: strengthening your image and carrying your message.",
         "No more videos that all look the same. Time for films built to leave a mark — and drive people to act.",
       ],
@@ -527,11 +527,11 @@ const fr: typeof en = {
       honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
     },
     intro: {
-      heading: "Certains prennent des images, nous les créons.",
+      heading: "Certains prennent des images, je les crée.",
       paragraphs: [
-        "Agence de production audiovisuelle indépendante basée à Paris, Spotlight Studio fusionne exigence cinématographique et performance marketing.",
-        "Avant même d'empoigner une caméra, nous prenons le temps de construire votre projet et de créer une stratégie adaptée.",
-        "Nous ne nous contentons jamais de « belles images » : chaque contenu est construit comme un outil au service d'un objectif business précis, pas comme une simple prestation esthétique.",
+        "Vidéaste indépendant basé à Paris, je fusionne exigence cinématographique et performance marketing.",
+        "Avant même d'empoigner une caméra, je prends le temps de construire votre projet et de créer une stratégie adaptée.",
+        "Je ne me contente jamais de « belles images » : chaque contenu est construit comme un outil au service d'un objectif business précis, pas comme une simple prestation esthétique.",
         "De la préparation jusqu'au montage final, chaque décision sert la même ligne directrice : renforcer votre image et porter votre message.",
         "Fini les vidéos qui se ressemblent toutes. Place à des films pensés pour marquer les esprits — et pousser à l'action.",
       ],
