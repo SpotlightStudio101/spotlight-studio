@@ -12,10 +12,11 @@ const t = useTranslations(getLocale(Astro.currentLocale));
 
     <div class="flex flex-col">
       {
-        t.home.faq.items.map((item) => (
+        t.home.faq.items.map((item, i) => (
           <details class="faq-item group border-t border-ash-dim/20 py-6 last:border-b">
-            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg uppercase tracking-tightest text-ink md:text-xl">
-              {item.question}
+            <summary class="flex cursor-pointer list-none items-center gap-4 font-display text-lg uppercase tracking-tightest text-ink md:text-xl">
+              <span class="shrink-0 text-jade">{String(i + 1).padStart(2, "0")}</span>
+              <span class="flex-1">{item.question}</span>
               <svg
                 width="16"
                 height="16"
@@ -27,7 +28,7 @@ const t = useTranslations(getLocale(Astro.currentLocale));
                 <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
               </svg>
             </summary>
-            <p class="mt-4 max-w-2xl font-body text-base text-ash md:text-lg">{item.answer}</p>
+            <p class="mt-4 max-w-2xl pl-[2.75rem] font-body text-base text-ash md:text-lg">{item.answer}</p>
           </details>
         ))
       }

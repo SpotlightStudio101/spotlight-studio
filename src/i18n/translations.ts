@@ -210,6 +210,54 @@ const en = {
           answer:
             "Of course — you can browse films by category on the My Work page, and depending on your project, I can also share more targeted examples during our first conversation.",
         },
+        {
+          question: "Why choose an independent filmmaker over an agency?",
+          answer:
+            "You deal with one person, start to finish — no account manager translating your brief to a team, no agency markup baked into the quote. It also means real flexibility: I adapt to your schedule and budget, project by project.",
+        },
+        {
+          question: "How long does a shoot take?",
+          answer:
+            "It depends entirely on the project: an interview might wrap in 2–3 hours, a wedding or event often runs a full day. We map out a realistic schedule together beforehand.",
+        },
+        {
+          question: "Can I request changes after the video is delivered?",
+          answer:
+            "Yes — revision rounds are built in before final delivery to adjust the edit to your feedback. Once the film is delivered, further changes are still possible; we'd talk through the scope depending on what's needed.",
+        },
+        {
+          question: "How do you adapt videos for social media (Instagram, TikTok)?",
+          answer:
+            "I cut dedicated versions per platform: vertical 9:16 for Stories/Reels/TikTok, square for the Instagram feed, 16:9 for YouTube and the web — each built for that format's framing and pacing, not just an automatic crop.",
+        },
+        {
+          question: "Can you shoot in 4K?",
+          answer: "Yes, I shoot in 4K with the Sony FX3, which also leaves room to reframe in post without losing quality.",
+        },
+        {
+          question: "What happens to my raw footage after delivery?",
+          answer:
+            "I keep it for a while after the film is delivered, as a safety net. If you'd like a copy or want to plan for archiving it, just let me know and we'll sort it out.",
+        },
+        {
+          question: "Is the music in the edit royalty-free?",
+          answer:
+            "Yes — I only use licensed or royalty-free music, so your video can be shared without copyright issues, including on platforms that flag protected music.",
+        },
+        {
+          question: "What's the first step to start a project with you?",
+          answer:
+            "A message through the contact form or a 30-minute call is enough to get started — we talk through your project and goals, and I come back with a tailored proposal.",
+        },
+        {
+          question: "How does location scouting work for a shoot in a specific place?",
+          answer:
+            "For shoots that call for it — an unusual venue, technical constraints, outdoor locations — I scout the location beforehand to plan for light, sound, and logistics, so there are fewer surprises on the day.",
+        },
+        {
+          question: "Do you keep my project confidential before it's made public?",
+          answer: "Yes, no problem — I'm happy to sign an NDA if your project isn't public yet or involves sensitive information.",
+        },
       ],
     },
   },
@@ -606,6 +654,55 @@ const fr: typeof en = {
           question: "Puis-je voir des exemples de votre travail avant de m'engager ?",
           answer:
             "Bien sûr — vous pouvez consulter mes films par catégorie sur la page « Mon travail », et selon votre projet, je peux aussi vous montrer des exemples plus ciblés lors de notre premier échange.",
+        },
+        {
+          question: "Pourquoi choisir un vidéaste indépendant plutôt qu'une agence ?",
+          answer:
+            "Vous n'avez affaire qu'à une seule personne, du premier échange à la livraison — pas de chargé de projet qui traduit vos demandes à une équipe, pas de marge d'agence répercutée sur le devis. Ça veut aussi dire une vraie souplesse : je m'adapte à votre calendrier et à votre budget, projet par projet.",
+        },
+        {
+          question: "Combien de temps dure un tournage ?",
+          answer:
+            "Ça dépend entièrement du projet : une interview peut se tourner en 2-3 heures, un mariage ou un événement prend souvent une journée complète. On en discute ensemble en amont pour caler un planning réaliste.",
+        },
+        {
+          question: "Puis-je demander des modifications après la livraison de la vidéo ?",
+          answer:
+            "Oui, des allers-retours sont prévus avant la livraison finale pour ajuster le montage à vos retours. Une fois le film livré, des modifications restent possibles — on en parle selon l'ampleur du changement.",
+        },
+        {
+          question: "Comment adaptez-vous mes vidéos pour les réseaux sociaux (Instagram, TikTok) ?",
+          answer:
+            "Je monte des versions dédiées selon la plateforme : format vertical 9:16 pour Stories/Reels/TikTok, carré pour le fil Instagram, 16:9 pour YouTube et le web — chacune pensée pour le cadrage et le rythme propres à ce format, pas juste un recadrage automatique.",
+        },
+        {
+          question: "Pouvez-vous filmer en 4K ?",
+          answer: "Oui, je tourne en 4K avec le Sony FX3, ce qui laisse aussi de la marge pour recadrer en post-production sans perdre en qualité.",
+        },
+        {
+          question: "Que deviennent mes rushs (fichiers bruts) après la livraison ?",
+          answer:
+            "Je les conserve un certain temps après la livraison du film, par sécurité. Si vous souhaitez les récupérer ou prévoir leur archivage, dites-le-moi et on s'organise.",
+        },
+        {
+          question: "Les musiques utilisées dans le montage sont-elles libres de droits ?",
+          answer:
+            "Oui, j'utilise uniquement des musiques sous licence ou libres de droits, pour que votre vidéo puisse être diffusée sans souci de droits d'auteur, y compris sur les plateformes qui filtrent la musique protégée.",
+        },
+        {
+          question: "Quelle est la première étape pour démarrer un projet avec vous ?",
+          answer:
+            "Un message via le formulaire de contact ou un appel de 30 minutes suffit pour commencer : on parle de votre projet, de vos objectifs, et je reviens vers vous avec une proposition adaptée.",
+        },
+        {
+          question: "Comment se passe le repérage avant un tournage dans un lieu spécifique ?",
+          answer:
+            "Pour les tournages qui l'exigent (lieu inhabituel, contraintes techniques, extérieur), je fais un repérage en amont pour anticiper la lumière, le son et la logistique — histoire d'éviter les imprévus le jour J.",
+        },
+        {
+          question: "Assurez-vous la confidentialité de mon projet avant sa sortie publique ?",
+          answer:
+            "Oui, sans problème — je peux signer un accord de confidentialité (NDA) si votre projet n'est pas encore public ou contient des informations sensibles.",
         },
       ],
     },
