@@ -100,7 +100,7 @@ const en = {
       heading: "Who I am",
       portraitPlaceholder: "Portrait — coming soon",
       paragraphs: [
-        "Spotlight Studio is me first, Quentin Mouledous: I founded the studio to offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
+        "Spotlight Studio is me first, Quentin Mouledous: I founded Spotlight Studio to offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
         "Depending on the scale of a project, I bring in trusted collaborators — camera operators, sound recordists, editors — to build the right-sized crew. It flexes project to project; it's never fixed.",
         "One thing never changes: I stay your single point of contact, from the first conversation to final delivery. No project handed off to an anonymous account manager — you work with the same person the whole way through.",
       ],
@@ -548,7 +548,7 @@ const fr: typeof en = {
       heading: "Qui suis-je ?",
       portraitPlaceholder: "Portrait — à venir",
       paragraphs: [
-        "Spotlight Studio, c'est avant tout moi, Quentin Mouledous : j'ai fondé le studio pour proposer une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
+        "Spotlight Studio, c'est avant tout moi, Quentin Mouledous : j'ai fondé Spotlight Studio pour proposer une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
         "Selon l'ampleur du projet, je m'entoure de collaborateurs de confiance — cadreur, preneur de son, monteur — pour constituer l'équipe la plus adaptée. Elle s'ajuste à chaque tournage ; elle n'est jamais figée.",
         "Une chose ne change jamais : je reste votre interlocuteur unique, du premier échange à la livraison finale. Pas de dossier transmis à un chargé de compte anonyme — vous suivez le projet avec la même personne du début à la fin.",
       ],
