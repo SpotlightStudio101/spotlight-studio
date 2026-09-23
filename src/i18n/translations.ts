@@ -79,11 +79,13 @@ const en = {
       honeypot: "Don’t fill this out if you're human:",
     },
     intro: {
-      heading: "A video built around your project",
+      heading: "Some capture images. We create them.",
       paragraphs: [
-        "Looking for a videographer in Paris for a corporate film, an event, brand content, or something more personal? I work with you at every step, from the first idea to the final video.",
-        "My work doesn't stop at filming — I get involved from the concept stage onward, to shape a narrative that's clear and true to what you want to say.",
-        "An immersive documentary, a corporate film, a wedding, a real estate walkthrough, an honest interview, or coverage of a major event: I bring a rigorous, simple, and human way of working to every project.",
+        "An independent audiovisual production studio based in Paris, Spotlight Studio blends cinematic craft with marketing-driven thinking.",
+        "Before we even pick up a camera, we take the time to shape your project and build a strategy suited to it.",
+        "We never settle for \"nice footage\": every piece of content is built as a tool serving a clear business goal, not just a polished visual.",
+        "From prep to final edit, every decision serves the same throughline: strengthening your image and carrying your message.",
+        "No more videos that all look the same. Time for films built to leave a mark — and drive people to act.",
       ],
     },
     parisCoverage: {
@@ -525,11 +527,13 @@ const fr: typeof en = {
       honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
     },
     intro: {
-      heading: "Une vidéo pensée pour votre projet",
+      heading: "Certains prennent des images, nous les créons.",
       paragraphs: [
-        "Vous cherchez un vidéaste à Paris pour un film d'entreprise, un événement, un contenu de marque ou un projet plus personnel ? Je vous accompagne à chaque étape, de la première idée jusqu'à la vidéo finale.",
-        "Mon travail ne s'arrête pas à la prise de vue : je m'implique dès la conception du projet, pour proposer une narration claire et fidèle à ce que vous voulez transmettre.",
-        "Documentaire immersif, film d'entreprise, mariage, visite immobilière, interview sincère ou couverture d'un événement : je mets à votre service une méthode de travail exigeante, simple et humaine.",
+        "Agence de production audiovisuelle indépendante basée à Paris, Spotlight Studio fusionne exigence cinématographique et performance marketing.",
+        "Avant même d'empoigner une caméra, nous prenons le temps de construire votre projet et de créer une stratégie adaptée.",
+        "Nous ne nous contentons jamais de « belles images » : chaque contenu est construit comme un outil au service d'un objectif business précis, pas comme une simple prestation esthétique.",
+        "De la préparation jusqu'au montage final, chaque décision sert la même ligne directrice : renforcer votre image et porter votre message.",
+        "Fini les vidéos qui se ressemblent toutes. Place à des films pensés pour marquer les esprits — et pousser à l'action.",
       ],
     },
     parisCoverage: {
