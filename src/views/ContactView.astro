@@ -142,8 +142,9 @@ const t = useTranslations(locale);
   </section>
 
   <section class="border-t border-ash-dim/20 px-6 py-8 md:px-10">
-    <div class="mx-auto flex max-w-6xl items-center gap-2 font-body text-sm text-ash">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 font-body text-sm text-ash">
       <span>{t.contact.sayHello}</span>
+      <a href={`mailto:${site.email}`} class="text-ink underline decoration-ash-dim hover:text-jade">{t.contact.email}</a>
       <a href={site.instagramUrl} class="text-ink underline decoration-ash-dim hover:text-jade">{t.contact.instagram}</a>
     </div>
   </section>

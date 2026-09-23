@@ -41,6 +41,14 @@ const links = [
         <ul class="flex flex-col gap-2">
           <li>
             <a
+              href={`mailto:${site.email}`}
+              class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white"
+            >
+              {t.nav.email}
+            </a>
+          </li>
+          <li>
+            <a
               href={site.instagramUrl}
               class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white"
             >
