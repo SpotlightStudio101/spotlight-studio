@@ -55,7 +55,7 @@ const en = {
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
-      '<strong>Some make videos, I create films.</strong><br />Films that serve your project — commercial, companies, architecture &amp; real estate, events, weddings, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.',
+      '<strong>Some capture images. I create them.</strong><br />Films that serve your project — commercial, companies, architecture &amp; real estate, events, weddings, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.',
     bookACall: "Book a call",
     responseTime: "I reply within 24h",
     heroReelDisclaimer: "Demo reel — placeholder motion, not Quentin's work, standing in until real footage replaces it",
@@ -79,7 +79,7 @@ const en = {
       honeypot: "Don’t fill this out if you're human:",
     },
     intro: {
-      heading: "Some capture images. I create them.",
+      heading: "Talent captures. Strategy transforms.",
       paragraphs: [
         "An independent Paris-based filmmaker, I blend <strong>cinematic craft with marketing-driven thinking</strong>.",
         "Before I even pick up a camera, I take the time to <strong>shape your project</strong> and <strong>build a strategy suited to it</strong>.",
@@ -503,7 +503,7 @@ const fr: typeof en = {
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
-      '<strong>Certains font des vidéos, je crée des films.</strong><br />Des films qui servent votre projet — publicité, entreprises, architecture &amp; immobilier, événementiel, mariages, documentaire, narratif — depuis Paris, disponible partout en France et à l\'international, du premier échange jusqu\'au montage final.',
+      '<strong>Certains prennent des images, je les crée.</strong><br />Des films qui servent votre projet — publicité, entreprises, architecture &amp; immobilier, événementiel, mariages, documentaire, narratif — depuis Paris, disponible partout en France et à l\'international, du premier échange jusqu\'au montage final.',
     bookACall: "Réserver un appel",
     responseTime: "Réponse sous 24h",
     heroReelDisclaimer: "Bobine de démonstration — image temporaire, pas le travail de Quentin, en attendant de vraies images",
@@ -527,7 +527,7 @@ const fr: typeof en = {
       honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
     },
     intro: {
-      heading: "Certains prennent des images, je les crée.",
+      heading: "Le talent capture. La stratégie transforme.",
       paragraphs: [
         "Vidéaste indépendant basé à Paris, je fusionne <strong>exigence cinématographique et performance marketing</strong>.",
         "Avant même d'empoigner une caméra, je prends le temps de <strong>construire votre projet</strong> et de <strong>créer une stratégie adaptée</strong>.",
