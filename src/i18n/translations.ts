@@ -54,7 +54,7 @@ const en = {
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
-      "I'm a filmmaker based in Paris, available anywhere in France and internationally: commercial, documentary, narrative — I work closely with the people I film, from the first conversation to the final cut.",
+      "Most people shoot footage. I build a message that serves your project — commercial, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.",
     bookACall: "Book a call",
     responseTime: "I reply within 24h",
     heroReelDisclaimer: "Demo reel — placeholder motion, not Quentin's work, standing in until real footage replaces it",
@@ -78,11 +78,11 @@ const en = {
       honeypot: "Don’t fill this out if you're human:",
     },
     intro: {
-      heading: "Most people shoot footage. I build a message.",
+      heading: "A video built around your project",
       paragraphs: [
-        "I never pick up a camera before we've defined, together, what this film actually needs to achieve.",
-        "As a Paris-based filmmaker, I pair visual craft with a clear sense of message — every shot serves your project, not just the aesthetics.",
-        "Immersive documentary, corporate film, wedding, real estate walkthrough, honest interview, or event coverage: the method stays the same — understand the goal before filming, then deliver a video that grabs attention, holds it, and makes people want to act.",
+        "Looking for a videographer in Paris for a corporate film, an event, brand content, or something more personal? I work with you at every step, from the first idea to the final video.",
+        "My work doesn't stop at filming — I get involved from the concept stage onward, to shape a narrative that's clear and true to what you want to say.",
+        "An immersive documentary, a corporate film, a wedding, a real estate walkthrough, an honest interview, or coverage of a major event: I bring a rigorous, simple, and human way of working to every project.",
       ],
     },
     parisCoverage: {
@@ -449,7 +449,7 @@ const fr: typeof en = {
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
-      "Je suis vidéaste basé à Paris, disponible partout en France et à l'international : publicité, documentaire, narratif — je travaille au plus près de ceux que je filme, du premier échange jusqu'au montage final.",
+      "Beaucoup filment. Je construis un message qui sert votre projet — publicité, documentaire, narratif — depuis Paris, disponible partout en France et à l'international, du premier échange jusqu'au montage final.",
     bookACall: "Réserver un appel",
     responseTime: "Réponse sous 24h",
     heroReelDisclaimer: "Bobine de démonstration — image temporaire, pas le travail de Quentin, en attendant de vraies images",
@@ -473,11 +473,11 @@ const fr: typeof en = {
       honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
     },
     intro: {
-      heading: "Beaucoup filment. Je construis un message.",
+      heading: "Une vidéo pensée pour votre projet",
       paragraphs: [
-        "Je ne pose jamais une caméra sans avoir défini, avec vous, ce que ce film doit accomplir.",
-        "Vidéaste basé à Paris, je fusionne exigence d'image et sens du message : chaque plan sert votre projet, pas seulement l'esthétique.",
-        "Documentaire immersif, film d'entreprise, mariage, visite immobilière, interview sincère ou couverture d'un événement : la méthode reste la même — comprendre l'objectif avant de filmer, puis livrer une vidéo qui capte l'attention, la retient, et donne envie d'agir.",
+        "Vous cherchez un vidéaste à Paris pour un film d'entreprise, un événement, un contenu de marque ou un projet plus personnel ? Je vous accompagne à chaque étape, de la première idée jusqu'à la vidéo finale.",
+        "Mon travail ne s'arrête pas à la prise de vue : je m'implique dès la conception du projet, pour proposer une narration claire et fidèle à ce que vous voulez transmettre.",
+        "Documentaire immersif, film d'entreprise, mariage, visite immobilière, interview sincère ou couverture d'un événement : je mets à votre service une méthode de travail exigeante, simple et humaine.",
       ],
     },
     parisCoverage: {
