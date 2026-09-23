@@ -232,7 +232,8 @@ const en = {
         },
         {
           question: "Can you shoot in 4K?",
-          answer: "Yes, I shoot in 4K with the Sony FX3, which also leaves room to reframe in post without losing quality.",
+          answer:
+            "Yes — everything is shot in 4K with the Sony FX3, as the baseline for every project, not an option. That technical standard comes with real cinematic craft behind the image — framing, lighting, color grading — rather than a plain capture: unlike many agencies that split the work across several people, I handle the whole chain myself, from the shoot to the final edit, which lets me push that level of care through every stage.",
         },
         {
           question: "What happens to my raw footage after delivery?",
@@ -677,7 +678,8 @@ const fr: typeof en = {
         },
         {
           question: "Pouvez-vous filmer en 4K ?",
-          answer: "Oui, je tourne en 4K avec le Sony FX3, ce qui laisse aussi de la marge pour recadrer en post-production sans perdre en qualité.",
+          answer:
+            "Oui — tout est tourné en 4K avec le Sony FX3, c'est la base de chaque projet, pas une option. Cette exigence technique s'accompagne d'un vrai travail cinématographique sur l'image — cadrage, lumière, étalonnage — plutôt qu'une simple captation : contrairement à beaucoup d'agences qui répartissent la prestation entre plusieurs intervenants, je maîtrise toute la chaîne moi-même, du tournage au montage final, ce qui permet de pousser ce niveau d'exigence à chaque étape.",
         },
         {
           question: "Que deviennent mes rushs (fichiers bruts) après la livraison ?",
