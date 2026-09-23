@@ -97,7 +97,7 @@ const en = {
       ],
     },
     team: {
-      heading: "Who we are",
+      heading: "Who I am",
       portraitPlaceholder: "Portrait — coming soon",
       paragraphs: [
         "Spotlight Studio is me first: I founded the studio to offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
@@ -545,7 +545,7 @@ const fr: typeof en = {
       ],
     },
     team: {
-      heading: "Qui sommes-nous ?",
+      heading: "Qui suis-je ?",
       portraitPlaceholder: "Portrait — à venir",
       paragraphs: [
         "Spotlight Studio, c'est avant tout moi : j'ai fondé le studio pour proposer une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
