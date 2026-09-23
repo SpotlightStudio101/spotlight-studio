@@ -55,7 +55,7 @@ const en = {
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
-      "Some shoot footage. I build a message that serves your project — commercial, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.",
+      "Some shoot footage. I build a message that serves your project — commercial, companies, architecture & real estate, events, weddings, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.",
     bookACall: "Book a call",
     responseTime: "I reply within 24h",
     heroReelDisclaimer: "Demo reel — placeholder motion, not Quentin's work, standing in until real footage replaces it",
@@ -503,7 +503,7 @@ const fr: typeof en = {
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
-      "Certains filment. Je construis un message qui sert votre projet — publicité, documentaire, narratif — depuis Paris, disponible partout en France et à l'international, du premier échange jusqu'au montage final.",
+      "Certains filment. Je construis un message qui sert votre projet — publicité, entreprises, architecture & immobilier, événementiel, mariages, documentaire, narratif — depuis Paris, disponible partout en France et à l'international, du premier échange jusqu'au montage final.",
     bookACall: "Réserver un appel",
     responseTime: "Réponse sous 24h",
     heroReelDisclaimer: "Bobine de démonstration — image temporaire, pas le travail de Quentin, en attendant de vraies images",
