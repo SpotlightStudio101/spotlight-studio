@@ -2,9 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://spotlightstudio.fr',
   i18n: {
     defaultLocale: 'fr',
     locales: ['en', 'fr'],
@@ -12,6 +14,17 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'fr',
+        locales: {
+          fr: 'fr-FR',
+          en: 'en-US',
+        },
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()]
   }

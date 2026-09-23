@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spotlightstudio.fr/sitemap-index.xml
