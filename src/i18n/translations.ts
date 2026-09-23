@@ -85,7 +85,7 @@ const en = {
         "Before I even pick up a camera, I take the time to shape your project and build a strategy suited to it.",
         "I never settle for \"nice footage\": every piece of content is built as a tool serving a clear business goal, not just a polished visual.",
         "From prep to final edit, every decision serves the same throughline: strengthening your image and carrying your message.",
-        "No more videos that all look the same. Time for films built to leave a mark — and drive people to act.",
+        "No more videos that all look the same. Time for films built to leave a mark, drive action, and deliver results.",
       ],
     },
     parisCoverage: {
@@ -533,7 +533,7 @@ const fr: typeof en = {
         "Avant même d'empoigner une caméra, je prends le temps de construire votre projet et de créer une stratégie adaptée.",
         "Je ne me contente jamais de « belles images » : chaque contenu est construit comme un outil au service d'un objectif business précis, pas comme une simple prestation esthétique.",
         "De la préparation jusqu'au montage final, chaque décision sert la même ligne directrice : renforcer votre image et porter votre message.",
-        "Fini les vidéos qui se ressemblent toutes. Place à des films pensés pour marquer les esprits — et pousser à l'action.",
+        "Fini les vidéos qui se ressemblent toutes. Place à des films pensés pour marquer les esprits — et pousser à l'action, puis aux résultats.",
       ],
     },
     parisCoverage: {
