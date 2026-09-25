@@ -432,7 +432,7 @@ const en = {
       },
       {
         title: "Where it's stored",
-        body: "Contact form submissions are processed through Netlify Forms, the hosting provider for this site.",
+        body: "Form submissions are forwarded to me by email through Web3Forms, a form-handling service.",
       },
       {
         title: "Cookies",
@@ -882,7 +882,7 @@ const fr: typeof en = {
       },
       {
         title: "Où elles sont stockées",
-        body: "Les envois du formulaire de contact sont traités par Netlify Forms, l'hébergeur de ce site.",
+        body: "Les envois des formulaires me sont transmis par e-mail via Web3Forms, un service de gestion de formulaires.",
       },
       {
         title: "Cookies",

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import FormHiddenFields from "../components/FormHiddenFields.astro";
 import { site } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
@@ -48,20 +49,8 @@ const t = useTranslations(locale);
           {t.contact.sendBody}
         </p>
 
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          action={localizePath("/thanks", locale)}
-          class="mt-2 flex flex-col gap-7"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden">
-            <label>
-              {t.contact.honeypot} <input name="bot-field" />
-            </label>
-          </p>
+        <form name="contact" method="POST" action="https://api.web3forms.com/submit" class="mt-2 flex flex-col gap-7">
+          <FormHiddenFields subject={`Contact — ${site.name}`} />
 
           <div class="flex flex-col gap-2">
             <label for="name" class="font-display text-xs uppercase tracking-tightest text-ash">{t.contact.nameLabel}</label>
