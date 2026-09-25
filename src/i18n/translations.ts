@@ -264,6 +264,9 @@ const en = {
       ],
     },
   },
+  forms: {
+    error: "Something went wrong and your message wasn't sent. Please try again, or email me directly at",
+  },
   films: {
     heading: "My work",
     shortDocsHeading: "Short docs / narrative portraits",
@@ -432,7 +435,7 @@ const en = {
       },
       {
         title: "Where it's stored",
-        body: "Form submissions are forwarded to me by email through Web3Forms, a form-handling service.",
+        body: "Form submissions are forwarded to me by email through Resend, an email delivery service.",
       },
       {
         title: "Cookies",
@@ -713,6 +716,9 @@ const fr: typeof en = {
       ],
     },
   },
+  forms: {
+    error: "Un problème est survenu et votre message n'a pas été envoyé. Réessayez, ou écrivez-moi directement à",
+  },
   films: {
     heading: "Mon travail",
     shortDocsHeading: "Courts documentaires / portraits narratifs",
@@ -882,7 +888,7 @@ const fr: typeof en = {
       },
       {
         title: "Où elles sont stockées",
-        body: "Les envois des formulaires me sont transmis par e-mail via Web3Forms, un service de gestion de formulaires.",
+        body: "Les envois des formulaires me sont transmis par e-mail via Resend, un service d'envoi d'e-mails.",
       },
       {
         title: "Cookies",

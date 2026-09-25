@@ -8,9 +8,8 @@ import PainPoints from "../components/PainPoints.astro";
 import FilmTile from "../components/FilmTile.astro";
 import Testimonials from "../components/Testimonials.astro";
 import FaqSection from "../components/FaqSection.astro";
-import FormHiddenFields from "../components/FormHiddenFields.astro";
+import FormExtras from "../components/FormExtras.astro";
 import { films } from "../data/films";
-import { site } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
 
@@ -148,8 +147,8 @@ const heroReel = {
         {t.home.contactCta.heading}<br /><span class="underline-accent">{t.home.contactCta.headingAccent}</span>
       </h2>
 
-      <form name="home-contact" method="POST" action="https://api.web3forms.com/submit" class="flex flex-col gap-4">
-        <FormHiddenFields subject={`Message depuis l'accueil — ${site.name}`} />
+      <form name="home-contact" data-form method="POST" action="/api/send" class="relative flex flex-col gap-4">
+        <FormExtras type="home" />
 
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <input
