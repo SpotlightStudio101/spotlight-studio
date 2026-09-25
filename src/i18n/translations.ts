@@ -55,7 +55,7 @@ const en = {
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
-      '<strong>Some capture images. I create them.</strong><br />Films that serve your project — commercial, companies, architecture &amp; real estate, events, weddings, documentary, narrative — based in Paris, available across France and internationally, from the first conversation to the final cut.',
+      '<strong>Some make videos, I create films.</strong><br />My goal: serving your project — commercial, companies, events, weddings, documentary, narrative, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, my attention makes the difference.',
     bookACall: "Book a call",
     responseTime: "I reply within 24h",
     heroReelDisclaimer: "Demo reel — placeholder motion, not Quentin's work, standing in until real footage replaces it",
@@ -503,7 +503,7 @@ const fr: typeof en = {
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
-      '<strong>Certains prennent des images, je les crée.</strong><br />Des films qui servent votre projet — publicité, entreprises, architecture &amp; immobilier, événementiel, mariages, documentaire, narratif — depuis Paris, disponible partout en France et à l\'international, du premier échange jusqu\'au montage final.',
+      '<strong>Certains font des vidéos, je crée des films.</strong><br />Mon objectif, servir votre projet : publicité, entreprises, événementiel, mariages, documentaire, narratif, architecture &amp; immobilier. Depuis Paris et disponible partout en France ainsi qu\'à l\'international, du premier échange jusqu\'au montage final, mon attention fait la différence.',
     bookACall: "Réserver un appel",
     responseTime: "Réponse sous 24h",
     heroReelDisclaimer: "Bobine de démonstration — image temporaire, pas le travail de Quentin, en attendant de vraies images",
