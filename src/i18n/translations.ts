@@ -50,7 +50,7 @@ const en = {
     termsOfUse: "Terms of Use",
   },
   home: {
-    heroBadge: "Filmmaker based in Paris — available across France & worldwide.",
+    heroBadge: "Director/videographer",
     heroLine1: "Bringing your",
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
@@ -498,7 +498,7 @@ const fr: typeof en = {
     termsOfUse: "Conditions d'utilisation",
   },
   home: {
-    heroBadge: "Vidéaste basé à Paris — disponible partout en France et à l'international.",
+    heroBadge: "Réalisateur/vidéaste",
     heroLine1: "Donnons vie",
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
