@@ -228,6 +228,19 @@ const heroReel = { mp4: "/video/hero-reel.mp4", poster: "/video/hero-poster.jpg"
     }
   }
 
+  // Stop decoding the reel once the hero is off-screen; it otherwise keeps burning CPU/GPU
+  // (and re-blurring the fixed glass nav behind it) for the entire rest of the page.
+  const heroSection = document.getElementById("hero");
+  if (heroSection && heroVideo && "IntersectionObserver" in window) {
+    new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) heroVideo.play().catch(() => {});
+        else heroVideo.pause();
+      },
+      { threshold: 0 }
+    ).observe(heroSection);
+  }
+
   // Parallax lag: the hero text scrolls at normal speed while the background reel lags
   // behind it, the same dissociation theartofdocumentary.com uses on its own hero video.
   const hero = document.getElementById("hero");
