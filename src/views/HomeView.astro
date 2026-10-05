@@ -17,12 +17,7 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const preview = films.slice(0, 3);
 
-// Demo only — moody aerial landscape footage ("Aerial view of a forested valley in the
-// mountains" by Julien Goettelmann, free to use under the Pexels License). Stands in for
-// a real showreel until Quentin has one; swap this URL and drop the disclaimer below.
-const heroReel = {
-  mp4: "https://videos.pexels.com/video-files/26081680/11929613_1920_1080_60fps.mp4",
-};
+const heroReel = { mp4: "/video/hero-reel.mp4", poster: "/video/hero-poster.jpg" };
 ---
 
 <Layout title={t.meta.homeTitle} description={t.meta.homeDescription}>
@@ -34,7 +29,8 @@ const heroReel = {
       muted
       loop
       playsinline
-      preload="metadata"
+      preload="auto"
+      poster={heroReel.poster}
       aria-hidden="true"
     >
       <source src={heroReel.mp4} type="video/mp4" />
@@ -74,9 +70,6 @@ const heroReel = {
       </p>
     </div>
 
-    <p class="pointer-events-none absolute bottom-8 left-6 z-10 max-w-[16rem] font-body text-xs uppercase leading-snug tracking-tightest text-ash-dim md:left-10">
-      {t.home.heroReelDisclaimer}
-    </p>
 
     <div class="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex justify-center" aria-hidden="true">
       <svg class="scroll-chevron h-7 w-7 text-ink" viewBox="0 0 24 24" fill="none">
