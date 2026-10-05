@@ -97,7 +97,7 @@ const en = {
     },
     team: {
       heading: "Who I am",
-      portraitPlaceholder: "Portrait — coming soon",
+      portraitAlt: "Quentin Mouledous holding his camera on a shoot",
       paragraphs: [
         "Spotlight Studio is me first, Quentin Mouledous: I founded Spotlight Studio to offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
         "Depending on the scale of a project, I bring in trusted collaborators — camera operators, sound recordists, editors — to build the right-sized crew. It flexes project to project; it's never fixed.",
@@ -547,7 +547,7 @@ const fr: typeof en = {
     },
     team: {
       heading: "Qui suis-je ?",
-      portraitPlaceholder: "Portrait — à venir",
+      portraitAlt: "Quentin Mouledous, caméra à la main, en tournage",
       paragraphs: [
         "Spotlight Studio, c'est avant tout moi, Quentin Mouledous : j'ai fondé Spotlight Studio pour proposer une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
         "Selon l'ampleur du projet, je m'entoure de collaborateurs de confiance — cadreur, preneur de son, monteur — pour constituer l'équipe la plus adaptée. Elle s'ajuste à chaque tournage ; elle n'est jamais figée.",
