@@ -402,7 +402,7 @@ const en = {
     noticeSections: [
       {
         title: "Publisher",
-        body: "Quentin Mouledous, sole proprietor (micro-entrepreneur), trading as Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activity: production and direction of films and video content. Publishing director: Quentin Mouledous.",
+        body: "Quentin Mouledous, sole proprietor (micro-entrepreneur), trading as Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activity: production and direction of films and video content. Address: 49 rue de Dantzig, 75015 Paris, France. Publishing director: Quentin Mouledous.",
       },
       {
         title: "Contact",
@@ -878,7 +878,7 @@ const fr: typeof en = {
     noticeSections: [
       {
         title: "Éditeur",
-        body: "Quentin Mouledous, entrepreneur individuel (micro-entrepreneur), exerçant sous le nom commercial Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activité : production et réalisation de films et de contenus vidéo. Directeur de la publication : Quentin Mouledous.",
+        body: "Quentin Mouledous, entrepreneur individuel (micro-entrepreneur), exerçant sous le nom commercial Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activité : production et réalisation de films et de contenus vidéo. Adresse : 49 rue de Dantzig, 75015 Paris, France. Directeur de la publication : Quentin Mouledous.",
       },
       {
         title: "Contact",
