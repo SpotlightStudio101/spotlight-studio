@@ -27,6 +27,8 @@ const en = {
     commercialWorkDescription: "Commercial work by Quentin Mouledous.",
     filmsDocsTitle: "Films / Docs — Spotlight Studio Paris",
     filmsDocsDescription: "Documentary and narrative work by Quentin Mouledous.",
+    noticeTitle: "Legal Notice — Spotlight Studio Paris",
+    noticeDescription: "Publisher, hosting and legal information about this website.",
     filmSuffix: "Spotlight Studio Paris",
   },
   nav: {
@@ -49,6 +51,7 @@ const en = {
     socialsLabel: "Socials",
     privacyPolicy: "Privacy Policy",
     termsOfUse: "Terms of Use",
+    legalNotice: "Legal Notice",
   },
   home: {
     heroBadge: "Director/videographer",
@@ -394,6 +397,26 @@ const en = {
     backHome: "← Back home",
   },
   legal: {
+    noticeHeading: "Legal Notice",
+    noticeIntro: "Information about the publisher and host of this website.",
+    noticeSections: [
+      {
+        title: "Publisher",
+        body: "Quentin Mouledous, sole proprietor (micro-entrepreneur), trading as Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activity: production and direction of films and video content. Publishing director: Quentin Mouledous.",
+      },
+      {
+        title: "Contact",
+        body: "contact@spotlightstudio.fr",
+      },
+      {
+        title: "Hosting",
+        body: "This website is hosted by Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, United States.",
+      },
+      {
+        title: "Intellectual property",
+        body: "All films, images, and writing on this site are the work of Quentin Mouledous unless otherwise credited, and may not be reproduced without permission.",
+      },
+    ],
     termsHeading: "Terms of Use",
     termsIntro: "These terms govern your use of this website. By browsing it, you agree to them.",
     termsSections: [
@@ -478,6 +501,8 @@ const fr: typeof en = {
     commercialWorkDescription: "Travaux publicitaires de Quentin Mouledous.",
     filmsDocsTitle: "Films / Documentaires — Spotlight Studio Paris",
     filmsDocsDescription: "Travaux documentaires et narratifs de Quentin Mouledous.",
+    noticeTitle: "Mentions légales — Spotlight Studio Paris",
+    noticeDescription: "Éditeur, hébergeur et informations légales concernant ce site.",
     filmSuffix: "Spotlight Studio Paris",
   },
   nav: {
@@ -500,6 +525,7 @@ const fr: typeof en = {
     socialsLabel: "Réseaux",
     privacyPolicy: "Politique de confidentialité",
     termsOfUse: "Conditions d'utilisation",
+    legalNotice: "Mentions légales",
   },
   home: {
     heroBadge: "Réalisateur/vidéaste",
@@ -847,6 +873,26 @@ const fr: typeof en = {
     backHome: "← Retour à l'accueil",
   },
   legal: {
+    noticeHeading: "Mentions légales",
+    noticeIntro: "Informations concernant l'éditeur et l'hébergeur de ce site.",
+    noticeSections: [
+      {
+        title: "Éditeur",
+        body: "Quentin Mouledous, entrepreneur individuel (micro-entrepreneur), exerçant sous le nom commercial Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activité : production et réalisation de films et de contenus vidéo. Directeur de la publication : Quentin Mouledous.",
+      },
+      {
+        title: "Contact",
+        body: "contact@spotlightstudio.fr",
+      },
+      {
+        title: "Hébergement",
+        body: "Ce site est hébergé par Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, États-Unis.",
+      },
+      {
+        title: "Propriété intellectuelle",
+        body: "Tous les films, images et textes présents sur ce site sont l'œuvre de Quentin Mouledous, sauf mention contraire, et ne peuvent être reproduits sans autorisation.",
+      },
+    ],
     termsHeading: "Conditions d'utilisation",
     termsIntro: "Ces conditions régissent votre utilisation de ce site. En le consultant, vous les acceptez.",
     termsSections: [

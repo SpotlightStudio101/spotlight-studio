@@ -90,6 +90,13 @@ const links = [
         {t.footer.privacyPolicy}
       </a>
       <a
+        href={locale === "fr" ? "/mentions-legales" : "/en/legal-notice"}
+        data-fly-link
+        class="link-sweep font-mono text-sm uppercase tracking-[-0.02em] text-ink"
+      >
+        {t.footer.legalNotice}
+      </a>
+      <a
         href={localizePath("/terms-of-use", locale)}
         data-fly-link
         class="link-sweep font-mono text-sm uppercase tracking-[-0.02em] text-ink"

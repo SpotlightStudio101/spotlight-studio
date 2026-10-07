@@ -3,19 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import { getLocale, useTranslations } from "../i18n/translations";
 
 interface Props {
-  page: "terms" | "privacy";
+  page: "terms" | "privacy" | "notice";
 }
 
 const { page } = Astro.props;
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 
-const isTerms = page === "terms";
-const title = isTerms ? t.meta.termsTitle : t.meta.privacyTitle;
-const description = isTerms ? t.meta.termsDescription : t.meta.privacyDescription;
-const heading = isTerms ? t.legal.termsHeading : t.legal.privacyHeading;
-const intro = isTerms ? t.legal.termsIntro : t.legal.privacyIntro;
-const sections = isTerms ? t.legal.termsSections : t.legal.privacySections;
+const pages = {
+  terms: { title: t.meta.termsTitle, description: t.meta.termsDescription, heading: t.legal.termsHeading, intro: t.legal.termsIntro, sections: t.legal.termsSections },
+  privacy: { title: t.meta.privacyTitle, description: t.meta.privacyDescription, heading: t.legal.privacyHeading, intro: t.legal.privacyIntro, sections: t.legal.privacySections },
+  notice: { title: t.meta.noticeTitle, description: t.meta.noticeDescription, heading: t.legal.noticeHeading, intro: t.legal.noticeIntro, sections: t.legal.noticeSections },
+};
+const { title, description, heading, intro, sections } = pages[page];
 ---
 
 <Layout title={title} description={description}>
