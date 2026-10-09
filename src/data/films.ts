@@ -48,7 +48,7 @@ export const films: FilmEntry[] = [
     index: "01",
     title: "Ambassade d'Arménie en France",
     previewClip: { mp4: "/video/films/event-01-tile.mp4" },
-    videoFile: { mp4: "/video/films/event-01.mp4", poster: "/video/films/event-01-poster.jpg" },
+    youtubeId: "WqMKLFY-fVM",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
