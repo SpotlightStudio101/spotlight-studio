@@ -26,55 +26,26 @@ export interface FilmEntry {
   isDemo?: boolean;
 }
 
-// Placeholder entries — swap each one for a real clip as films are finished.
-// Nothing here is a real client or credit; genre spread only demonstrates range.
+// Placeholder entries — empty on purpose. Add `previewClip` (short looping tile clip) and
+// `vimeoId` / `youtubeId` (full film) to an entry once its footage exists.
 export const films: FilmEntry[] = [
   {
     slug: "commercial-01",
     genre: "commercial",
     index: "01",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-    // Demo only — aerial coastline footage ("Explore breathtaking aerial views of rocky
-    // cliffs and the serene coastline at sunset" by Cesar Casanova, Pexels License). The
-    // full film linked via vimeoId is still Blender Foundation's "Big Buck Bunny" (CC-BY 3.0)
-    // standing in until a real cut exists. Swap previewClip/vimeoId for real ones and remove isDemo.
-    previewClip: {
-      mp4: "https://videos.pexels.com/video-files/16755467/16755467-sd_640_360_24fps.mp4",
-    },
-    vimeoId: "1084537",
-    isDemo: true,
   },
   {
     slug: "documentary-01",
     genre: "documentary",
     index: "01",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-    // Demo only — a talking-head podcast-interview shot ("Professional female podcaster in
-    // studio setting" by Mihaela Claudia Puscas, Pexels License; ~9s, matching the loop
-    // length of the other preview tiles — the earlier 37s clip technically looped but was
-    // long enough to look frozen next to the others). The full film linked via vimeoId is
-    // still Blender Foundation's "Big Buck Bunny" (CC-BY 3.0) standing in until a real cut
-    // exists. Swap previewClip/vimeoId for real ones and remove isDemo.
-    previewClip: {
-      mp4: "https://videos.pexels.com/video-files/37266306/15787420_640_360_25fps.mp4",
-    },
-    vimeoId: "1084537",
-    isDemo: true,
   },
   {
     slug: "narrative-01",
     genre: "narrative",
     index: "01",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-    // Demo only — aerial misty-hills footage ("Aerial shot of misty hills and forests
-    // enveloped in fog and haze" by Julien Goettelmann, Pexels License). The full film
-    // linked via vimeoId is still Blender Foundation's "Big Buck Bunny" (CC-BY 3.0) standing
-    // in until a real cut exists. Swap previewClip/vimeoId for real ones and remove isDemo.
-    previewClip: {
-      mp4: "https://videos.pexels.com/video-files/26081666/11929581_640_360_60fps.mp4",
-    },
-    vimeoId: "1084537",
-    isDemo: true,
   },
   {
     slug: "documentary-02",
