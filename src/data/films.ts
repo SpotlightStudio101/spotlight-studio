@@ -1,4 +1,4 @@
-export type FilmGenre = "commercial" | "documentary" | "narrative";
+export type FilmGenre = "commercial" | "event";
 
 export interface FilmCredit {
   /** Key into filmData.roles in the translation dictionary — never raw display text. */
@@ -28,6 +28,9 @@ export interface FilmEntry {
 
 // Placeholder entries — empty on purpose. Add `previewClip` (short looping tile clip) and
 // `vimeoId` / `youtubeId` (full film) to an entry once its footage exists.
+// Flip to true to bring the (currently empty) "commercial" section back on the site.
+export const showCommercial = false;
+
 export const films: FilmEntry[] = [
   {
     slug: "commercial-01",
@@ -36,21 +39,9 @@ export const films: FilmEntry[] = [
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
-    slug: "documentary-01",
-    genre: "documentary",
+    slug: "event-01",
+    genre: "event",
     index: "01",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-  },
-  {
-    slug: "narrative-01",
-    genre: "narrative",
-    index: "01",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-  },
-  {
-    slug: "documentary-02",
-    genre: "documentary",
-    index: "02",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
@@ -60,8 +51,8 @@ export const films: FilmEntry[] = [
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
-    slug: "narrative-02",
-    genre: "narrative",
+    slug: "event-02",
+    genre: "event",
     index: "02",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
@@ -72,14 +63,8 @@ export const films: FilmEntry[] = [
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
-    slug: "narrative-03",
-    genre: "narrative",
-    index: "03",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
-  },
-  {
-    slug: "documentary-03",
-    genre: "documentary",
+    slug: "event-03",
+    genre: "event",
     index: "03",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },

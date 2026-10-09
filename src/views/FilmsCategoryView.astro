@@ -5,7 +5,7 @@ import { films } from "../data/films";
 import { getLocale, useTranslations } from "../i18n/translations";
 
 interface Props {
-  category: "commercial" | "docs";
+  category: "commercial" | "events";
 }
 
 const { category } = Astro.props;
@@ -15,11 +15,11 @@ const t = useTranslations(locale);
 const isCommercial = category === "commercial";
 const filtered = isCommercial
   ? films.filter((film) => film.genre === "commercial")
-  : films.filter((film) => film.genre === "documentary" || film.genre === "narrative");
+  : films.filter((film) => film.genre === "event");
 
-const title = isCommercial ? t.meta.commercialWorkTitle : t.meta.filmsDocsTitle;
-const description = isCommercial ? t.meta.commercialWorkDescription : t.meta.filmsDocsDescription;
-const heading = isCommercial ? t.nav.commercialWork : t.nav.filmsDocs;
+const title = isCommercial ? t.meta.commercialWorkTitle : t.meta.eventsTitle;
+const description = isCommercial ? t.meta.commercialWorkDescription : t.meta.eventsDescription;
+const heading = isCommercial ? t.nav.commercialWork : t.nav.eventsLive;
 ---
 
 <Layout title={title} description={description}>

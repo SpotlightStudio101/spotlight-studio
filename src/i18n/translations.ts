@@ -25,8 +25,8 @@ const en = {
     privacyDescription: "What information this site collects and how it's used.",
     commercialWorkTitle: "Commercial Work — Spotlight Studio Paris",
     commercialWorkDescription: "Commercial work by Quentin Mouledous.",
-    filmsDocsTitle: "Films / Docs — Spotlight Studio Paris",
-    filmsDocsDescription: "Documentary and narrative work by Quentin Mouledous.",
+    eventsTitle: "Events — Spotlight Studio Paris",
+    eventsDescription: "Event coverage by Quentin Mouledous.",
     noticeTitle: "Legal Notice — Spotlight Studio Paris",
     noticeDescription: "Publisher, hosting and legal information about this website.",
     filmSuffix: "Spotlight Studio Paris",
@@ -35,7 +35,7 @@ const en = {
     home: "Home",
     films: "My work",
     commercialWork: "Commercial Work",
-    filmsDocs: "Films / Docs",
+    eventsLive: "Events",
     about: "About",
     contact: "Contact",
     tagline: "Filmmaker — commercial, companies, architecture & real estate, events, weddings, documentary, narrative",
@@ -272,7 +272,7 @@ const en = {
   },
   films: {
     heading: "My work",
-    shortDocsHeading: "Short docs / narrative portraits",
+    eventsHeading: "Events",
     commercialHeading: "Commercial work",
   },
   filmTile: {
@@ -290,8 +290,7 @@ const en = {
   filmData: {
     genre: {
       commercial: "Commercial",
-      documentary: "Documentary",
-      narrative: "Narrative",
+      event: "Events",
     },
     untitled: "Untitled",
     roles: {
@@ -499,8 +498,8 @@ const fr: typeof en = {
     privacyDescription: "Quelles informations ce site collecte et comment elles sont utilisées.",
     commercialWorkTitle: "Travaux publicitaires — Spotlight Studio Paris",
     commercialWorkDescription: "Travaux publicitaires de Quentin Mouledous.",
-    filmsDocsTitle: "Films / Documentaires — Spotlight Studio Paris",
-    filmsDocsDescription: "Travaux documentaires et narratifs de Quentin Mouledous.",
+    eventsTitle: "Événementiel — Spotlight Studio Paris",
+    eventsDescription: "Captations événementielles de Quentin Mouledous.",
     noticeTitle: "Mentions légales — Spotlight Studio Paris",
     noticeDescription: "Éditeur, hébergeur et informations légales concernant ce site.",
     filmSuffix: "Spotlight Studio Paris",
@@ -509,7 +508,7 @@ const fr: typeof en = {
     home: "Accueil",
     films: "Mon travail",
     commercialWork: "Travaux publicitaires",
-    filmsDocs: "Films / Documentaires",
+    eventsLive: "Événementiel",
     about: "À propos",
     contact: "Contact",
     tagline: "Vidéaste — publicité, entreprises, architecture & immobilier, événementiel, mariages, documentaire, narratif",
@@ -747,7 +746,7 @@ const fr: typeof en = {
   },
   films: {
     heading: "Mon travail",
-    shortDocsHeading: "Courts documentaires / portraits narratifs",
+    eventsHeading: "Événementiel",
     commercialHeading: "Travaux publicitaires",
   },
   filmTile: {
@@ -766,8 +765,7 @@ const fr: typeof en = {
   filmData: {
     genre: {
       commercial: "Publicité",
-      documentary: "Documentaire",
-      narrative: "Narratif",
+      event: "Événementiel",
     },
     untitled: "Sans titre",
     roles: {

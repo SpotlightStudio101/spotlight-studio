@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FilmGrid from "../components/FilmGrid.astro";
-import { films } from "../data/films";
+import { films, showCommercial } from "../data/films";
 import { getLocale, useTranslations } from "../i18n/translations";
 
 const t = useTranslations(getLocale(Astro.currentLocale));
 
-const shortDocs = films.filter((film) => film.genre === "documentary" || film.genre === "narrative");
+const events = films.filter((film) => film.genre === "event");
 const commercial = films.filter((film) => film.genre === "commercial");
 ---
 
@@ -22,12 +22,13 @@ const commercial = films.filter((film) => film.genre === "commercial");
   <section class="px-6 pb-16 md:px-10 md:pb-24">
     <div class="mx-auto max-w-6xl">
       <h2 class="mb-6 font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
-        {t.films.shortDocsHeading}
+        {t.films.eventsHeading}
       </h2>
-      <FilmGrid films={shortDocs} />
+      <FilmGrid films={events} />
     </div>
   </section>
 
+  {showCommercial && (
   <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
     <div class="mx-auto max-w-6xl">
       <h2 class="mb-6 font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
@@ -36,4 +37,5 @@ const commercial = films.filter((film) => film.genre === "commercial");
       <FilmGrid films={commercial} />
     </div>
   </section>
+  )}
 </Layout>

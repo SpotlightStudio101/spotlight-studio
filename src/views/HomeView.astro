@@ -9,13 +9,13 @@ import FilmTile from "../components/FilmTile.astro";
 import Testimonials from "../components/Testimonials.astro";
 import FaqSection from "../components/FaqSection.astro";
 import FormExtras from "../components/FormExtras.astro";
-import { films } from "../data/films";
+import { films, showCommercial } from "../data/films";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
-const preview = films.slice(0, 3);
+const preview = films.filter((film) => showCommercial || film.genre !== "commercial").slice(0, 3);
 
 const heroReel = { mp4: "/video/hero-reel.mp4", poster: "/video/hero-poster.jpg" };
 ---

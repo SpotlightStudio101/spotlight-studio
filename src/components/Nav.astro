@@ -1,4 +1,5 @@
 ---
+import { showCommercial } from "../data/films";
 import { site } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { alternatePath, localizePath, unlocalizePath } from "../i18n/utils";
@@ -12,8 +13,8 @@ const links = [
     href: "/films",
     label: t.nav.films,
     children: [
-      { href: "/films/commercial-work", label: t.nav.commercialWork },
-      { href: "/films/docs", label: t.nav.filmsDocs },
+      ...(showCommercial ? [{ href: "/films/commercial-work", label: t.nav.commercialWork }] : []),
+      { href: "/films/events", label: t.nav.eventsLive },
     ],
   },
   { href: "/about", label: t.nav.about },
