@@ -12,6 +12,10 @@ export interface FilmEntry {
   /** Number shown after the genre in the placeholder title, e.g. "01". */
   index: string;
   credits: FilmCredit[];
+  /** Real title shown instead of the "Untitled — genre 01" placeholder. */
+  title?: string;
+  /** Self-hosted full film (.mp4 under /public, max 25 MiB on Cloudflare Pages). youtubeId/vimeoId win if set. */
+  videoFile?: { mp4: string; poster?: string };
   /** Vimeo video id — set this once a real clip exists. Leave undefined for the placeholder plate. */
   vimeoId?: string;
   /** YouTube video id — same role as vimeoId, for clips hosted there instead. */
@@ -42,6 +46,9 @@ export const films: FilmEntry[] = [
     slug: "event-01",
     genre: "event",
     index: "01",
+    title: "Ambassade d'Arménie en France",
+    previewClip: { mp4: "/video/films/event-01-tile.mp4" },
+    videoFile: { mp4: "/video/films/event-01.mp4", poster: "/video/films/event-01-poster.jpg" },
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {

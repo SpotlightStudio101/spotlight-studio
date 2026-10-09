@@ -5,6 +5,7 @@ type Translations = (typeof translations)[Locale];
 
 /** Composes the placeholder film title ("Untitled — Commercial 01") in the given locale. */
 export function filmTitle(film: FilmEntry, t: Translations): string {
+  if (film.title) return film.title;
   return `${t.filmData.untitled} — ${t.filmData.genre[film.genre]} ${film.index}`;
 }
 
