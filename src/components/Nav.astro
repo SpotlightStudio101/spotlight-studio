@@ -164,7 +164,7 @@ const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
     }
   </ul>
 
-  <div class="flex items-end justify-between font-body text-sm text-ash">
+  <div class="flex flex-col items-start gap-4 font-body text-sm text-ash sm:flex-row sm:items-end sm:justify-between">
     <span>{t.nav.tagline}</span>
     <div class="flex gap-4">
       <a href={`mailto:${site.email}`} class="hover:text-jade">{t.nav.email}</a>
