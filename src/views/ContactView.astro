@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import FormExtras from "../components/FormExtras.astro";
 import { site } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
-import { localizePath } from "../i18n/utils";
 
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
@@ -22,26 +21,8 @@ const t = useTranslations(locale);
   </section>
 
   <section class="border-t border-ash-dim/20">
-    <div class="mx-auto grid max-w-6xl grid-cols-1 md:grid-cols-2">
-      <div class="flex flex-col justify-center gap-6 border-b border-ash-dim/20 px-6 py-16 md:border-b-0 md:border-r md:px-10 md:py-24">
-        <h2 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
-          {t.contact.bookHeading}
-        </h2>
-        <p class="max-w-sm font-body text-base text-ash">
-          {t.contact.bookBody}
-        </p>
-        <a
-          href={localizePath("/book-a-call", locale)}
-          class="group inline-flex w-fit items-center gap-3 rounded-full bg-jade px-7 py-4 font-display text-lg uppercase tracking-tightest text-void-deep transition-transform duration-300 hover:scale-[1.03]"
-        >
-          {t.contact.bookACall}
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" class="transition-transform duration-300 group-hover:translate-x-1">
-            <path d="M2 8H14M14 8L9 3M14 8L9 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      </div>
-
-      <div class="flex flex-col gap-6 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="flex max-w-xl flex-col gap-6 px-6 py-16 md:px-10 md:py-24">
         <h2 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
           {t.contact.sendHeading}
         </h2>

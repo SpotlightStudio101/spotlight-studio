@@ -12,11 +12,9 @@ const en = {
     aboutTitle: "About — Spotlight Studio Paris",
     aboutDescription: "Filmmaker across commercial, documentary, and narrative work.",
     contactTitle: "Contact — Spotlight Studio Paris",
-    contactDescription: "Book a call or send a message to talk about your project.",
+    contactDescription: "Send a message to talk about your project.",
     devisTitle: "Get a quote — Spotlight Studio Paris",
     devisDescription: "A few quick questions about your project, and I'll come back to you with a detailed, no-obligation quote.",
-    bookCallTitle: "Book a call — Spotlight Studio Paris",
-    bookCallDescription: "Pick a 30-minute slot that works for you, directly on my calendar.",
     thanksTitle: "Message sent — Spotlight Studio Paris",
     thanksDescription: "Thanks for reaching out.",
     termsTitle: "Terms of Use — Spotlight Studio Paris",
@@ -60,7 +58,7 @@ const en = {
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
       '<strong>Some make videos, I create films.</strong><br />My goal: serving your project — commercial, companies, events, weddings, documentary, narrative, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, my attention makes the difference.',
-    bookACall: "Book a call",
+    contactMe: "Contact me",
     responseTime: "I reply within 24h",
     rangeHeadingLine1: "My",
     rangeHeadingLine2: "work:",
@@ -69,7 +67,6 @@ const en = {
       "Also open to shorter, business-focused work — social cuts, branded content, corporate video.",
     shortFormCta: "Get in touch →",
     closingHeadline: "Have a project in mind? Let’s talk:",
-    or: "or",
     getQuote: "Get a quote",
     contactCta: {
       heading: "Let's build your",
@@ -253,7 +250,7 @@ const en = {
         {
           question: "What's the first step to start a project with you?",
           answer:
-            "A message through the contact form or a 30-minute call is enough to get started — we talk through your project and goals, and I come back with a tailored proposal.",
+            "A message through the contact form is enough to get started — we talk through your project and goals, and I come back with a tailored proposal.",
         },
         {
           question: "How does location scouting work for a shoot in a specific place?",
@@ -321,15 +318,12 @@ const en = {
       },
     ],
     wantToWork: "Want to work together?",
-    bookACall: "Book a call",
+    contactMe: "Contact me",
   },
   contact: {
     heading: "Let’s talk.",
     intro:
-      "Tell me about your project — what you're making, who it's for, and what you need. Book a call or send a message, whichever's easier.",
-    bookHeading: "Book a call",
-    bookBody: "Grab 30 minutes directly on my calendar — good if you already know what you want to talk through.",
-    bookACall: "Book a call",
+      "Tell me about your project — what you're making, who it's for, and what you need. I reply by email within 24 hours.",
     sendHeading: "Send a message",
     sendBody: "Prefer to write it out first? Tell me about the project and I'll reply by email.",
     nameLabel: "Name",
@@ -344,13 +338,6 @@ const en = {
     email: "Send an email ↗",
     instagram: "Find me on Instagram ↗",
     honeypot: "Don’t fill this out if you're human:",
-  },
-  bookCall: {
-    heading: "Book a call.",
-    intro: "Pick a 30-minute slot that works for you, directly on my calendar — good if you already know what you want to talk through.",
-    altContactHeading: "Prefer to write first?",
-    altContactBody: "No need to book anything — you can also just send a message.",
-    altContactLink: "Go to the contact page →",
   },
   devis: {
     heading: "Get a quote.",
@@ -485,11 +472,9 @@ const fr: typeof en = {
     aboutTitle: "À propos — Spotlight Studio Paris",
     aboutDescription: "Vidéaste et réalisateur, à la croisée de la publicité, du documentaire et du narratif.",
     contactTitle: "Contact — Spotlight Studio Paris",
-    contactDescription: "Réservez un appel ou envoyez un message pour parler de votre projet.",
+    contactDescription: "Envoyez un message pour parler de votre projet.",
     devisTitle: "Demander un devis — Spotlight Studio Paris",
     devisDescription: "Quelques questions rapides sur votre projet, et je reviens vers vous avec un devis détaillé, sans engagement.",
-    bookCallTitle: "Réserver un appel — Spotlight Studio Paris",
-    bookCallDescription: "Choisissez un créneau de 30 minutes qui vous convient, directement dans mon agenda.",
     thanksTitle: "Message envoyé — Spotlight Studio Paris",
     thanksDescription: "Merci de m'avoir contacté.",
     termsTitle: "Conditions d'utilisation — Spotlight Studio Paris",
@@ -533,7 +518,7 @@ const fr: typeof en = {
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
       '<strong>Certains font des vidéos, je crée des films.</strong><br />Mon objectif, servir votre projet : publicité, entreprises, événementiel, mariages, documentaire, narratif, architecture &amp; immobilier. Depuis Paris et disponible partout en France ainsi qu\'à l\'international, du premier échange jusqu\'au montage final, mon attention fait la différence.',
-    bookACall: "Réserver un appel",
+    contactMe: "Me contacter",
     responseTime: "Réponse sous 24h",
     rangeHeadingLine1: "Mon",
     rangeHeadingLine2: "travail :",
@@ -542,7 +527,6 @@ const fr: typeof en = {
       "Également disponible pour des projets plus courts et orientés entreprise — contenus pour les réseaux sociaux, contenu de marque, vidéo corporate.",
     shortFormCta: "Me contacter →",
     closingHeadline: "Un projet en tête ? Parlons-en :",
-    or: "ou",
     getQuote: "Demander un devis",
     contactCta: {
       heading: "Construisons votre",
@@ -726,7 +710,7 @@ const fr: typeof en = {
         {
           question: "Quelle est la première étape pour démarrer un projet avec vous ?",
           answer:
-            "Un message via le formulaire de contact ou un appel de 30 minutes suffit pour commencer : on parle de votre projet, de vos objectifs, et je reviens vers vous avec une proposition adaptée.",
+            "Un message via le formulaire de contact suffit pour commencer : on parle de votre projet, de vos objectifs, et je reviens vers vous avec une proposition adaptée.",
         },
         {
           question: "Comment se passe le repérage avant un tournage dans un lieu spécifique ?",
@@ -796,15 +780,12 @@ const fr: typeof en = {
       },
     ],
     wantToWork: "Envie de travailler ensemble ?",
-    bookACall: "Réserver un appel",
+    contactMe: "Me contacter",
   },
   contact: {
     heading: "Discutons.",
     intro:
-      "Parlez-moi de votre projet — ce que vous voulez créer, pour qui, et ce dont vous avez besoin. Réservez un appel ou envoyez un message, comme vous préférez.",
-    bookHeading: "Réserver un appel",
-    bookBody: "Prenez 30 minutes directement dans mon agenda — idéal si vous savez déjà de quoi vous voulez parler.",
-    bookACall: "Réserver un appel",
+      "Parlez-moi de votre projet — ce que vous voulez créer, pour qui, et ce dont vous avez besoin. Je vous réponds par e-mail sous 24 h.",
     sendHeading: "Envoyer un message",
     sendBody: "Vous préférez écrire d'abord ? Parlez-moi de votre projet, je vous répondrai par e-mail.",
     nameLabel: "Nom",
@@ -819,13 +800,6 @@ const fr: typeof en = {
     email: "Envoyer un e-mail ↗",
     instagram: "Retrouvez-moi sur Instagram ↗",
     honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
-  },
-  bookCall: {
-    heading: "Réserver un appel.",
-    intro: "Choisissez un créneau de 30 minutes qui vous convient, directement dans mon agenda — idéal si vous savez déjà de quoi vous voulez parler.",
-    altContactHeading: "Vous préférez écrire d'abord ?",
-    altContactBody: "Pas besoin de réserver quoi que ce soit — vous pouvez aussi simplement envoyer un message.",
-    altContactLink: "Aller à la page contact →",
   },
   devis: {
     heading: "Demander un devis.",

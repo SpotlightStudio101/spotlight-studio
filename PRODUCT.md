@@ -33,8 +33,8 @@ Early-stage build: no films, stills, bio, or credits are ready yet. The site nee
 - Local SEO: the 5 city landing pages tried earlier (Lyon/Marseille/Bordeaux/Nice/Cannes) were removed by the user's explicit call — thin-content/trust risk for a solo practitioner without real local presence outweighed the long-tail search benefit. The single Home page now carries the whole local-SEO story: Paris-based, available across the wider Île-de-France, and open to travel nationally/internationally (see the "Vos tournages à Paris et en Île-de-France" section)
 - Contact form (own Cloudflare Pages Function + Resend): qualifies leads with a project-type select and an optional budget-range select, alongside the original name/email/message fields
 - Films page: edge-to-edge grid of work samples, each autoplaying a muted looping clip on load. No real footage exists yet — ships with clearly-labeled placeholder entries the user swaps in as real films are finished
-- Home's primary conversion action is booking a call directly via Calendly — no Calendly account exists yet, so the link ships as a clearly-marked placeholder the user swaps in once created
-- Contact page offers two equal paths: book a call (Calendly) or send a message via a real contact form — both are wanted, neither replaces the other
+- Home's primary conversion action is the contact form (hero button scrolls to the form on Home); call booking via Calendly was removed on purpose
+- Contact is a single path: the contact form (no call booking). Old /book-a-call URLs redirect to /contact via public/_redirects
 - Video hosting: YouTube (Quentin will post most work there; the Films page should embed YouTube video, not self-hosted files)
 - Instagram: @quentinmouledousfilms
 - Deploy target: Cloudflare Pages (migrating from Netlify, whose free credit plan capped monthly deploys at ~20). Forms moved from Netlify Forms to a custom `functions/api/send.ts` (validates, then emails via Resend; needs the `RESEND_API_KEY` secret set in Cloudflare Pages)
