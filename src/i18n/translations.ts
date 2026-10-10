@@ -57,7 +57,7 @@ const en = {
     heroLine2: "project to life",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
-      '<strong>Some make videos, I create films.</strong><br />My goal? Serving your project: events, commercial, companies, fiction, documentaries, weddings, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, I'll guide you in creating the film that makes the difference.',
+      '<strong>Some make videos, I create films.</strong><br />My goal? Serving your project: events, commercial, companies, fiction, documentaries, weddings, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, I\'ll guide you in creating the film that makes the difference.',
     contactMe: "Contact me",
     responseTime: "I reply within 24h",
     rangeHeadingLine1: "My",
