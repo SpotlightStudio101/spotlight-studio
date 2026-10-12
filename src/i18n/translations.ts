@@ -4,13 +4,13 @@ export const defaultLocale: Locale = "fr";
 
 const en = {
   meta: {
-    homeTitle: "Spotlight Studio Paris — Quentin Mouledous, filmmaker",
+    homeTitle: "Spotlight Studio Paris — Quentin Mouledous, director/videographer",
     homeDescription:
-      "Quentin Mouledous, filmmaker in Paris: event, corporate and commercial films, weddings and documentaries. Spotlight Studio, available across France.",
+      "Quentin Mouledous, director/videographer in Paris: event films, documentaries, fiction, corporate and commercial films, weddings. Spotlight Studio, available across France.",
     filmsTitle: "Films — Spotlight Studio Paris",
-    filmsDescription: "Event films by Quentin Mouledous, filmmaker in Paris.",
+    filmsDescription: "Event films by Quentin Mouledous, director/videographer in Paris.",
     aboutTitle: "About — Spotlight Studio Paris",
-    aboutDescription: "Quentin Mouledous, filmmaker in Paris — the person behind Spotlight Studio.",
+    aboutDescription: "Quentin Mouledous, director/videographer in Paris — the person behind Spotlight Studio.",
     contactTitle: "Contact — Spotlight Studio Paris",
     contactDescription: "Send a message to talk about your project.",
     devisTitle: "Get a quote — Spotlight Studio Paris",
@@ -36,7 +36,7 @@ const en = {
     eventsLive: "Events",
     about: "About",
     contact: "Contact",
-    tagline: "Filmmaker — events, companies, commercial, weddings, architecture & real estate, fiction, documentaries",
+    tagline: "Director/videographer — events, documentaries, fiction, companies, commercial, weddings, architecture & real estate",
     email: "Email ↗",
     instagram: "Instagram ↗",
     linkedin: "LinkedIn ↗",
@@ -464,13 +464,13 @@ const en = {
 
 const fr: typeof en = {
   meta: {
-    homeTitle: "Spotlight Studio Paris — Quentin Moulédous, vidéaste",
+    homeTitle: "Spotlight Studio Paris — Quentin Moulédous, vidéaste/réalisateur",
     homeDescription:
-      "Quentin Moulédous, vidéaste à Paris : films événementiels, d'entreprise, publicité, mariages et documentaires. Spotlight Studio, partout en France.",
+      "Quentin Moulédous, vidéaste/réalisateur à Paris : films événementiels, documentaires, de fiction, d'entreprise, publicité et mariages. Spotlight Studio, partout en France.",
     filmsTitle: "Films — Spotlight Studio Paris",
-    filmsDescription: "Films événementiels de Quentin Moulédous, vidéaste à Paris.",
+    filmsDescription: "Films événementiels de Quentin Moulédous, vidéaste/réalisateur à Paris.",
     aboutTitle: "À propos — Spotlight Studio Paris",
-    aboutDescription: "Quentin Moulédous, vidéaste et réalisateur à Paris : le parcours derrière Spotlight Studio.",
+    aboutDescription: "Quentin Moulédous, vidéaste/réalisateur à Paris : le parcours derrière Spotlight Studio.",
     contactTitle: "Contact — Spotlight Studio Paris",
     contactDescription: "Envoyez un message pour parler de votre projet.",
     devisTitle: "Demander un devis — Spotlight Studio Paris",
@@ -496,7 +496,7 @@ const fr: typeof en = {
     eventsLive: "Événementiel",
     about: "À propos",
     contact: "Contact",
-    tagline: "Vidéaste — événementiel, entreprises, publicité, mariages, architecture & immobilier, fiction, documentaires",
+    tagline: "Vidéaste/réalisateur — événementiel, documentaires, fiction, entreprises, publicité, mariages, architecture & immobilier",
     email: "E-mail ↗",
     instagram: "Instagram ↗",
     linkedin: "LinkedIn ↗",
