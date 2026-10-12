@@ -512,7 +512,7 @@ const fr: typeof en = {
     legalNotice: "Mentions légales",
   },
   home: {
-    heroBadge: "Réalisateur/vidéaste",
+    heroBadge: "Vidéaste/réalisateur",
     heroLine1: "Donnons vie",
     heroLine2: "à votre projet",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
