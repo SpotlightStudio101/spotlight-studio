@@ -17,7 +17,7 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const preview = films.filter((film) => showCommercial || film.genre !== "commercial").slice(0, 3);
 
-const heroReel = { mp4: "/video/hero-reel.mp4", poster: "/video/hero-poster.jpg" };
+const heroReel = { mp4: "/video/hero-reel-v2.mp4", poster: "/video/hero-poster-v2.jpg" };
 ---
 
 <Layout title={t.meta.homeTitle} description={t.meta.homeDescription}>
