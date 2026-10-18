@@ -79,7 +79,7 @@ const en = {
       honeypot: "Don’t fill this out if you're human:",
     },
     intro: {
-      heading: "Talent captures. Strategy transforms.",
+      heading: "Films that leave a mark. Results that count.",
       paragraphs: [
         "An independent filmmaker and videographer based in Paris, I'm constantly looking for the sweet spot between <strong>cinematic craft and marketing performance</strong>.",
         "Before I even pick up a camera, I take the time to <strong>build your project alongside you</strong> and <strong>craft a strategy that fits</strong>.",
@@ -539,7 +539,7 @@ const fr: typeof en = {
       honeypot: "Ne remplissez pas ce champ si vous êtes humain :",
     },
     intro: {
-      heading: "Le talent capture. La stratégie transforme.",
+      heading: "Des films qui marquent. Des résultats qui comptent.",
       paragraphs: [
         "Vidéaste et réalisateur indépendant basé à Paris, je cherche constamment le juste milieu entre <strong>exigence cinématographique et performance marketing</strong>.",
         "Avant même d'empoigner une caméra, je prends le temps de <strong>construire votre projet à vos côtés</strong> et de <strong>créer une stratégie adaptée</strong>.",
