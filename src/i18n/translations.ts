@@ -53,8 +53,8 @@ const en = {
   },
   home: {
     heroBadge: "Director/videographer",
-    heroLine1: "Cinema at the service",
-    heroLine2: "of your business",
+    heroLine1: "Cinema built for",
+    heroLine2: "your business",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
       '<strong>Some make videos, I create films.</strong><br />My goal? Serving your project: events, commercial, companies, fiction, documentaries, weddings, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, I\'ll guide you in creating the film that makes the difference.',
