@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ClientSegments from "../components/ClientSegments.astro";
+import ClientLogos from "../components/ClientLogos.astro";
 import MethodSection from "../components/MethodSection.astro";
 import TeamSection from "../components/TeamSection.astro";
 import TextSection from "../components/TextSection.astro";
@@ -77,6 +78,8 @@ const heroReel = { mp4: "/video/hero-reel-v2.mp4", poster: "/video/hero-poster-v
       </svg>
     </div>
   </section>
+
+  <ClientLogos />
 
   <TextSection heading={t.home.intro.heading} paragraphs={t.home.intro.paragraphs} />
 

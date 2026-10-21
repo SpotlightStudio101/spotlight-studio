@@ -1,0 +1,73 @@
+---
+import { clientLogos } from "../data/clients";
+import { getLocale, useTranslations } from "../i18n/translations";
+
+const t = useTranslations(getLocale(Astro.currentLocale));
+
+// One "set" must be wider than the screen for the loop to look seamless, so short lists are
+// repeated; the track then holds two identical sets and slides exactly one set's width.
+const repeats = clientLogos.length ? Math.ceil(10 / clientLogos.length) : 0;
+const set = Array.from({ length: repeats }).flatMap(() => clientLogos);
+const duration = Math.max(30, set.length * 4);
+---
+
+{
+  clientLogos.length > 0 && (
+    <section class="logo-band border-t border-ash-dim/20 py-10 md:py-14" aria-label={t.home.trustedBy}>
+      <div class="logo-track" style={`--duration:${duration}s`}>
+        {[0, 1].map((copy) => (
+          <ul class="logo-set" aria-hidden={copy === 1 ? "true" : undefined}>
+            {set.map((logo) => (
+              <li>
+                <img src={logo.src} alt={copy === 0 ? logo.name : ""} loading="lazy" decoding="async" />
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .logo-band {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .logo-track {
+    display: flex;
+    width: max-content;
+    animation: logo-scroll var(--duration, 40s) linear infinite;
+    will-change: transform;
+  }
+  .logo-set {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 4.5rem;
+    padding-right: 4.5rem;
+    margin: 0;
+    list-style: none;
+  }
+  .logo-set img {
+    height: 2rem;
+    width: auto;
+    max-width: 9rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+  @media (min-width: 768px) {
+    .logo-set { gap: 6rem; padding-right: 6rem; }
+    .logo-set img { height: 2.5rem; max-width: 11rem; }
+  }
+  /* Slides left to right, like the reference: the track starts one set to the left and drifts back to 0. */
+  @keyframes logo-scroll {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .logo-track { animation: none; transform: none; }
+  }
+</style>

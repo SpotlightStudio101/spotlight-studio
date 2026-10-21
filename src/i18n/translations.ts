@@ -59,6 +59,7 @@ const en = {
     heroSub:
       '<strong>Some make videos, I create films.</strong><br />My goal? Serving your project: events, commercial, companies, fiction, documentaries, weddings, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, I\'ll guide you in creating the film that makes the difference.',
     contactMe: "Contact me",
+    trustedBy: "Brands and clients I've worked with",
     responseTime: "I reply within 24h",
     rangeHeadingLine1: "My",
     rangeHeadingLine2: "work:",
@@ -519,6 +520,7 @@ const fr: typeof en = {
     heroSub:
       '<strong>Certains font des vidéos, je crée des films.</strong><br />Mon objectif ? Servir votre projet : événementiel, publicité, entreprises, fiction, documentaires, mariages, architecture &amp; immobilier. Depuis Paris et disponible partout en France ainsi qu\'à l\'international, du premier échange jusqu\'au montage final, je vous accompagne pour créer le film qui fera la différence.',
     contactMe: "Me contacter",
+    trustedBy: "Marques et clients avec qui j'ai travaillé",
     responseTime: "Réponse sous 24h",
     rangeHeadingLine1: "Mon",
     rangeHeadingLine2: "travail :",
