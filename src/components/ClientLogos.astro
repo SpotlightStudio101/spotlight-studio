@@ -13,17 +13,20 @@ const duration = Math.max(30, set.length * 4);
 
 {
   clientLogos.length > 0 && (
-    <section class="logo-band border-t border-ash-dim/20 py-10 md:py-14" aria-label={t.home.trustedBy}>
+    <section class="border-t border-ash-dim/20 py-10 md:py-14" aria-label={t.home.trustedBy}>
+      <p class="mb-8 px-6 text-center font-display text-lg uppercase tracking-tightest text-ink md:mb-10 md:text-2xl">{t.home.trustedHeading}</p>
+      <div class="logo-band">
       <div class="logo-track" style={`--duration:${duration}s`}>
         {[0, 1].map((copy) => (
           <ul class="logo-set" aria-hidden={copy === 1 ? "true" : undefined}>
             {set.map((logo) => (
               <li>
-                <img src={logo.src} alt={copy === 0 ? logo.name : ""} loading="lazy" decoding="async" />
+                <img src={logo.src} alt={copy === 0 ? logo.name : ""} loading="lazy" decoding="async" style={logo.scale ? `--s:${logo.scale}` : undefined} />
               </li>
             ))}
           </ul>
         ))}
+      </div>
       </div>
     </section>
   )
@@ -51,16 +54,16 @@ const duration = Math.max(30, set.length * 4);
     list-style: none;
   }
   .logo-set img {
-    height: 2rem;
+    height: calc(2rem * var(--s, 1));
     width: auto;
-    max-width: 9rem;
+    max-width: 14rem;
     object-fit: contain;
     filter: brightness(0) invert(1);
     opacity: 0.85;
   }
   @media (min-width: 768px) {
     .logo-set { gap: 6rem; padding-right: 6rem; }
-    .logo-set img { height: 2.5rem; max-width: 11rem; }
+    .logo-set img { height: calc(2.5rem * var(--s, 1)); max-width: 18rem; }
   }
   /* Slides left to right, like the reference: the track starts one set to the left and drifts back to 0. */
   @keyframes logo-scroll {

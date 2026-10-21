@@ -3,9 +3,13 @@ export interface ClientLogo {
   name: string;
   /** Path under /public, e.g. "/images/clients/acme.svg". Transparent PNG or SVG, any colour: it's rendered white. */
   src: string;
+  /** Size multiplier for wide or text-heavy logos that look too small at the default height (default 1). */
+  scale?: number;
 }
 
 // The scrolling logo band under the Home hero. Empty on purpose: while this list is empty the
 // band is not rendered at all. Drop each logo file in public/images/clients/ and add a line:
 //   { name: "Acme", src: "/images/clients/acme.svg" },
-export const clientLogos: ClientLogo[] = [];
+export const clientLogos: ClientLogo[] = [
+  { name: "Ambassade d'Arménie en France", src: "/images/clients/ambassade-armenie.png", scale: 1.5 },
+];
