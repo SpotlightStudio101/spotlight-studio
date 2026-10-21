@@ -11,5 +11,5 @@ export interface ClientLogo {
 // band is not rendered at all. Drop each logo file in public/images/clients/ and add a line:
 //   { name: "Acme", src: "/images/clients/acme.svg" },
 export const clientLogos: ClientLogo[] = [
-  { name: "Ambassade d'Arménie en France", src: "/images/clients/ambassade-armenie.png", scale: 1.5 },
+  { name: "Ambassade d'Arménie en France", src: "/images/clients/ambassade-armenie.png", scale: 2 },
 ];

@@ -4,9 +4,14 @@ import { getLocale, useTranslations } from "../i18n/translations";
 
 const t = useTranslations(getLocale(Astro.currentLocale));
 
+// With only a few logos a scrolling loop just repeats the same ones, so below this count they
+// are shown still, centred. From this many logos up, the scrolling band takes over.
+const MIN_FOR_MARQUEE = 4;
+const scrolling = clientLogos.length >= MIN_FOR_MARQUEE;
+
 // One "set" must be wider than the screen for the loop to look seamless, so short lists are
 // repeated; the track then holds two identical sets and slides exactly one set's width.
-const repeats = clientLogos.length ? Math.ceil(10 / clientLogos.length) : 0;
+const repeats = scrolling ? Math.ceil(10 / clientLogos.length) : 0;
 const set = Array.from({ length: repeats }).flatMap(() => clientLogos);
 const duration = Math.max(30, set.length * 4);
 ---
@@ -15,6 +20,16 @@ const duration = Math.max(30, set.length * 4);
   clientLogos.length > 0 && (
     <section class="border-t border-ash-dim/20 py-10 md:py-14" aria-label={t.home.trustedBy}>
       <p class="mb-8 px-6 text-center font-display text-lg uppercase tracking-tightest text-ink md:mb-10 md:text-2xl">{t.home.trustedHeading}</p>
+      {!scrolling && (
+        <ul class="logo-set logo-set--still">
+          {clientLogos.map((logo) => (
+            <li>
+              <img src={logo.src} alt={logo.name} decoding="async" style={logo.scale ? `--s:${logo.scale}` : undefined} />
+            </li>
+          ))}
+        </ul>
+      )}
+      {scrolling && (
       <div class="logo-band">
       <div class="logo-track" style={`--duration:${duration}s`}>
         {[0, 1].map((copy) => (
@@ -28,6 +43,7 @@ const duration = Math.max(30, set.length * 4);
         ))}
       </div>
       </div>
+      )}
     </section>
   )
 }
@@ -37,6 +53,12 @@ const duration = Math.max(30, set.length * 4);
     overflow: hidden;
     -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .logo-set.logo-set--still {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 1.5rem;
+    row-gap: 2rem;
   }
   .logo-track {
     display: flex;
