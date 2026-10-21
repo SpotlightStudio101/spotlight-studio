@@ -19,7 +19,7 @@ const duration = Math.max(30, set.length * 4);
 {
   clientLogos.length > 0 && (
     <section class="py-10 md:py-14" aria-label={t.home.trustedBy}>
-      <p class="mb-8 px-6 text-center font-display text-lg uppercase tracking-tightest text-ink md:mb-10 md:text-2xl">{t.home.trustedHeading}</p>
+      <h2 class="mb-10 px-6 text-center font-display text-3xl font-extrabold italic uppercase leading-[0.95] tracking-tightest text-ink md:mb-14 md:text-5xl" set:html={t.home.trustedHeading} />
       {!scrolling && (
         <ul class="logo-set logo-set--still">
           {clientLogos.map((logo) => (
