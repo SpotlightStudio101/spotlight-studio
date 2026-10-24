@@ -85,7 +85,7 @@ const en = {
       paragraphs: [
         "An independent filmmaker and videographer based in Paris, I'm constantly looking for the sweet spot between <strong>cinematic craft and marketing performance</strong>.",
         "Before I even pick up a camera, I take the time to <strong>build your project alongside you</strong> and <strong>craft a strategy that fits</strong>.",
-        "\"Beautiful images\" remain my trademark, but I never stop there. Every film is built as <strong>a tool serving a specific business goal</strong>, not just an aesthetic showcase.",
+        "\"Beautiful images\" remain my trademark, but I never stop there. Every film is built as <strong>a tool serving a specific goal</strong>, not just an aesthetic showcase.",
         "From pre-production to the final cut, every decision serves the same throughline: <strong>strengthening your image and carrying your message</strong>.",
         'No more videos that all look the same. Time for <strong>films built to leave a mark</strong> and <strong>drive action</strong>, then <strong><span class="underline-accent">results</span></strong>.',
       ],
@@ -547,7 +547,7 @@ const fr: typeof en = {
       paragraphs: [
         "Vidéaste et réalisateur indépendant basé à Paris, je cherche constamment le juste milieu entre <strong>exigence cinématographique et performance marketing</strong>.",
         "Avant même d'empoigner une caméra, je prends le temps de <strong>construire votre projet à vos côtés</strong> et de <strong>créer une stratégie adaptée</strong>.",
-        "Si de « belles images » restent ma marque de fabrique, je ne m'en contente jamais. Chaque réalisation est construite comme <strong>un outil au service d'un business précis</strong>, non pas comme une simple présentation esthétique.",
+        "Si de « belles images » restent ma marque de fabrique, je ne m'en contente jamais. Chaque réalisation est construite comme <strong>un outil au service d'un objectif précis</strong>, non pas comme une simple présentation esthétique.",
         "De la pré-production jusqu'au montage final, chaque décision sert la même ligne directrice : <strong>renforcer votre image et porter votre message</strong>.",
         'Fini les vidéos qui se ressemblent toutes. Place à des <strong>films pensés pour marquer les esprits</strong> et pousser à <strong>l\'action</strong>, puis aux <strong><span class="underline-accent">résultats</span></strong>.',
       ],
