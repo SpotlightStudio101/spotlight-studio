@@ -19,55 +19,55 @@ const icons = [
 ];
 ---
 
-<section class="method-grain grain-wash relative overflow-hidden border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+<section class="method-grain grain-wash relative overflow-hidden border-t border-ash-dim/20 px-4 py-20 md:px-10 md:py-32">
   <div class="mx-auto max-w-2xl text-center">
-    <h2 class="mb-20 font-display text-4xl uppercase italic leading-none tracking-tightest text-ink md:mb-28 md:text-6xl">
+    <h2 class="mb-14 font-display text-4xl uppercase italic leading-none tracking-tightest text-ink md:mb-28 md:text-6xl">
       {t.home.method.heading}
     </h2>
   </div>
 
   <div class="relative mx-auto max-w-4xl" id="method-steps">
-    <div class="method-track method-track--fade absolute left-[5px] top-1.5 bottom-1.5 w-px bg-ash-dim/25 md:left-1/2 md:-translate-x-1/2" aria-hidden="true"></div>
+    <div class="method-track method-track--fade absolute left-1/2 top-1.5 bottom-1.5 w-px -translate-x-1/2 bg-ash-dim/25" aria-hidden="true"></div>
 
-    <div id="method-ball" class="method-ball absolute left-[5px] top-1.5 z-10 md:left-1/2" aria-hidden="true">
+    <div id="method-ball" class="method-ball absolute left-1/2 top-1.5 z-10" aria-hidden="true">
       <span class="method-ball-halo absolute rounded-full"></span>
       <span class="method-ball-core absolute rounded-full bg-ink"></span>
     </div>
 
-    <ul class="flex flex-col gap-16 md:gap-8">
+    <ul class="flex flex-col gap-6 md:gap-8">
       {
         steps.map((step, i) => {
           const isRight = i % 2 === 1;
           return (
-            <li class="method-step relative grid grid-cols-[auto_1fr] items-start gap-6 md:grid-cols-[1fr_2.5rem_1fr] md:gap-6">
+            <li class="method-step relative grid grid-cols-[1fr_1.25rem_1fr] items-start gap-2 md:grid-cols-[1fr_2.5rem_1fr] md:gap-6">
               <div
                 class:list={[
-                  "method-card relative overflow-hidden rounded-3xl border border-ash-dim/20 p-6 md:p-8",
-                  isRight ? "md:col-start-3" : "md:col-start-1",
+                  "method-card relative overflow-hidden rounded-2xl border border-ash-dim/20 p-3 md:rounded-3xl md:p-8",
+                  isRight ? "col-start-3" : "col-start-1",
                 ]}
               >
                 <div class="method-card-halo pointer-events-none absolute -inset-5 rounded-[2.5rem]" aria-hidden="true"></div>
                 <div class="method-glow pointer-events-none absolute inset-0" aria-hidden="true"></div>
 
                 <div
-                  class="relative z-10 mb-5 flex h-11 w-11 items-center justify-center rounded-full border border-ash-dim/40 text-jade"
+                  class="relative z-10 mb-2 flex h-7 w-7 items-center justify-center rounded-full border border-ash-dim/40 text-jade md:mb-5 md:h-11 md:w-11"
                   aria-hidden="true"
                 >
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <svg class="h-3.5 w-3.5 md:h-[22px] md:w-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                     <Fragment set:html={icons[i % icons.length]} />
                   </svg>
                 </div>
 
-                <p class="relative z-10 font-display text-3xl text-jade md:text-4xl">{String(i + 1).padStart(2, "0")}</p>
-                <h3 class="relative z-10 mt-1 font-display text-2xl uppercase italic leading-none tracking-tightest text-ink md:text-3xl">
+                <p class="relative z-10 font-display text-xl text-jade md:text-4xl">{String(i + 1).padStart(2, "0")}</p>
+                <h3 class="relative z-10 mt-0.5 font-display text-sm uppercase italic leading-none tracking-tightest text-ink md:mt-1 md:text-3xl">
                   {step.title}
                 </h3>
-                <div class="method-rule relative z-10 mt-4 h-[2px] w-[4.5rem] origin-left bg-jade" aria-hidden="true" />
-                <p class="relative z-10 mt-4 font-body text-base text-ash md:text-lg">{step.body}</p>
+                <div class="method-rule relative z-10 mt-2 h-[2px] w-10 md:mt-4 md:w-[4.5rem] origin-left bg-jade" aria-hidden="true" />
+                <p class="relative z-10 mt-2 font-body text-[11px] leading-snug text-ash md:mt-4 md:text-lg md:leading-normal">{step.body}</p>
                 {step.kit.length > 0 && (
-                  <ul class="relative z-10 mt-5 flex flex-wrap gap-2">
+                  <ul class="relative z-10 mt-3 flex flex-wrap gap-1 md:mt-5 md:gap-2">
                     {step.kit.map((item) => (
-                      <li class="rounded-full border border-ash-dim/40 px-3 py-1 font-mono text-xs uppercase tracking-[-0.02em] text-ash">
+                      <li class="rounded-full border border-ash-dim/40 px-1.5 py-0.5 font-mono text-[8px] uppercase md:px-3 md:py-1 md:text-xs tracking-[-0.02em] text-ash">
                         {item}
                       </li>
                     ))}
@@ -241,6 +241,30 @@ const icons = [
   .method-card:hover .method-rule,
   .method-card:focus-within .method-rule {
     transform: scaleX(1);
+  }
+  /* Phones: the card stack keeps the desktop layout (cards either side of the centre line) at a
+     smaller size. Blur and conic-mask effects are what make scrolling stutter on mobile GPUs,
+     so they are switched off there; the lit state still reads through border, scale and glow. */
+  @media (max-width: 767px) {
+    .method-card-halo,
+    .method-card::before {
+      display: none;
+    }
+    .method-card,
+    .method-step.is-reached .method-card,
+    .method-card:hover,
+    .method-card:focus-within {
+      filter: none;
+    }
+    .method-ball-core {
+      height: 12px;
+      width: 12px;
+    }
+    .method-ball-halo {
+      height: 26px;
+      width: 26px;
+      border-width: 3px;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
     .method-card {

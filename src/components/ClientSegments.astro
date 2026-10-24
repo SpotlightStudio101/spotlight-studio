@@ -15,7 +15,7 @@ const images = [
 ];
 ---
 
-<section class="grain-wash relative border-t border-ash-dim/20 px-6 py-24 md:px-10 md:py-32">
+<section class="grain-wash relative border-t border-ash-dim/20 px-4 py-20 md:px-10 md:py-32">
   <div class="mx-auto max-w-6xl">
     <h2 class="mb-3 font-display text-4xl uppercase italic leading-none tracking-tightest text-ink md:text-6xl">
       {t.home.segments.heading}
@@ -24,16 +24,16 @@ const images = [
       {t.home.segments.imageDisclaimer}
     </p>
 
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-3 gap-2 md:gap-4">
       {
         t.home.segments.items.map((item, i) => (
-          <div class="service-card group flex aspect-[3/4] flex-col justify-end rounded-3xl p-6" data-reveal>
+          <div class="service-card group flex aspect-[3/4] flex-col justify-end rounded-xl p-2 md:rounded-3xl md:p-6" data-reveal>
             <img src={images[i]} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-            <div class="relative z-10 flex flex-col gap-2">
-              <h3 class="font-display text-xl uppercase italic leading-[0.95] tracking-tightest text-ink md:text-2xl">
+            <div class="relative z-10 flex flex-col gap-1 md:gap-2">
+              <h3 class="font-display text-[11px] uppercase italic leading-[0.95] tracking-tightest text-ink sm:text-base md:text-2xl">
                 {item.title}
               </h3>
-              <p class="line-clamp-2 max-w-xs font-body text-xs text-ash md:text-sm">{item.body}</p>
+              <p class="line-clamp-4 max-w-xs font-body text-[8px] leading-tight text-ash sm:text-xs md:line-clamp-2 md:text-sm">{item.body}</p>
             </div>
           </div>
         ))

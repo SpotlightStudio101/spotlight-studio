@@ -50,10 +50,10 @@ const hasClip = Boolean(film.previewClip?.webm || film.previewClip?.mov || film.
   }
 
   <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-void-deep/70 to-transparent px-4 pb-3 pt-6 md:px-5 md:pb-4">
-    <span class="font-display text-xs uppercase tracking-tightest text-ash md:text-sm">
+    <span class="font-display text-[9px] uppercase tracking-tightest text-ash sm:text-xs md:text-sm">
       {t.filmData.genre[film.genre]}
     </span>
-    <span class="font-display text-xs uppercase tracking-tightest text-ash-dim">
+    <span class="hidden font-display text-xs uppercase tracking-tightest text-ash-dim sm:inline">
       {film.isDemo ? t.filmTile.demoClip : hasClip ? "" : t.filmTile.footageComingSoon}
     </span>
   </div>
