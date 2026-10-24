@@ -217,7 +217,7 @@ const en = {
         {
           question: "Why choose an independent filmmaker over an agency?",
           answer:
-            "You deal with one person, start to finish — no account manager translating your brief to a team, no agency markup baked into the quote. It also means real flexibility: I adapt to your schedule and budget, project by project.",
+            "You deal with one person, start to finish. No account manager translating your brief to a team, no agency markup baked into the quote. It also means real flexibility: I adapt to your schedule and budget, project by project.",
         },
         {
           question: "How long does a shoot take?",
@@ -237,7 +237,7 @@ const en = {
         {
           question: "Can you shoot in 4K?",
           answer:
-            "Yes — everything is shot in 4K with the Sony FX3, as the baseline for every project, not an option. That technical standard comes with real cinematic craft behind the image — framing, lighting, color grading — rather than a plain capture: unlike many agencies that split the work across several people, I handle the whole chain myself, from the shoot to the final edit, which lets me push that level of care through every stage.",
+            "Yes — everything is shot in 4K, as the baseline for every project, not an option. That technical standard comes with real cinematic craft behind the image — framing, lighting, color grading — rather than a plain capture: unlike many agencies that split the work across several people, I handle the whole chain myself, from the shoot to the final edit, which lets me push that level of care through every stage.",
         },
         {
           question: "What happens to my raw footage after delivery?",
@@ -679,7 +679,7 @@ const fr: typeof en = {
         {
           question: "Pourquoi choisir un vidéaste indépendant plutôt qu'une agence ?",
           answer:
-            "Vous n'avez affaire qu'à une seule personne, du premier échange à la livraison — pas de chargé de projet qui traduit vos demandes à une équipe, pas de marge d'agence répercutée sur le devis. Ça veut aussi dire une vraie souplesse : je m'adapte à votre calendrier et à votre budget, projet par projet.",
+            "Vous n'avez affaire qu'à une seule personne, du premier échange à la livraison. Pas de chargé de projet qui traduit vos demandes à une équipe, pas de marge d'agence répercutée sur le devis. Ça veut aussi dire une vraie souplesse : je m'adapte à votre calendrier et à votre budget, projet par projet.",
         },
         {
           question: "Combien de temps dure un tournage ?",
@@ -699,7 +699,7 @@ const fr: typeof en = {
         {
           question: "Pouvez-vous filmer en 4K ?",
           answer:
-            "Oui — tout est tourné en 4K avec le Sony FX3, c'est la base de chaque projet, pas une option. Cette exigence technique s'accompagne d'un vrai travail cinématographique sur l'image — cadrage, lumière, étalonnage — plutôt qu'une simple captation : contrairement à beaucoup d'agences qui répartissent la prestation entre plusieurs intervenants, je maîtrise toute la chaîne moi-même, du tournage au montage final, ce qui permet de pousser ce niveau d'exigence à chaque étape.",
+            "Oui, tout est tourné en 4K, c'est la base de chaque projet, pas une option. Cette exigence technique s'accompagne d'un vrai travail cinématographique sur l'image — cadrage, lumière, étalonnage — plutôt qu'une simple captation : contrairement à beaucoup d'agences qui répartissent la prestation entre plusieurs intervenants, je maîtrise toute la chaîne moi-même, du tournage au montage final, ce qui permet de pousser ce niveau d'exigence à chaque étape.",
         },
         {
           question: "Que deviennent mes rushs (fichiers bruts) après la livraison ?",
