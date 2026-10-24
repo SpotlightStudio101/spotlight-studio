@@ -59,7 +59,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
       .replace(/[\r\n]+/g, " ")
       .trim()
       .slice(0, 80) || email;
-  const subject = `${SUBJECTS[String(form.get("form"))] ?? SUBJECTS.contact} — ${senderName}`;
+  const subject = `${SUBJECTS[String(form.get("form"))] ?? SUBJECTS.contact} | ${senderName}`;
 
   const text = fields.map(([label, value]) => `${label}: ${value}`).join("\n\n");
   const html = fields

@@ -16,7 +16,7 @@ const stillCount = 9;
 const title = filmTitle(film, t);
 ---
 
-<Layout title={`${title} — ${t.meta.filmSuffix}`} description={`${t.filmData.genre[film.genre]} — ${t.meta.filmSuffix}`}>
+<Layout title={`${title} | ${t.meta.filmSuffix}`} description={`${t.filmData.genre[film.genre]} | ${t.meta.filmSuffix}`}>
   <section class="px-6 pb-10 pt-32 text-center md:pt-40">
     <h1 class="font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
       {film.title ?? t.filmData.genre[film.genre]}
