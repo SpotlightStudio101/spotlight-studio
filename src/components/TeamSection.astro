@@ -4,13 +4,13 @@ import { getLocale, useTranslations } from "../i18n/translations";
 const t = useTranslations(getLocale(Astro.currentLocale));
 ---
 
-<section class="border-t border-ash-dim/20 px-6 py-20 md:px-10 md:py-28">
+<section class="border-t border-ash-dim/20 px-4 py-16 md:px-10 md:py-28">
   <div class="mx-auto max-w-6xl">
-    <h2 class="mb-10 font-display text-3xl uppercase italic leading-none tracking-tightest text-ink md:text-4xl">
+    <h2 class="mb-6 font-display text-3xl uppercase italic leading-none tracking-tightest text-ink md:mb-10 md:text-4xl">
       {t.home.team.heading}
     </h2>
 
-    <div class="grid grid-cols-1 gap-10 md:grid-cols-[minmax(0,22rem)_1fr] md:items-start md:gap-14">
+    <div class="grid grid-cols-[minmax(0,38%)_1fr] items-start gap-3 md:grid-cols-[minmax(0,22rem)_1fr] md:gap-14">
       <img
         src="/images/portrait.jpg"
         alt={t.home.team.portraitAlt}
@@ -18,12 +18,12 @@ const t = useTranslations(getLocale(Astro.currentLocale));
         height="1050"
         loading="lazy"
         decoding="async"
-        class="aspect-[4/5] w-full rounded-3xl object-cover"
+        class="aspect-[4/5] w-full rounded-xl object-cover md:rounded-3xl"
         data-reveal
       />
 
-      <div class="flex flex-col gap-5">
-        {t.home.team.paragraphs.map((paragraph) => <p class="max-w-xl font-body text-base text-ash md:text-lg">{paragraph}</p>)}
+      <div class="flex flex-col gap-2 md:gap-5">
+        {t.home.team.paragraphs.map((paragraph) => <p class="max-w-xl font-body text-[11px] leading-snug text-ash md:text-lg md:leading-normal">{paragraph}</p>)}
       </div>
     </div>
   </div>
