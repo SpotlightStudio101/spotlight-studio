@@ -11,6 +11,7 @@ import Testimonials from "../components/Testimonials.astro";
 import FaqSection from "../components/FaqSection.astro";
 import FormExtras from "../components/FormExtras.astro";
 import { films, showCommercial } from "../data/films";
+import { showTestimonials } from "../data/site";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
 
@@ -207,7 +208,7 @@ const heroReel = { mp4: "/video/hero-reel-v2.mp4", poster: "/video/hero-poster-v
     </div>
   </section>
 
-  <Testimonials />
+  {showTestimonials && <Testimonials />}
 
   <FaqSection />
 </Layout>
