@@ -53,8 +53,8 @@ const en = {
   },
   home: {
     heroBadge: "Director/videographer",
-    heroLine1: "Bringing your",
-    heroLine2: "project to life",
+    heroLine1: "Filmed to the",
+    heroLine2: "standards of cinema",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
     heroSub:
       '<strong>Some make videos, I create films.</strong><br />My goal? Serving your project: events, commercial, companies, fiction, documentaries, weddings, architecture &amp; real estate. Based in Paris and available across France and internationally, from the first conversation to the final cut, I\'ll guide you in creating the film that makes the difference.',
@@ -515,8 +515,8 @@ const fr: typeof en = {
   },
   home: {
     heroBadge: "Vidéaste/réalisateur",
-    heroLine1: "Donnez vie",
-    heroLine2: "à votre projet",
+    heroLine1: "Filmé avec",
+    heroLine2: "l'exigence du cinéma",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
     heroSub:
       '<strong>Certains font des vidéos, je crée des films.</strong><br />Mon objectif ? Servir votre projet : événementiel, publicité, entreprises, fiction, documentaires, mariages, architecture &amp; immobilier. Depuis Paris et disponible partout en France ainsi qu\'à l\'international, du premier échange jusqu\'au montage final, je vous accompagne pour créer le film qui fera la différence.',
