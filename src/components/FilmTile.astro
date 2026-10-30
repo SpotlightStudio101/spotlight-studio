@@ -12,11 +12,12 @@ const { film, delay = 0 } = Astro.props;
 const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const hasClip = Boolean(film.previewClip?.webm || film.previewClip?.mov || film.previewClip?.mp4);
+const hasMedia = hasClip || Boolean(film.thumbnail);
 ---
 
 <a
   href={localizePath(`/films/${film.slug}`, locale)}
-  class:list={["group relative block aspect-video w-full overflow-hidden", { "reel-plate": !hasClip, grain: hasClip }]}
+  class:list={["group relative block aspect-video w-full overflow-hidden", { "reel-plate": !hasMedia, grain: hasMedia }]}
   data-reveal
   style={`transition-delay:${delay}ms; --beam-delay:${delay * 0.4}ms`}
 >
@@ -39,7 +40,13 @@ const hasClip = Boolean(film.previewClip?.webm || film.previewClip?.mov || film.
   }
 
   {
-    !hasClip && (
+    !hasClip && film.thumbnail && (
+      <img src={film.thumbnail} alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover" loading="lazy" decoding="async" />
+    )
+  }
+
+  {
+    !hasMedia && (
       <div class="pointer-events-none absolute inset-0 flex items-center justify-center opacity-20 transition-opacity duration-500 group-hover:opacity-40">
         <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
           <circle cx="17" cy="17" r="16" stroke="currentColor" stroke-width="1" class="text-ink" />
@@ -54,7 +61,7 @@ const hasClip = Boolean(film.previewClip?.webm || film.previewClip?.mov || film.
       {t.filmData.genre[film.genre]}
     </span>
     <span class="hidden font-display text-xs uppercase tracking-tightest text-ash-dim sm:inline">
-      {film.isDemo ? t.filmTile.demoClip : hasClip ? "" : t.filmTile.footageComingSoon}
+      {film.isDemo ? t.filmTile.demoClip : hasMedia ? "" : t.filmTile.footageComingSoon}
     </span>
   </div>
 </a>

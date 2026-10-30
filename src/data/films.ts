@@ -25,6 +25,8 @@ export interface FilmEntry {
    * full film (only the detail page plays that, via vimeoId/youtubeId). Point this at a real
    * short export once one exists; the tile falls back to the CSS placeholder without it.
    */
+  /** Still image for the grid tile when there is no preview clip (e.g. the YouTube thumbnail). */
+  thumbnail?: string;
   previewClip?: { webm?: string; mov?: string; mp4?: string };
   /** True only for licensed demo content standing in for a real film — never set this for real entries. */
   isDemo?: boolean;
@@ -61,6 +63,9 @@ export const films: FilmEntry[] = [
     slug: "event-02",
     genre: "event",
     index: "02",
+    title: "Teaser Grégoire Jokic — Point Éphémère",
+    thumbnail: "/video/films/event-02-thumb.jpg",
+    youtubeId: "dZTWSdI3cR4",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
   {
