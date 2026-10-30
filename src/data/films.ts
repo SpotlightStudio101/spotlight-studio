@@ -64,7 +64,7 @@ export const films: FilmEntry[] = [
     genre: "event",
     index: "02",
     title: "Teaser Grégoire Jokic — Point Éphémère",
-    thumbnail: "/video/films/event-02-thumb.jpg",
+    previewClip: { mp4: "/video/films/event-02-tile.mp4" },
     youtubeId: "dZTWSdI3cR4",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
   },
