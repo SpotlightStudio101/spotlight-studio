@@ -128,7 +128,6 @@ const en = {
     },
     segments: {
       heading: "What I can do for you",
-      imageDisclaimer: "Temporary stock photos, not Quentin's own work — swapped for real stills as projects are delivered.",
       items: [
         {
           title: "Events",
@@ -590,7 +589,6 @@ const fr: typeof en = {
     },
     segments: {
       heading: "Ce que je peux faire pour vous",
-      imageDisclaimer: "Photos de stock temporaires, pas le travail de Quentin — remplacées par de vraies images au fil des projets livrés.",
       items: [
         {
           title: "Événementiel",
