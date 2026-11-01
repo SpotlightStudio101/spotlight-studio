@@ -27,9 +27,9 @@ const hasMedia = hasClip || Boolean(film.thumbnail);
         class="pointer-events-none absolute inset-0 h-full w-full object-cover"
         autoplay
         muted
-        loop
         playsinline
-        preload="metadata"
+        preload="auto"
+        data-tile-loop
         aria-hidden="true"
       >
         {film.previewClip?.webm && <source src={film.previewClip.webm} type="video/webm" />}
@@ -65,3 +65,34 @@ const hasMedia = hasClip || Boolean(film.thumbnail);
     </span>
   </div>
 </a>
+
+<script>
+  // Tile clips loop on one shared clock so they all restart at the same instant.
+  if (!window.__tileLoopSync) {
+    window.__tileLoopSync = true;
+    const run = () => {
+      const vids = Array.from(document.querySelectorAll<HTMLVideoElement>("video[data-tile-loop]"));
+      if (vids.length === 0) return;
+      const restart = () => {
+        vids.forEach((v) => {
+          v.currentTime = 0;
+          v.play().catch(() => {});
+        });
+      };
+      let ready = 0;
+      const onReady = () => {
+        if (++ready === vids.length) restart();
+      };
+      vids.forEach((v) => {
+        v.pause();
+        if (v.readyState >= 3) onReady();
+        else v.addEventListener("canplaythrough", onReady, { once: true });
+        v.addEventListener("ended", () => {
+          if (vids.every((x) => x.ended || x.paused)) restart();
+        });
+      });
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", run);
+    else run();
+  }
+</script>
