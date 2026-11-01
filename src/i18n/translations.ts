@@ -131,28 +131,28 @@ const en = {
       imageDisclaimer: "Temporary stock photos, not Quentin's own work — swapped for real stills as projects are delivered.",
       items: [
         {
+          title: "Events",
+          body: "Conferences, launches, corporate events — I capture the key moments and deliver an aftermovie or full coverage that brings the essentials back to life, fast.",
+        },
+        {
           title: "Commercial",
           body: "Brand spots — sport, fashion, lifestyle: a short, punchy film built to grab attention in seconds and drive action, on social or across your campaigns.",
         },
         {
-          title: "Companies",
-          body: "Corporate films, brand content, leadership portraits, or video for your channels — I work with you from concept to delivery, for videos that represent your identity accurately.",
+          title: "Documentary & fiction",
+          body: "Documentaries and fiction films tell stories in their own right: I follow real people and situations on the ground, or direct written scenes, with the same aim — a story that rings true and stays with you.",
         },
         {
-          title: "Architecture & real estate",
-          body: "Clean, well-lit footage that makes a space legible at a glance — walkthroughs, drone establishing shots, and detail cutaways for listings, developers, or architects who want the place to speak for itself.",
-        },
-        {
-          title: "Events",
-          body: "Conferences, launches, corporate events — I capture the key moments and deliver an aftermovie or full coverage that brings the essentials back to life, fast.",
+          title: "Companies & interviews",
+          body: "Corporate films, brand content, leadership portraits, testimonials and interviews — an interview is its own craft: putting someone at ease, capturing an honest voice, and editing without ever betraying what they meant to say. I work with you from concept to delivery.",
         },
         {
           title: "Weddings",
           body: "A wedding only happens once: I stay unobtrusive all day to catch emotions as they happen — the exchanged glance, the toast that catches in the throat, the first dance — rather than a string of posed shots.",
         },
         {
-          title: "Documentary & interviews",
-          body: "An interview is its own craft: putting someone at ease, capturing an honest voice, and editing without ever betraying what they meant to say. It's one of my favorite grounds to work on — portraits, testimonials, on-the-ground documentary — I adapt to every voice so it rings true.",
+          title: "Architecture & real estate",
+          body: "Clean, well-lit footage that makes a space legible at a glance — walkthroughs, drone establishing shots, and detail cutaways for listings, developers, or architects who want the place to speak for itself.",
         },
       ],
     },
@@ -593,28 +593,28 @@ const fr: typeof en = {
       imageDisclaimer: "Photos de stock temporaires, pas le travail de Quentin — remplacées par de vraies images au fil des projets livrés.",
       items: [
         {
+          title: "Événementiel",
+          body: "Conférences, lancements, événements d'entreprise : je capture chaque moment clé et je livre rapidement un aftermovie ou une captation complète qui fait revivre l'essentiel.",
+        },
+        {
           title: "Publicité",
           body: "Spots pour des marques — sport, mode, lifestyle : un film court et rythmé, pensé pour capter l'attention en quelques secondes et donner envie d'agir, sur les réseaux comme dans vos campagnes.",
         },
         {
-          title: "Entreprises",
-          body: "Films d'entreprise, contenu de marque, portraits de dirigeants ou vidéos pour vos réseaux — je vous accompagne de la conception à la livraison, pour des vidéos qui représentent fidèlement votre identité.",
+          title: "Documentaires & fiction",
+          body: "Le documentaire et la fiction racontent des histoires à part entière : je suis des personnes et des situations réelles sur le terrain, ou je mets en scène des scènes écrites, avec la même ambition — un récit qui sonne juste et qui reste.",
         },
         {
-          title: "Architecture & immobilier",
-          body: "Des images nettes et bien exposées qui rendent un lieu lisible en un coup d'œil — visite guidée, plans aériens au drone, plans de détail pour une annonce, un promoteur ou un architecte qui veut laisser parler le lieu.",
-        },
-        {
-          title: "Événementiel",
-          body: "Conférences, lancements, événements d'entreprise : je capture chaque moment clé et je livre rapidement un aftermovie ou une captation complète qui fait revivre l'essentiel.",
+          title: "Entreprises & interviews",
+          body: "Films d'entreprise, contenu de marque, portraits de dirigeants, témoignages et interviews — l'interview est un exercice à part : mettre la personne à l'aise, capter une parole sincère, et monter sans jamais trahir ce qu'elle a voulu dire. Je vous accompagne de la conception à la livraison.",
         },
         {
           title: "Mariages",
           body: "Un mariage ne se refait pas : je reste discret toute la journée pour capter les émotions telles qu'elles arrivent — le regard échangé, le discours qui se fissure, le premier bal — plutôt qu'une succession de plans posés.",
         },
         {
-          title: "Documentaire & interviews",
-          body: "L'interview est un exercice à part : mettre la personne à l'aise, capter une parole sincère, et monter sans jamais trahir ce qu'elle a voulu dire. C'est l'un de mes terrains de prédilection, que ce soit pour un portrait, un témoignage ou un documentaire de terrain — je m'adapte à chaque prise de parole pour qu'elle sonne juste.",
+          title: "Architecture & immobilier",
+          body: "Des images nettes et bien exposées qui rendent un lieu lisible en un coup d'œil — visite guidée, plans aériens au drone, plans de détail pour une annonce, un promoteur ou un architecte qui veut laisser parler le lieu.",
         },
       ],
     },
