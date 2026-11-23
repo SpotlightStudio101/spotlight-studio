@@ -1,7 +1,19 @@
 ---
 import { getLocale, useTranslations } from "../i18n/translations";
+import { hrefForId } from "../data/landing-utils";
 
-const t = useTranslations(getLocale(Astro.currentLocale));
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+
+// Each card leads to its dedicated search landing page (by French slug), index-matched to items.
+const ids = [
+  "video-evenementielle-paris",
+  undefined,
+  "realisateur-paris",
+  "video-entreprise-paris",
+  "videaste-mariage-paris",
+  "video-immobilier-architecture-paris",
+];
 
 // Temporary stock photography (Pexels License, free to use) standing in for Quentin's own
 // work until real client stills/footage exist — index-matched to home.segments.items below.
@@ -23,8 +35,11 @@ const images = [
 
     <div class="grid grid-cols-3 gap-2 md:gap-4">
       {
-        t.home.segments.items.map((item, i) => (
-          <div class="service-card group flex aspect-[3/4] flex-col justify-end rounded-xl p-2 md:rounded-3xl md:p-6" data-reveal>
+        t.home.segments.items.map((item, i) => {
+          const href = ids[i] ? hrefForId(ids[i], locale) : undefined;
+          const Tag = href ? "a" : "div";
+          return (
+          <Tag href={href} class="service-card group flex aspect-[3/4] flex-col justify-end rounded-xl p-2 md:rounded-3xl md:p-6" data-reveal>
             <img src={images[i]} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
             <div class="relative z-10 flex flex-col gap-1 md:gap-2">
               <h3 class="font-display text-[11px] uppercase italic leading-[0.95] tracking-tightest text-ink sm:text-base md:text-2xl">
@@ -32,8 +47,9 @@ const images = [
               </h3>
               <p class="line-clamp-4 max-w-xs font-body text-[8px] leading-tight text-ash sm:text-xs md:line-clamp-2 md:text-sm">{item.body}</p>
             </div>
-          </div>
-        ))
+          </Tag>
+          );
+        })
       }
     </div>
   </div>

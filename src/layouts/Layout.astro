@@ -5,13 +5,22 @@ import Footer from "../components/Footer.astro";
 import SmoothScroll from "../components/SmoothScroll.astro";
 import { getLocale } from "../i18n/translations";
 import { site } from "../data/site";
+import { localizePath, unlocalizePath } from "../i18n/utils";
+import { landingAlternates } from "../data/landing-utils";
 
 interface Props {
   title: string;
   description: string;
+  /** Extra JSON-LD blocks (breadcrumb, service, FAQ) for this page. */
+  jsonLd?: object[];
 }
 
-const { title, description } = Astro.props;
+const { title, description, jsonLd = [] } = Astro.props;
+const basePath = unlocalizePath(Astro.url.pathname);
+// Landing pages have different slugs per language, so their counterpart comes from the data.
+const alternates = landingAlternates(Astro.url.pathname) ?? { fr: localizePath(basePath, "fr"), en: localizePath(basePath, "en") };
+const frUrl = new URL(alternates.fr, Astro.site).toString();
+const enUrl = new URL(alternates.en, Astro.site).toString();
 const locale = getLocale(Astro.currentLocale);
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 
@@ -46,13 +55,15 @@ const structuredData = {
 };
 ---
 
-<html lang={locale}>
+<html lang={locale} data-alt-fr={alternates.fr} data-alt-en={alternates.en}>
   <head>
     <script is:inline>
       // Redirect to the visitor's remembered (or browser-detected) language, before first paint.
       // French is the base: an unstored, non-English browser stays on the unprefixed French routes.
       (function () {
         try {
+          // Crawlers must never be bounced to another language.
+          if (/bot|crawl|spider|slurp|bingpreview|facebookexternalhit/i.test(navigator.userAgent)) return;
           var path = window.location.pathname;
           var onEn = path === "/en" || path.indexOf("/en/") === 0;
           var stored = localStorage.getItem("lang");
@@ -63,9 +74,9 @@ const structuredData = {
           }
           var wantEn = stored === "en";
           if (wantEn && !onEn) {
-            window.location.replace("/en" + (path === "/" ? "" : path));
+            window.location.replace(document.documentElement.getAttribute("data-alt-en") || "/en" + (path === "/" ? "" : path));
           } else if (!wantEn && onEn) {
-            window.location.replace(path === "/en" ? "/" : path.slice(3));
+            window.location.replace(document.documentElement.getAttribute("data-alt-fr") || (path === "/en" ? "/" : path.slice(3)));
           }
         } catch (e) {}
       })();
@@ -76,6 +87,9 @@ const structuredData = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={frUrl} />
     <link rel="icon" href="data:," />
 
     <meta property="og:type" content="website" />
@@ -89,6 +103,7 @@ const structuredData = {
     <meta name="twitter:description" content={description} />
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {jsonLd.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

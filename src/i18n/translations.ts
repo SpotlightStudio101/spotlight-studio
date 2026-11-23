@@ -201,7 +201,7 @@ const en = {
         {
           question: "Do you offer drone footage?",
           answer:
-            "Yes — I'm a registered UAS operator and can shoot aerial footage with a DJI Mavic 3 Classic, provided the area is cleared for flight.",
+            "Yes — I'm a registered UAS operator and a remote pilot in the open category (A1/A3), and can shoot aerial footage with a DJI Mavic 3 Classic, provided the area is cleared for flight.",
         },
         {
           question: "What formats are the videos delivered in?",
@@ -662,7 +662,7 @@ const fr: typeof en = {
         {
           question: "Proposez-vous des prises de vue par drone ?",
           answer:
-            "Oui — je suis exploitant UAS enregistré et je peux réaliser des prises de vue aériennes avec un DJI Mavic 3 Classic, sous réserve que la zone soit autorisée au survol.",
+            "Oui — je suis exploitant UAS enregistré et télépilote en catégorie ouverte A1/A3, et je peux réaliser des prises de vue aériennes avec un DJI Mavic 3 Classic, sous réserve que la zone soit autorisée au survol.",
         },
         {
           question: "Dans quels formats sont livrées les vidéos ?",

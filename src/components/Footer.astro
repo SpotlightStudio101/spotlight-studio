@@ -1,5 +1,7 @@
 ---
 import { site } from "../data/site";
+import { corePagesFor, hubHref, landingHref, pagesFor, pageId } from "../data/landing-utils";
+
 import { getLocale, useTranslations } from "../i18n/translations";
 import { localizePath } from "../i18n/utils";
 
@@ -17,7 +19,7 @@ const links = [
 
 <footer class="px-6 pb-10 pt-20 md:px-10">
   <div class="mx-auto flex max-w-6xl flex-col gap-10 sm:flex-row sm:items-stretch sm:justify-end">
-    <div class="flex gap-16 sm:justify-end">
+    <div class="flex flex-wrap gap-x-12 gap-y-10 sm:justify-end sm:gap-16">
       <div class="flex flex-col gap-3">
         <p class="font-mono text-sm uppercase tracking-normal text-jade">{t.footer.pagesLabel}</p>
         <ul class="flex flex-col gap-2">
@@ -35,6 +37,28 @@ const links = [
           }
         </ul>
       </div>
+
+      {
+        (
+          <div class="flex flex-col gap-3">
+            <p class="font-mono text-sm uppercase tracking-normal text-jade">Services</p>
+            <ul class="flex flex-col gap-2">
+              {[...corePagesFor(locale), ...pagesFor(locale).filter((p) => pageId(p) === "video-drone-paris")].map((page) => (
+                <li>
+                  <a href={landingHref(page, locale)} class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white">
+                    {page.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a href={hubHref(locale)} class="link-sweep font-mono text-sm uppercase text-jade transition-colors duration-300 hover:text-white">
+                  {locale === "fr" ? "Toutes les prestations →" : "All services →"}
+                </a>
+              </li>
+            </ul>
+          </div>
+        )
+      }
 
       <div class="flex flex-col gap-3">
         <p class="font-mono text-sm uppercase tracking-normal text-jade">{t.footer.socialsLabel}</p>

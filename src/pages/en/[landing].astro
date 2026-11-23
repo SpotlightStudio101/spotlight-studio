@@ -1,0 +1,12 @@
+---
+import LandingView from "../../views/LandingView.astro";
+import { pagesFor } from "../../data/landing-utils";
+
+export function getStaticPaths() {
+  return pagesFor("en").map((page) => ({ params: { landing: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+---
+
+<LandingView page={page} />

@@ -1,6 +1,7 @@
 ---
 import { showCommercial } from "../data/films";
 import { site } from "../data/site";
+import { landingAlternates } from "../data/landing-utils";
 import { getLocale, useTranslations } from "../i18n/translations";
 import { alternatePath, localizePath, unlocalizePath } from "../i18n/utils";
 
@@ -22,7 +23,8 @@ const links = [
 ];
 
 const currentBasePath = unlocalizePath(Astro.url.pathname);
-const otherLocaleHref = alternatePath(Astro.url.pathname, locale);
+const landingAlt = landingAlternates(Astro.url.pathname);
+const otherLocaleHref = landingAlt ? landingAlt[locale === "fr" ? "en" : "fr"] : alternatePath(Astro.url.pathname, locale);
 ---
 
 <header id="site-header" class="nav-shell fixed inset-x-0 top-0 z-50">
