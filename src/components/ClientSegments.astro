@@ -18,12 +18,12 @@ const ids = [
 // Temporary stock photography (Pexels License, free to use) standing in for Quentin's own
 // work until real client stills/footage exist — index-matched to home.segments.items below.
 const images = [
-  "/images/segments/evenementiel.jpg",
-  "https://images.pexels.com/photos/1027130/pexels-photo-1027130.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "/images/segments/documentaire-fiction.jpg",
-  "https://images.pexels.com/photos/6814524/pexels-photo-6814524.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/19950472/pexels-photo-19950472.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+  "/images/segments/evenementiel.webp",
+  "/images/segments/publicite.webp",
+  "/images/segments/documentaire-fiction.webp",
+  "/images/segments/entreprises.webp",
+  "/images/segments/mariages.webp",
+  "/images/segments/architecture.webp",
 ];
 ---
 
@@ -40,7 +40,7 @@ const images = [
           const Tag = href ? "a" : "div";
           return (
           <Tag href={href} class="service-card group flex aspect-[3/4] flex-col justify-end rounded-xl p-2 md:rounded-3xl md:p-6" data-reveal>
-            <img src={images[i]} alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <img src={images[i]} alt="" width="720" height="960" decoding="async" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
             <div class="relative z-10 flex flex-col gap-1 md:gap-2">
               <h3 class="font-display text-[11px] uppercase italic leading-[0.95] tracking-tightest text-ink sm:text-base md:text-2xl">
                 {item.title}

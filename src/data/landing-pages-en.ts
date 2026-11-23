@@ -134,7 +134,7 @@ export const landingPagesEn: LandingPage[] = [
           "Of course. You can browse my films on the \"My work\" page, and depending on your project I can also show you more targeted examples during our first conversation.",
       },
     ],
-    related: ["video-evenementielle-paris", "video-entreprise-paris", "videaste-mariage-paris", "video-immobilier-architecture-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "film-institutionnel-paris", "video-drone-paris", "cadreur-paris", "production-video-paris", "tarifs-video-paris"],
+    related: ["video-evenementielle-paris", "video-entreprise-paris", "videaste-mariage-paris", "video-immobilier-architecture-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "film-institutionnel-paris", "video-drone-paris", "cadreur-paris", "production-video-paris", "tarifs-video-paris", "video-recrutement-paris", "video-restaurant-paris", "video-lancement-produit-paris"],
   },
 
   {
@@ -355,7 +355,7 @@ export const landingPagesEn: LandingPage[] = [
           "It is good practice, in particular to respect image rights. A mention in the invitation or at the entrance is generally enough. I can advise you on the wording before the event.",
       },
     ],
-    related: ["videaste-paris", "video-entreprise-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "video-drone-paris", "preparer-tournage-evenement"],
+    related: ["videaste-paris", "video-entreprise-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "video-drone-paris", "preparer-tournage-evenement", "video-lancement-produit-paris", "video-restaurant-paris"],
   },
 
   {
@@ -470,7 +470,7 @@ export const landingPagesEn: LandingPage[] = [
           "Rounds of feedback are built in before final delivery to adjust the edit to your comments. After delivery, changes remain possible: we discuss them depending on the scale of the change.",
       },
     ],
-    related: ["videaste-paris", "video-evenementielle-paris", "realisateur-paris", "film-institutionnel-paris", "combien-coute-film-entreprise-paris", "duree-ideale-video-entreprise", "tarifs-video-paris"],
+    related: ["videaste-paris", "video-evenementielle-paris", "realisateur-paris", "film-institutionnel-paris", "combien-coute-film-entreprise-paris", "duree-ideale-video-entreprise", "tarifs-video-paris", "video-recrutement-paris", "video-lancement-produit-paris"],
   },
 
   {

@@ -168,7 +168,7 @@ export const landingPages: LandingPage[] = [
           "Bien sûr. Vous pouvez parcourir mes films sur la page « Mon travail », et selon votre projet, je peux aussi vous présenter des exemples plus ciblés lors de notre premier échange.",
       },
     ],
-    related: ["video-evenementielle-paris", "video-entreprise-paris", "videaste-mariage-paris", "video-immobilier-architecture-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "film-institutionnel-paris", "video-drone-paris", "cadreur-paris", "production-video-paris", "tarifs-video-paris"],
+    related: ["video-evenementielle-paris", "video-entreprise-paris", "videaste-mariage-paris", "video-immobilier-architecture-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "film-institutionnel-paris", "video-drone-paris", "cadreur-paris", "production-video-paris", "tarifs-video-paris", "video-recrutement-paris", "video-restaurant-paris", "video-lancement-produit-paris"],
   },
 
   {
@@ -387,7 +387,7 @@ export const landingPages: LandingPage[] = [
           "C'est une bonne pratique, notamment pour respecter le droit à l'image. Une mention dans l'invitation ou à l'accueil suffit généralement. Je peux vous conseiller sur la formulation avant l'événement.",
       },
     ],
-    related: ["videaste-paris", "video-entreprise-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "video-drone-paris", "preparer-tournage-evenement"],
+    related: ["videaste-paris", "video-entreprise-paris", "realisateur-paris", "aftermovie-paris", "captation-conference-paris", "captation-concert-paris", "video-drone-paris", "preparer-tournage-evenement", "video-lancement-produit-paris", "video-restaurant-paris"],
   },
 
   {
@@ -501,7 +501,7 @@ export const landingPages: LandingPage[] = [
           "Des allers-retours sont prévus avant la livraison finale pour ajuster le montage à vos retours. Après la livraison, des modifications restent possibles : nous en parlons selon l'ampleur du changement.",
       },
     ],
-    related: ["videaste-paris", "video-evenementielle-paris", "realisateur-paris", "film-institutionnel-paris", "combien-coute-film-entreprise-paris", "duree-ideale-video-entreprise", "tarifs-video-paris"],
+    related: ["videaste-paris", "video-evenementielle-paris", "realisateur-paris", "film-institutionnel-paris", "combien-coute-film-entreprise-paris", "duree-ideale-video-entreprise", "tarifs-video-paris", "video-recrutement-paris", "video-lancement-produit-paris"],
   },
 
   {

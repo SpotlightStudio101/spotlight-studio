@@ -30,6 +30,12 @@ export interface FilmEntry {
   previewClip?: { webm?: string; mov?: string; mp4?: string };
   /** True only for licensed demo content standing in for a real film — never set this for real entries. */
   isDemo?: boolean;
+  /** Short description per language: shown on the film page and used for search engines. */
+  description?: { fr: string; en: string };
+  /** ISO date the film went online (YouTube upload), for search-engine video markup. */
+  uploadDate?: string;
+  /** Length in seconds, for search-engine video markup. */
+  durationSeconds?: number;
 }
 
 // Placeholder entries — empty on purpose. Add `previewClip` (short looping tile clip) and
@@ -49,6 +55,12 @@ export const films: FilmEntry[] = [
     genre: "event",
     index: "01",
     title: "Ambassade d'Arménie en France",
+    description: {
+      fr: "Film pour l'Ambassade d'Arménie en France, à l'occasion des 35 ans de l'indépendance arménienne : discours, chœur et invités, filmés en 4K.",
+      en: "Film for the Embassy of Armenia in France, for the 35th anniversary of Armenian independence: speeches, choir and guests, shot in 4K.",
+    },
+    uploadDate: "2026-10-09",
+    durationSeconds: 123,
     previewClip: { mp4: "/video/films/event-01-tile.mp4" },
     youtubeId: "WqMKLFY-fVM",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
@@ -63,7 +75,13 @@ export const films: FilmEntry[] = [
     slug: "event-02",
     genre: "event",
     index: "02",
-    title: "Teaser Grégoire Jokic — Point Éphémère",
+    title: "Grégoire Jokic — Point Éphémère",
+    description: {
+      fr: "Film du concert de Grégoire Jokic au Point Éphémère, à Paris : un pianiste et chanteur sous des lumières bleues et rouges, filmé en 4K.",
+      en: "Film of Grégoire Jokic's concert at Point Éphémère in Paris: a pianist and singer under blue and red lights, shot in 4K.",
+    },
+    uploadDate: "2026-10-30",
+    durationSeconds: 162,
     previewClip: { mp4: "/video/films/event-02-tile.mp4" },
     youtubeId: "dZTWSdI3cR4",
     credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],

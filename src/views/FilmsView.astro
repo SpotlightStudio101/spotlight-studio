@@ -3,8 +3,20 @@ import Layout from "../layouts/Layout.astro";
 import FilmGrid from "../components/FilmGrid.astro";
 import { films, showCommercial } from "../data/films";
 import { getLocale, useTranslations } from "../i18n/translations";
+import { filmTitle, localizePath } from "../i18n/utils";
+import { hrefForId } from "../data/landing-utils";
 
-const t = useTranslations(getLocale(Astro.currentLocale));
+const locale = getLocale(Astro.currentLocale);
+const t = useTranslations(locale);
+const related = ["aftermovie-paris", "captation-concert-paris", "captation-conference-paris", "video-drone-paris"]
+  .map((id) => ({ id, href: hrefForId(id, locale) }))
+  .filter((l): l is { id: string; href: string } => Boolean(l.href));
+const relatedLabels: Record<string, { fr: string; en: string }> = {
+  "aftermovie-paris": { fr: "Aftermovie", en: "Aftermovie" },
+  "captation-concert-paris": { fr: "Captation de concert", en: "Concert filming" },
+  "captation-conference-paris": { fr: "Captation de conférence", en: "Conference filming" },
+  "video-drone-paris": { fr: "Pilote de drone", en: "Drone pilot" },
+};
 
 const events = films.filter((film) => film.genre === "event");
 const commercial = films.filter((film) => film.genre === "commercial");
@@ -16,6 +28,7 @@ const commercial = films.filter((film) => film.genre === "commercial");
       <h1 class="font-display text-3xl uppercase leading-none tracking-tightest text-ink md:text-4xl">
         {t.films.heading}
       </h1>
+      <p class="mt-5 max-w-2xl font-body text-base text-ash md:text-lg">{t.films.intro}</p>
     </div>
   </section>
 
@@ -25,6 +38,52 @@ const commercial = films.filter((film) => film.genre === "commercial");
         {t.films.eventsHeading}
       </h2>
       <FilmGrid films={events} />
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-8 font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">{t.films.listHeading}</h2>
+      <ul class="flex flex-col">
+        {
+          events
+            .filter((film) => film.description)
+            .map((film) => (
+              <li class="border-t border-ash-dim/20 py-8 last:border-b">
+                <div class="flex flex-col gap-3 md:flex-row md:gap-12">
+                  <h3 class="font-display text-xl uppercase leading-none tracking-tightest text-jade md:w-1/3 md:text-2xl">
+                    {filmTitle(film, t)}
+                  </h3>
+                  <div class="max-w-xl">
+                    <p class="font-body text-base text-ash md:text-lg">{film.description?.[locale]}</p>
+                    <a href={`${localizePath(`/films/${film.slug}`, locale)}/`} class="mt-4 inline-block font-display text-sm uppercase tracking-tightest text-jade hover:text-ink">
+                      {t.films.watch}
+                    </a>
+                  </div>
+                </div>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="border-t border-ash-dim/20 px-6 py-16 md:px-10 md:py-24">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-8 font-display text-3xl uppercase leading-[0.98] tracking-tightest text-ink md:text-5xl">{t.films.aboutHeading}</h2>
+      {t.films.aboutParagraphs.map((p) => <p class="mb-5 max-w-2xl font-body text-base text-ash md:text-lg">{p}</p>)}
+      <p class="mt-10 mb-4 font-mono text-sm uppercase tracking-normal text-jade">{t.films.aboutLinks}</p>
+      <ul class="flex flex-wrap gap-x-8 gap-y-3">
+        {
+          related.map((l) => (
+            <li>
+              <a href={l.href} class="link-sweep font-mono text-sm uppercase text-ash transition-colors duration-300 hover:text-white">
+                {relatedLabels[l.id][locale]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 

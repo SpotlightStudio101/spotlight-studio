@@ -14,14 +14,37 @@ const locale = getLocale(Astro.currentLocale);
 const t = useTranslations(locale);
 const stillCount = 9;
 const title = filmTitle(film, t);
+const description = film.description?.[locale];
+const iso = (secs: number) => `PT${Math.floor(secs / 60)}M${secs % 60}S`;
+const pageUrl = new URL(`${localizePath(`/films/${film.slug}`, locale)}/`, Astro.site).toString();
+const jsonLd =
+  film.youtubeId && film.description
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: title,
+          description,
+          thumbnailUrl: [`https://i.ytimg.com/vi/${film.youtubeId}/maxresdefault.jpg`],
+          uploadDate: film.uploadDate,
+          ...(film.durationSeconds ? { duration: iso(film.durationSeconds) } : {}),
+          embedUrl: `https://www.youtube.com/embed/${film.youtubeId}`,
+          inLanguage: locale === "fr" ? "fr-FR" : "en-US",
+          mainEntityOfPage: pageUrl,
+          author: { "@id": new URL("/#quentin", Astro.site).toString() },
+          publisher: { "@id": new URL("/#studio", Astro.site).toString() },
+        },
+      ]
+    : [];
 ---
 
-<Layout title={`${title} — ${t.meta.filmSuffix}`} description={`${t.filmData.genre[film.genre]} — ${t.meta.filmSuffix}`}>
+<Layout title={`${title} — ${t.meta.filmSuffix}`} description={description ?? `${t.filmData.genre[film.genre]} — ${t.meta.filmSuffix}`} jsonLd={jsonLd}>
   <section class="px-6 pb-10 pt-32 text-center md:pt-40">
     <h1 class="font-display text-2xl uppercase leading-none tracking-tightest text-ink md:text-3xl">
       {film.title ?? t.filmData.genre[film.genre]}
     </h1>
     {film.title && <p class="mt-3 font-display text-sm uppercase tracking-tightest text-jade">{t.filmData.genre[film.genre]}</p>}
+    {description && <p class="mx-auto mt-5 max-w-xl font-body text-base text-ash md:text-lg">{description}</p>}
     <div class="mt-4 flex flex-col gap-1 font-body text-sm text-ash">
       {film.credits.map((credit) => (
         <p>{t.filmData.roles[credit.roleKey]} {credit.name}</p>

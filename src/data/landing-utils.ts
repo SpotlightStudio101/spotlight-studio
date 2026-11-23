@@ -2,8 +2,10 @@ import { landingPages, type LandingPage } from "./landing-pages";
 import { landingPagesEn } from "./landing-pages-en";
 import { landingPagesMoreFrA } from "./landing-pages-more-fr-a";
 import { landingPagesMoreFrB } from "./landing-pages-more-fr-b";
+import { landingPagesMoreFrC } from "./landing-pages-more-fr-c";
 import { landingPagesMoreEnA } from "./landing-pages-more-en-a";
 import { landingPagesMoreEnB } from "./landing-pages-more-en-b";
+import { landingPagesMoreEnC } from "./landing-pages-more-en-c";
 import type { Locale } from "../i18n/translations";
 
 export const pageId = (p: LandingPage) => p.id ?? p.slug;
@@ -16,8 +18,8 @@ export function corePagesFor(locale: Locale): LandingPage[] {
 /** Every landing page: main services, extra services and guides. */
 export function pagesFor(locale: Locale): LandingPage[] {
   return locale === "fr"
-    ? [...landingPages, ...landingPagesMoreFrA, ...landingPagesMoreFrB]
-    : [...landingPagesEn, ...landingPagesMoreEnA, ...landingPagesMoreEnB];
+    ? [...landingPages, ...landingPagesMoreFrA, ...landingPagesMoreFrB, ...landingPagesMoreFrC]
+    : [...landingPagesEn, ...landingPagesMoreEnA, ...landingPagesMoreEnB, ...landingPagesMoreEnC];
 }
 
 export function landingHref(page: LandingPage, locale: Locale): string {

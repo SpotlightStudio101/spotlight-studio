@@ -7,8 +7,8 @@ const en = {
     homeTitle: "Spotlight Studio Paris — Quentin Mouledous, director/videographer",
     homeDescription:
       "Quentin Mouledous, director/videographer in Paris: event films, documentaries, fiction, corporate and commercial films, weddings. Spotlight Studio, available across France.",
-    filmsTitle: "Films — Spotlight Studio Paris",
-    filmsDescription: "Event films by Quentin Mouledous, director/videographer in Paris.",
+    filmsTitle: "Event Films in Paris: Aftermovie and Concert | Spotlight Studio",
+    filmsDescription: "Films by Quentin Moulédous, videographer and director in Paris: a reception at the Embassy of Armenia and a concert, shot in 4K. Aftermovies and recordings.",
     aboutTitle: "About — Spotlight Studio Paris",
     aboutDescription: "Quentin Mouledous, director/videographer in Paris — the person behind Spotlight Studio.",
     contactTitle: "Contact — Spotlight Studio Paris",
@@ -52,7 +52,7 @@ const en = {
     legalNotice: "Legal Notice",
   },
   home: {
-    heroBadge: "Director/videographer",
+    heroBadge: "Director/videographer in Paris",
     heroLine1: "Filmed to the",
     heroLine2: "standards of cinema",
     heroTags: "CORPORATE FILMS · EVENTS · DOCUMENTARY · COMMERCIAL",
@@ -272,6 +272,16 @@ const en = {
     heading: "My work",
     eventsHeading: "Events",
     commercialHeading: "Commercial work",
+    intro: "Event films by Quentin Moulédous, videographer and director in Paris: an official reception and a concert, filmed in 4K.",
+    listHeading: "The films",
+    aboutHeading: "Event films in Paris: aftermovies, recordings and concerts",
+    aboutParagraphs: [
+      "This page gathers the films I have made. For now they are all event films: an official reception and a concert, two very different ways of filming a moment that can't be replayed. More projects will be added as I shoot them.",
+      "Filming an event means being everywhere without getting in the way: spotting the light, anticipating the highlights, staying discreet and capturing gestures and glances rather than poses. I shoot in 4K with a Sony FX3 camera, which handles the low light of salons and concert halls well, and I take as much care over the sound as over the image.",
+      "Depending on your need, I deliver a short, punchy aftermovie, a full recording of a conference or a concert, vertical clips for social media and, where the area allows, aerial drone shots.",
+    ],
+    aboutLinks: "Related services",
+    watch: "Watch the film →",
   },
   filmTile: {
     footageComingSoon: "Footage coming soon",
@@ -468,8 +478,8 @@ const fr: typeof en = {
     homeTitle: "Spotlight Studio Paris — Quentin Moulédous, vidéaste/réalisateur",
     homeDescription:
       "Quentin Moulédous, vidéaste/réalisateur à Paris : films événementiels, documentaires, de fiction, d'entreprise, publicité et mariages. Spotlight Studio, partout en France.",
-    filmsTitle: "Films — Spotlight Studio Paris",
-    filmsDescription: "Films événementiels de Quentin Moulédous, vidéaste/réalisateur à Paris.",
+    filmsTitle: "Films événementiels à Paris : aftermovie, concert | Spotlight Studio",
+    filmsDescription: "Films de Quentin Moulédous, vidéaste et réalisateur à Paris : réception de l'Ambassade d'Arménie, concert de Grégoire Jokic. Aftermovies et captations en 4K.",
     aboutTitle: "À propos — Spotlight Studio Paris",
     aboutDescription: "Quentin Moulédous, vidéaste/réalisateur à Paris : le parcours derrière Spotlight Studio.",
     contactTitle: "Contact — Spotlight Studio Paris",
@@ -513,7 +523,7 @@ const fr: typeof en = {
     legalNotice: "Mentions légales",
   },
   home: {
-    heroBadge: "Vidéaste/réalisateur",
+    heroBadge: "Vidéaste/réalisateur à Paris",
     heroLine1: "Filmé avec",
     heroLine2: "l'exigence du cinéma",
     heroTags: "FILMS D'ENTREPRISE · ÉVÉNEMENTIEL · DOCUMENTAIRE · PUBLICITÉ",
@@ -734,6 +744,16 @@ const fr: typeof en = {
     heading: "Mon travail",
     eventsHeading: "Événementiel",
     commercialHeading: "Travaux publicitaires",
+    intro: "Films événementiels de Quentin Moulédous, vidéaste et réalisateur à Paris : une réception officielle et un concert, filmés en 4K.",
+    listHeading: "Les films",
+    aboutHeading: "Films événementiels à Paris : aftermovies, captations et concerts",
+    aboutParagraphs: [
+      "Cette page rassemble les films que j'ai réalisés. Pour l'instant, ils sont tous événementiels : une réception officielle et un concert, deux façons très différentes de filmer un moment qui ne se rejoue pas. D'autres projets viendront s'ajouter au fil des tournages.",
+      "Filmer un événement, c'est être partout sans gêner : repérer la lumière, anticiper les moments forts, rester discret et capter les gestes et les regards plutôt que des poses. Je filme en 4K avec une caméra Sony FX3, qui tient bien dans les lumières faibles des salons et des salles de concert, et je soigne le son autant que l'image.",
+      "Selon votre besoin, je livre un aftermovie court et rythmé, une captation complète de conférence ou de concert, des extraits verticaux pour les réseaux sociaux et, quand la zone le permet, des plans aériens au drone.",
+    ],
+    aboutLinks: "Prestations liées",
+    watch: "Voir le film →",
   },
   filmTile: {
     footageComingSoon: "Images à venir",
