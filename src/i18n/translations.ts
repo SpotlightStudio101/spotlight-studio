@@ -272,7 +272,7 @@ const en = {
     heading: "My work",
     eventsHeading: "Events",
     commercialHeading: "Commercial work",
-    intro: "Event films by Quentin Moulédous, videographer and director in Paris: an official reception and a concert, filmed in 4K.",
+    intro: "A selection of my films, shot in 4K in Paris and across France. New projects are added as I shoot them.",
     listHeading: "The films",
     aboutHeading: "Event films in Paris: aftermovies, recordings and concerts",
     aboutParagraphs: [
@@ -744,7 +744,7 @@ const fr: typeof en = {
     heading: "Mon travail",
     eventsHeading: "Événementiel",
     commercialHeading: "Travaux publicitaires",
-    intro: "Films événementiels de Quentin Moulédous, vidéaste et réalisateur à Paris : une réception officielle et un concert, filmés en 4K.",
+    intro: "Une sélection de mes films, tournés en 4K à Paris et partout en France. De nouveaux projets s'ajoutent au fil des tournages.",
     listHeading: "Les films",
     aboutHeading: "Films événementiels à Paris : aftermovies, captations et concerts",
     aboutParagraphs: [
