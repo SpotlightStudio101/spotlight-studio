@@ -477,7 +477,7 @@ export const landingPagesEn: LandingPage[] = [
     slug: "wedding-videographer-paris",
     id: "videaste-mariage-paris",
     label: "Wedding videographer",
-    title: "Wedding Videographer in Paris, Wedding Films | Spotlight Studio",
+    title: "Wedding Videographer in Paris, Wedding Films | Quentin Moulédous",
     description:
       "Wedding videographer in Paris: a discreet, sincere film of your day, shot in 4K, with a single point of contact. Quentin Moulédous, quote within 24 hours.",
     eyebrow: "Wedding · Paris",

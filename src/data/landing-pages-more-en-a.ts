@@ -91,7 +91,7 @@ export const landingPagesMoreEnA: LandingPage[] = [
     id: "aftermovie-paris",
     kind: "service",
     label: "Aftermovie",
-    title: "Aftermovie in Paris: a Punchy Event Film | Spotlight Studio",
+    title: "Aftermovie in Paris: a Punchy Event Film | Quentin Moulédous",
     description:
       "Aftermovie in Paris: a short, punchy film that brings your event back to life, delivered quickly in the right formats. Quentin Moulédous, videographer, quote within 24 hours.",
     eyebrow: "Aftermovie · Paris",

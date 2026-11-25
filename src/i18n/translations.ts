@@ -4,30 +4,30 @@ export const defaultLocale: Locale = "fr";
 
 const en = {
   meta: {
-    homeTitle: "Spotlight Studio Paris — Quentin Mouledous, director/videographer",
+    homeTitle: "Quentin Moulédous — Director/videographer in Paris",
     homeDescription:
-      "Quentin Mouledous, director/videographer in Paris: event films, documentaries, fiction, corporate and commercial films, weddings. Spotlight Studio, available across France.",
-    filmsTitle: "Event Films in Paris: Aftermovie and Concert | Spotlight Studio",
+      "Quentin Moulédous, director/videographer in Paris: event films, documentaries, fiction, corporate and commercial films, weddings. Available across France.",
+    filmsTitle: "Event Films in Paris: Aftermovie and Concert | Quentin Moulédous",
     filmsDescription: "Films by Quentin Moulédous, videographer and director in Paris: a reception at the Embassy of Armenia and a concert, shot in 4K. Aftermovies and recordings.",
-    aboutTitle: "About — Spotlight Studio Paris",
-    aboutDescription: "Quentin Mouledous, director/videographer in Paris — the person behind Spotlight Studio.",
-    contactTitle: "Contact — Spotlight Studio Paris",
+    aboutTitle: "About — Quentin Moulédous",
+    aboutDescription: "Quentin Moulédous, director/videographer in Paris: background and way of working.",
+    contactTitle: "Contact — Quentin Moulédous",
     contactDescription: "Send a message to talk about your project.",
-    devisTitle: "Get a quote — Spotlight Studio Paris",
+    devisTitle: "Get a quote — Quentin Moulédous",
     devisDescription: "A few quick questions about your project, and I'll come back to you with a detailed, no-obligation quote.",
-    thanksTitle: "Message sent — Spotlight Studio Paris",
+    thanksTitle: "Message sent — Quentin Moulédous",
     thanksDescription: "Thanks for reaching out.",
-    termsTitle: "Terms of Use — Spotlight Studio Paris",
+    termsTitle: "Terms of Use — Quentin Moulédous",
     termsDescription: "The terms that govern use of this website.",
-    privacyTitle: "Privacy Policy — Spotlight Studio Paris",
+    privacyTitle: "Privacy Policy — Quentin Moulédous",
     privacyDescription: "What information this site collects and how it's used.",
-    commercialWorkTitle: "Commercial Work — Spotlight Studio Paris",
-    commercialWorkDescription: "Commercial work by Quentin Mouledous.",
-    eventsTitle: "Events — Spotlight Studio Paris",
-    eventsDescription: "Event coverage by Quentin Mouledous.",
-    noticeTitle: "Legal Notice — Spotlight Studio Paris",
+    commercialWorkTitle: "Commercial Work — Quentin Moulédous",
+    commercialWorkDescription: "Commercial work by Quentin Moulédous.",
+    eventsTitle: "Events — Quentin Moulédous",
+    eventsDescription: "Event coverage by Quentin Moulédous.",
+    noticeTitle: "Legal Notice — Quentin Moulédous",
     noticeDescription: "Publisher, hosting and legal information about this website.",
-    filmSuffix: "Spotlight Studio Paris",
+    filmSuffix: "Quentin Moulédous",
   },
   nav: {
     home: "Home",
@@ -100,9 +100,9 @@ const en = {
     },
     team: {
       heading: "Who I am",
-      portraitAlt: "Quentin Mouledous holding his camera on a shoot",
+      portraitAlt: "Quentin Moulédous holding his camera on a shoot",
       paragraphs: [
-        "Spotlight Studio is me first, Quentin Mouledous: I founded Spotlight Studio to offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
+        "I'm Quentin Moulédous. I offer a hands-on, high-craft approach to video, without the overhead of a big agency.",
         "Depending on the scale of a project, I bring in trusted collaborators — camera operators, sound recordists, editors — to build the right-sized crew. It flexes project to project; it's never fixed.",
         "One thing never changes: I stay your single point of contact, from the first conversation to final delivery. No project handed off to an anonymous account manager — you work with the same person the whole way through.",
       ],
@@ -399,7 +399,7 @@ const en = {
     noticeSections: [
       {
         title: "Publisher",
-        body: "Quentin Mouledous, sole proprietor (micro-entrepreneur), trading as Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activity: production and direction of films and video content. Address: 49 rue de Dantzig, 75015 Paris, France. Publishing director: Quentin Mouledous.",
+        body: "Quentin Moulédous EI, sole proprietor (micro-entrepreneur). SIREN 993 706 506 — SIRET 993 706 506 00017. Activity: production and direction of films and video content. Address: 49 rue de Dantzig, 75015 Paris, France. Publishing director: Quentin Moulédous.",
       },
       {
         title: "Contact",
@@ -411,7 +411,7 @@ const en = {
       },
       {
         title: "Intellectual property",
-        body: "All films, images, and writing on this site are the work of Quentin Mouledous unless otherwise credited, and may not be reproduced without permission.",
+        body: "All films, images, and writing on this site are the work of Quentin Moulédous unless otherwise credited, and may not be reproduced without permission.",
       },
     ],
     termsHeading: "Terms of Use",
@@ -419,7 +419,7 @@ const en = {
     termsSections: [
       {
         title: "Content",
-        body: "All films, images, and writing on this site are the work of Quentin Mouledous unless otherwise credited, and may not be reproduced without permission.",
+        body: "All films, images, and writing on this site are the work of Quentin Moulédous unless otherwise credited, and may not be reproduced without permission.",
       },
       {
         title: "Placeholder material",
@@ -475,30 +475,30 @@ const en = {
 
 const fr: typeof en = {
   meta: {
-    homeTitle: "Spotlight Studio Paris — Quentin Moulédous, vidéaste/réalisateur",
+    homeTitle: "Quentin Moulédous — vidéaste/réalisateur à Paris",
     homeDescription:
-      "Quentin Moulédous, vidéaste/réalisateur à Paris : films événementiels, documentaires, de fiction, d'entreprise, publicité et mariages. Spotlight Studio, partout en France.",
-    filmsTitle: "Films événementiels à Paris : aftermovie, concert | Spotlight Studio",
+      "Quentin Moulédous, vidéaste/réalisateur à Paris : films événementiels, documentaires, de fiction, d'entreprise, publicité et mariages. Partout en France.",
+    filmsTitle: "Films événementiels à Paris : aftermovie | Quentin Moulédous",
     filmsDescription: "Films de Quentin Moulédous, vidéaste et réalisateur à Paris : réception de l'Ambassade d'Arménie, concert de Grégoire Jokic. Aftermovies et captations en 4K.",
-    aboutTitle: "À propos — Spotlight Studio Paris",
-    aboutDescription: "Quentin Moulédous, vidéaste/réalisateur à Paris : le parcours derrière Spotlight Studio.",
-    contactTitle: "Contact — Spotlight Studio Paris",
+    aboutTitle: "À propos — Quentin Moulédous",
+    aboutDescription: "Quentin Moulédous, vidéaste/réalisateur à Paris : parcours et façon de travailler.",
+    contactTitle: "Contact — Quentin Moulédous",
     contactDescription: "Envoyez un message pour parler de votre projet.",
-    devisTitle: "Demander un devis — Spotlight Studio Paris",
+    devisTitle: "Demander un devis — Quentin Moulédous",
     devisDescription: "Quelques questions rapides sur votre projet, et je reviens vers vous avec un devis détaillé, sans engagement.",
-    thanksTitle: "Message envoyé — Spotlight Studio Paris",
+    thanksTitle: "Message envoyé — Quentin Moulédous",
     thanksDescription: "Merci de m'avoir contacté.",
-    termsTitle: "Conditions d'utilisation — Spotlight Studio Paris",
+    termsTitle: "Conditions d'utilisation — Quentin Moulédous",
     termsDescription: "Les conditions qui régissent l'utilisation de ce site.",
-    privacyTitle: "Politique de confidentialité — Spotlight Studio Paris",
+    privacyTitle: "Politique de confidentialité — Quentin Moulédous",
     privacyDescription: "Quelles informations ce site collecte et comment elles sont utilisées.",
-    commercialWorkTitle: "Travaux publicitaires — Spotlight Studio Paris",
-    commercialWorkDescription: "Travaux publicitaires de Quentin Mouledous.",
-    eventsTitle: "Événementiel — Spotlight Studio Paris",
-    eventsDescription: "Captations événementielles de Quentin Mouledous.",
-    noticeTitle: "Mentions légales — Spotlight Studio Paris",
+    commercialWorkTitle: "Travaux publicitaires — Quentin Moulédous",
+    commercialWorkDescription: "Travaux publicitaires de Quentin Moulédous.",
+    eventsTitle: "Événementiel — Quentin Moulédous",
+    eventsDescription: "Captations événementielles de Quentin Moulédous.",
+    noticeTitle: "Mentions légales — Quentin Moulédous",
     noticeDescription: "Éditeur, hébergeur et informations légales concernant ce site.",
-    filmSuffix: "Spotlight Studio Paris",
+    filmSuffix: "Quentin Moulédous",
   },
   nav: {
     home: "Accueil",
@@ -571,9 +571,9 @@ const fr: typeof en = {
     },
     team: {
       heading: "Qui suis-je ?",
-      portraitAlt: "Quentin Mouledous, caméra à la main, en tournage",
+      portraitAlt: "Quentin Moulédous, caméra à la main, en tournage",
       paragraphs: [
-        "Spotlight Studio, c'est avant tout moi, Quentin Mouledous : j'ai fondé Spotlight Studio pour proposer une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
+        "Je m'appelle Quentin Moulédous. Je propose une approche vidéo exigeante et artisanale, sans la lourdeur d'une grande agence.",
         "Selon l'ampleur du projet, je m'entoure de collaborateurs de confiance — cadreur, preneur de son, monteur — pour constituer l'équipe la plus adaptée. Elle s'ajuste à chaque tournage ; elle n'est jamais figée.",
         "Une chose ne change jamais : je reste votre interlocuteur unique, du premier échange à la livraison finale. Pas de dossier transmis à un chargé de compte anonyme — vous suivez le projet avec la même personne du début à la fin.",
       ],
@@ -872,7 +872,7 @@ const fr: typeof en = {
     noticeSections: [
       {
         title: "Éditeur",
-        body: "Quentin Mouledous, entrepreneur individuel (micro-entrepreneur), exerçant sous le nom commercial Spotlight Studio. SIREN 993 706 506 — SIRET 993 706 506 00017. Activité : production et réalisation de films et de contenus vidéo. Adresse : 49 rue de Dantzig, 75015 Paris, France. Directeur de la publication : Quentin Mouledous.",
+        body: "Quentin Moulédous EI, entrepreneur individuel (micro-entrepreneur). SIREN 993 706 506 — SIRET 993 706 506 00017. Activité : production et réalisation de films et de contenus vidéo. Adresse : 49 rue de Dantzig, 75015 Paris, France. Directeur de la publication : Quentin Moulédous.",
       },
       {
         title: "Contact",
@@ -884,7 +884,7 @@ const fr: typeof en = {
       },
       {
         title: "Propriété intellectuelle",
-        body: "Tous les films, images et textes présents sur ce site sont l'œuvre de Quentin Mouledous, sauf mention contraire, et ne peuvent être reproduits sans autorisation.",
+        body: "Tous les films, images et textes présents sur ce site sont l'œuvre de Quentin Moulédous, sauf mention contraire, et ne peuvent être reproduits sans autorisation.",
       },
     ],
     termsHeading: "Conditions d'utilisation",
@@ -892,7 +892,7 @@ const fr: typeof en = {
     termsSections: [
       {
         title: "Contenu",
-        body: "Tous les films, images et textes présents sur ce site sont l'œuvre de Quentin Mouledous, sauf mention contraire, et ne peuvent être reproduits sans autorisation.",
+        body: "Tous les films, images et textes présents sur ce site sont l'œuvre de Quentin Moulédous, sauf mention contraire, et ne peuvent être reproduits sans autorisation.",
       },
       {
         title: "Éléments provisoires",

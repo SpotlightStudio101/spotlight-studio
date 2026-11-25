@@ -91,7 +91,7 @@ export const landingPagesMoreFrA: LandingPage[] = [
     slug: "aftermovie-paris",
     kind: "service",
     label: "Aftermovie",
-    title: "Aftermovie à Paris : film d'événement rythmé | Spotlight Studio",
+    title: "Aftermovie à Paris : film d'événement rythmé | Quentin Moulédous",
     description:
       "Aftermovie à Paris : un film court et rythmé qui fait revivre votre événement, livré rapidement et aux bons formats. Quentin Moulédous, vidéaste, devis sous 24 h.",
     eyebrow: "Aftermovie · Paris",

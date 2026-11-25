@@ -48,7 +48,7 @@ export const films: FilmEntry[] = [
     slug: "commercial-01",
     genre: "commercial",
     index: "01",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
   {
     slug: "event-01",
@@ -63,13 +63,13 @@ export const films: FilmEntry[] = [
     durationSeconds: 123,
     previewClip: { mp4: "/video/films/event-01-tile.mp4" },
     youtubeId: "WqMKLFY-fVM",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
   {
     slug: "commercial-02",
     genre: "commercial",
     index: "02",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
   {
     slug: "event-02",
@@ -84,19 +84,19 @@ export const films: FilmEntry[] = [
     durationSeconds: 162,
     previewClip: { mp4: "/video/films/event-02-tile.mp4" },
     youtubeId: "dZTWSdI3cR4",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
   {
     slug: "commercial-03",
     genre: "commercial",
     index: "03",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
   {
     slug: "event-03",
     genre: "event",
     index: "03",
-    credits: [{ roleKey: "directedBy", name: "Quentin Mouledous" }],
+    credits: [{ roleKey: "directedBy", name: "Quentin Moulédous" }],
   },
 ];
 

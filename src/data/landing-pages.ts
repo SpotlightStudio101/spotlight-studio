@@ -174,7 +174,7 @@ export const landingPages: LandingPage[] = [
   {
     slug: "realisateur-paris",
     label: "Réalisateur à Paris",
-    title: "Réalisateur à Paris, documentaire, fiction | Spotlight Studio",
+    title: "Réalisateur à Paris, documentaire, fiction | Quentin Moulédous",
     description:
       "Réalisateur indépendant à Paris, Quentin Moulédous réalise documentaires, films de fiction, interviews et films de marque. De l'écriture au montage, en 4K.",
     eyebrow: "Réalisateur · Paris",
@@ -393,7 +393,7 @@ export const landingPages: LandingPage[] = [
   {
     slug: "video-entreprise-paris",
     label: "Film d'entreprise",
-    title: "Film d'entreprise à Paris, vidéaste freelance | Spotlight",
+    title: "Film d'entreprise à Paris, vidéaste freelance | Quentin Moulédous",
     description:
       "Film d'entreprise à Paris : présentation de société, portrait de dirigeant, témoignage, interview et contenu réseaux. Vidéaste freelance, un seul interlocuteur.",
     eyebrow: "Entreprise · Paris",
@@ -507,7 +507,7 @@ export const landingPages: LandingPage[] = [
   {
     slug: "videaste-mariage-paris",
     label: "Vidéaste mariage",
-    title: "Vidéaste mariage à Paris, film de mariage | Spotlight Studio",
+    title: "Vidéaste mariage à Paris, film de mariage | Quentin Moulédous",
     description:
       "Vidéaste de mariage à Paris : un film discret et sincère de votre journée, tourné en 4K, avec un seul interlocuteur. Quentin Moulédous, devis sous 24 h.",
     eyebrow: "Mariage · Paris",
